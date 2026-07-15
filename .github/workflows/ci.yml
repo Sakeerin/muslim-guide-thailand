@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_USER: mgt
+          POSTGRES_PASSWORD: mgt_dev_password
+          POSTGRES_DB: muslim_guide_thai
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U mgt -d muslim_guide_thai"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DATABASE_URL: postgres://mgt:mgt_dev_password@localhost:5432/muslim_guide_thai
+      BETTER_AUTH_SECRET: ci-secret-not-for-production-use-only
+      BETTER_AUTH_URL: http://localhost:3000
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Unit tests
+        run: pnpm test
+
+      - name: Migrate + seed (integration smoke)
+        run: |
+          pnpm db:migrate
+          pnpm db:seed
+
+      - name: Build
+        run: pnpm build

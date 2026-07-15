@@ -1,0 +1,28 @@
+# Local development services — run with: pnpm dev:services
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: mgt-db
+    environment:
+      POSTGRES_USER: mgt
+      POSTGRES_PASSWORD: mgt_dev_password
+      POSTGRES_DB: muslim_guide_thai
+    ports:
+      - "5432:5432"
+    volumes:
+      - mgt-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mgt -d muslim_guide_thai"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: mgt-mailpit
+    ports:
+      - "8025:8025" # web UI
+      - "1025:1025" # SMTP
+
+volumes:
+  mgt-pgdata:

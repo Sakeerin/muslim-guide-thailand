@@ -1,0 +1,80 @@
+/**
+ * MVP launch cities. province_code = ISO 3166-2:TH numeric part,
+ * which also keys prayer_times_official.
+ */
+export const CITIES = [
+  {
+    slug: 'bangkok',
+    provinceCode: '10',
+    lat: 13.7563,
+    lng: 100.5018,
+    sortOrder: 1,
+    name: {
+      th: 'กรุงเทพมหานคร',
+      en: 'Bangkok',
+      ms: 'Bangkok',
+      id: 'Bangkok',
+      ar: 'بانكوك',
+    },
+  },
+  {
+    slug: 'phuket',
+    provinceCode: '83',
+    lat: 7.8804,
+    lng: 98.3923,
+    sortOrder: 2,
+    name: { th: 'ภูเก็ต', en: 'Phuket', ms: 'Phuket', id: 'Phuket', ar: 'بوكيت' },
+  },
+  {
+    slug: 'chiang-mai',
+    provinceCode: '50',
+    lat: 18.7883,
+    lng: 98.9853,
+    sortOrder: 3,
+    name: {
+      th: 'เชียงใหม่',
+      en: 'Chiang Mai',
+      ms: 'Chiang Mai',
+      id: 'Chiang Mai',
+      ar: 'شيانغ ماي',
+    },
+  },
+  {
+    slug: 'pattaya',
+    provinceCode: '20',
+    lat: 12.9236,
+    lng: 100.8825,
+    sortOrder: 4,
+    name: { th: 'พัทยา', en: 'Pattaya', ms: 'Pattaya', id: 'Pattaya', ar: 'باتايا' },
+  },
+  {
+    slug: 'krabi',
+    provinceCode: '81',
+    lat: 8.0863,
+    lng: 98.9063,
+    sortOrder: 5,
+    name: { th: 'กระบี่', en: 'Krabi', ms: 'Krabi', id: 'Krabi', ar: 'كرابي' },
+  },
+  {
+    slug: 'hat-yai',
+    provinceCode: '90',
+    lat: 7.0086,
+    lng: 100.4747,
+    sortOrder: 6,
+    name: { th: 'หาดใหญ่', en: 'Hat Yai', ms: 'Hat Yai', id: 'Hat Yai', ar: 'هات ياي' },
+  },
+  {
+    slug: 'ayutthaya',
+    provinceCode: '14',
+    lat: 14.3532,
+    lng: 100.5689,
+    sortOrder: 7,
+    name: {
+      th: 'พระนครศรีอยุธยา',
+      en: 'Ayutthaya',
+      ms: 'Ayutthaya',
+      id: 'Ayutthaya',
+      ar: 'أيوتايا',
+    },
+  },
+] as const;
