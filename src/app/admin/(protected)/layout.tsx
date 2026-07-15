@@ -24,6 +24,12 @@ export default async function AdminProtectedLayout({
             <Link href="/admin/places" className="hover:underline">
               สถานที่
             </Link>
+            <Link href="/admin/verification" className="hover:underline">
+              คิวตรวจสอบ
+            </Link>
+            <Link href="/admin/certificates" className="hover:underline">
+              ใบรับรอง
+            </Link>
             <Link href="/admin/submissions" className="hover:underline">
               คิวรายงาน
             </Link>

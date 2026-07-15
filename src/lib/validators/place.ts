@@ -16,6 +16,7 @@ export const halalStatusSchema = z.enum([
   'muslim_friendly',
   'unverified',
 ]);
+export type HalalStatus = z.infer<typeof halalStatusSchema>;
 
 export const listPlacesQuerySchema = z.object({
   city: z.string().min(1).max(64).optional(),

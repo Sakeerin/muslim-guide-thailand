@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { listAllPlacesForAdmin } from '@/server/services/moderation';
 
 export const dynamic = 'force-dynamic';
@@ -7,7 +8,12 @@ export default async function AdminPlacesPage() {
 
   return (
     <main className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold">สถานที่ ({rows.length})</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">สถานที่ ({rows.length})</h1>
+        <Link href="/admin/places/new" className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-foreground/5">
+          + เพิ่มสถานที่
+        </Link>
+      </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
@@ -24,7 +30,9 @@ export default async function AdminPlacesPage() {
             {rows.map((p) => (
               <tr key={p.id} className="border-b last:border-0">
                 <td className="py-2 pe-3">
-                  {(p.name as Record<string, string>).th ?? (p.name as Record<string, string>).en}
+                  <Link href={`/admin/places/${p.id}`} className="font-medium underline">
+                    {(p.name as Record<string, string>).th ?? (p.name as Record<string, string>).en}
+                  </Link>
                   <span className="ms-2 text-xs opacity-50">{p.slug}</span>
                 </td>
                 <td className="py-2 pe-3">{p.type}</td>
@@ -41,7 +49,6 @@ export default async function AdminPlacesPage() {
           </tbody>
         </table>
       </div>
-      {/* ฟอร์มเพิ่ม/แก้ไข listing เต็มรูปแบบ (แท็บภาษา + ปักหมุดแผนที่ + อัปโหลดรูป) อยู่ในแผนเดือน 2 */}
     </main>
   );
 }

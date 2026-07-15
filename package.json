@@ -15,6 +15,7 @@
     "db:seed": "tsx scripts/seed/index.ts",
     "db:studio": "drizzle-kit studio",
     "import:osm-mosques": "tsx scripts/import/osm-mosques.ts",
+    "cron:cert-expiry": "tsx scripts/cron/cert-expiry.ts",
     "dev:services": "docker compose -f docker/docker-compose.dev.yml up -d"
   },
   "dependencies": {
