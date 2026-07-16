@@ -44,8 +44,12 @@ export default async function SearchPage({
   setRequestLocale(locale);
 
   const sp = await searchParams;
+  // The GET filter form submits empty selects as "" — drop them so optional
+  // enum/string params don't fail validation and blank out the whole query.
   const flat = Object.fromEntries(
-    Object.entries(sp).map(([k, v]) => [k, Array.isArray(v) ? v[0] : v]),
+    Object.entries(sp)
+      .map(([k, v]) => [k, Array.isArray(v) ? v[0] : v] as const)
+      .filter(([, v]) => v !== undefined && v !== ''),
   );
   const parsed = listPlacesQuerySchema.safeParse(flat);
   const query = parsed.success ? parsed.data : listPlacesQuerySchema.parse({});

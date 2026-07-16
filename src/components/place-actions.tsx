@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { toggleSavedPlace, useSavedPlaces } from '@/lib/saved-places';
+import { track } from '@/lib/analytics';
 
 export function PlaceActions({
   slug,
@@ -22,7 +23,8 @@ export function PlaceActions({
   const saved = useSavedPlaces().some((e) => e.slug === slug);
 
   const toggleSave = () => {
-    toggleSavedPlace({ slug, name });
+    const nowSaved = toggleSavedPlace({ slug, name });
+    if (nowSaved) track('save_place', { slug });
   };
 
   const share = async () => {
@@ -47,6 +49,7 @@ export function PlaceActions({
         href={mapsHref}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => track('click_navigate', { slug })}
         className="rounded-lg border p-2 text-center text-sm font-medium hover:bg-foreground/5"
       >
         {t('navigate')}
@@ -54,6 +57,7 @@ export function PlaceActions({
       {phone ? (
         <a
           href={`tel:${phone}`}
+          onClick={() => track('click_call', { slug })}
           className="rounded-lg border p-2 text-center text-sm font-medium hover:bg-foreground/5"
         >
           {t('call')}
