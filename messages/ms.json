@@ -122,6 +122,39 @@
     "submit": "Hantar laporan",
     "success": "Terima kasih — pasukan kami akan menyemak laporan anda."
   },
+  "auth": {
+    "signIn": "Log masuk",
+    "signUp": "Cipta akaun",
+    "email": "E-mel",
+    "password": "Kata laluan",
+    "name": "Nama",
+    "signOut": "Log keluar",
+    "account": "Akaun saya",
+    "myReviews": "Ulasan saya",
+    "noAccount": "Belum ada akaun? Daftar",
+    "haveAccount": "Sudah ada akaun? Log masuk",
+    "consent": "Saya bersetuju dengan Dasar Privasi dan faham ulasan saya akan diterbitkan secara awam.",
+    "consentRequired": "Sila setuju untuk teruskan",
+    "invalidCredentials": "E-mel atau kata laluan salah",
+    "signUpError": "Tidak dapat mencipta akaun",
+    "loginToReview": "Log masuk untuk menulis ulasan"
+  },
+  "review": {
+    "title": "Ulasan",
+    "write": "Tulis ulasan",
+    "rating": "Penilaian",
+    "yourReview": "Ulasan anda (pilihan)",
+    "reviewPlaceholder": "Kongsi pengalaman anda — makanan, perkhidmatan, kemudahan. Sila jangan buat tuduhan; guna \"Lapor maklumat\" untuk kebimbangan halal.",
+    "submit": "Hantar ulasan",
+    "submitted": "Terima kasih! Ulasan anda telah diterbitkan.",
+    "held": "Terima kasih. Ulasan anda akan dipapar selepas semakan ringkas oleh pasukan kami.",
+    "guidelines": "Ulasan adalah tentang pengalaman anda. Dakwaan tentang status halal atau tuduhan serius lain akan disemak oleh pasukan kami sebelum diterbitkan — untuk kebimbangan halal sila guna \"Lapor maklumat\".",
+    "empty": "Belum ada ulasan — jadilah yang pertama.",
+    "disclaimer": "Ulasan ialah pendapat peribadi pengguna, bukan Muslim Guide Thailand. Jumpa kandungan tak sesuai? Laporkan.",
+    "reportReview": "Lapor ulasan ini",
+    "reported": "Terima kasih, pasukan kami akan menyemak."
+  }
+,
   "footer": {
     "privacy": "Dasar privasi",
     "terms": "Terma penggunaan",

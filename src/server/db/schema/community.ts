@@ -7,6 +7,7 @@ import {
   smallint,
   text,
   timestamp,
+  uniqueIndex,
   uuid,
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
@@ -16,11 +17,11 @@ import { user } from './auth';
 import type { I18nText } from './types';
 
 /**
- * Reviews are DISABLED in MVP (no public login). Schema ships now so the
- * Phase 2 launch is a feature flag, not a migration. Deliberately NO
- * UNIQUE(place_id, user_id) — repeat visitors may review again.
- * Hybrid moderation: risk-flagged text requires manual approval
- * (criminal defamation risk under Thai law).
+ * Reviews (Phase 2). Hybrid moderation: risk-flagged text requires manual
+ * approval (criminal defamation risk under Thai law).
+ * ONE active review per (user, place) — a returning visitor updates their
+ * review (upsert) rather than stacking, which also closes the rating-
+ * manipulation vector of repeated submissions.
  */
 export const reviews = pgTable(
   'reviews',
@@ -38,8 +39,10 @@ export const reviews = pgTable(
     status: reviewStatusEnum('status').notNull().default('pending'),
     riskFlag: boolean('risk_flag').notNull().default(false),
     createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
+    uniqueIndex('reviews_place_user_uq').on(t.placeId, t.userId),
     index('reviews_place_idx').on(t.placeId, t.status, t.createdAt),
     index('reviews_mod_queue').on(t.createdAt).where(sql`${t.status} = 'pending'`),
   ],

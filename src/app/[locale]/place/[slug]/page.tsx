@@ -8,6 +8,8 @@ import { openStatusAt } from '@/lib/opening-hours';
 import { TrustBox } from '@/components/halal-badge';
 import { PlaceCard } from '@/components/place-card';
 import { PlaceActions } from '@/components/place-actions';
+import { ReviewForm } from '@/components/review-form';
+import { listPublishedReviews } from '@/server/services/reviews';
 
 export const dynamic = 'force-dynamic';
 
@@ -56,13 +58,14 @@ export default async function PlacePage({
   const place = await getPlaceBySlug(slug);
   if (!place) notFound();
 
-  const [t, format, prayerNearby, nearby] = await Promise.all([
+  const [t, format, prayerNearby, nearby, publishedReviews] = await Promise.all([
     getTranslations(),
     getFormatter(),
     place.type === 'mosque' || place.type === 'prayer_room'
       ? Promise.resolve([])
       : prayerPlacesNearby(place.lat, place.lng),
     nearbyPlaces(place.lat, place.lng, place.id),
+    listPublishedReviews(place.id),
   ]);
 
   const name = resolveI18n(place.name as never, locale);
@@ -191,6 +194,42 @@ export default async function PlacePage({
           </div>
         </section>
       )}
+
+      <section id="reviews">
+        <h2 className="mb-3 font-semibold">{t('review.title')}</h2>
+        <div className="mb-4">
+          <ReviewForm placeId={place.id} />
+        </div>
+        {publishedReviews.length > 0 && (
+          <p className="mb-3 text-xs opacity-60">
+            {t('review.disclaimer')}{' '}
+            <a href={`/${locale}/legal/takedown`} className="underline">
+              {t('review.reportReview')}
+            </a>
+          </p>
+        )}
+        {publishedReviews.length === 0 ? (
+          <p className="text-sm opacity-60">{t('review.empty')}</p>
+        ) : (
+          <ul className="flex flex-col gap-3">
+            {publishedReviews.map((r) => (
+              <li key={r.id} className="rounded-xl border p-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium">{r.authorName}</span>
+                  <span className="text-amber-500" aria-label={`${r.rating}`}>
+                    {'★'.repeat(r.rating)}
+                    <span className="text-gray-300">{'★'.repeat(5 - r.rating)}</span>
+                  </span>
+                </div>
+                {r.body && <p className="mt-1 text-sm opacity-80">{r.body}</p>}
+                <p className="mt-1 text-xs opacity-50">
+                  {format.dateTime(r.createdAt, { dateStyle: 'medium' })}
+                </p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
       <footer className="border-t pt-3 text-xs opacity-60">
         {place.lastVerifiedAt && (
