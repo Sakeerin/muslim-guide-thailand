@@ -105,6 +105,7 @@
     "empty": "No saved places yet",
     "emptyHint": "Save restaurants and mosques to find them quickly — saved places work offline during your trip",
     "installHint": "Install this app to keep your list safe on your device",
+    "install": "Install",
     "shareList": "Share this list"
   },
   "report": {
