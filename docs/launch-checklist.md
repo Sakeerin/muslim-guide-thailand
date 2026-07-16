@@ -54,8 +54,20 @@ Gate before the public MVP launch. Grouped by owner. Anything under
 - [ ] Outreach started: CICOT, Halal Science Center (Chulalongkorn), TAT.
 - [ ] User interviews with MS/ID/GCC travelers before freezing v2 scope.
 
-## Deferred to Phase 2 (not launch blockers)
-Reviews/UGC + hybrid moderation (lawyer-approved keyword list first), public login,
-merchant claim portal, full import pipeline (TAT/CICOT + dedupe UI), Meilisearch,
-city-pack offline downloads, guides/itineraries, Ramadan mode, hotel type,
-push notifications.
+## Reviews & public accounts (Phase 2 — shipped month 5)
+- [ ] **NEEDS-LEGAL-REVIEW**: the risk-keyword list in `src/lib/review-moderation.ts`
+      (th/en/ms/id/ar) must be reviewed & signed off by counsel before reviews are
+      enabled in production. It decides what gets held for pre-moderation.
+- [ ] Confirm reviews stay OFF (or behind a flag) until the keyword list + review
+      guidelines are legally approved.
+- [ ] Moderator rota for the review queue (risk-flagged first); halal accusations
+      routed to the confidential report queue, never published as reviews.
+- [ ] Decide on email verification for public sign-up before opening reviews widely
+      (spam/abuse); add rate limiting on review + sign-up endpoints.
+- [ ] Privacy policy covers public accounts + review publication (consent is logged
+      with a policy version — keep the version in sync with the published policy).
+
+## Still deferred to later Phase 2 (not launch blockers)
+Merchant claim portal, full import pipeline (TAT/CICOT + dedupe UI), review photo
+upload (needs object storage), Meilisearch, city-pack offline downloads,
+guides/itineraries, Ramadan mode, hotel type, push notifications.
