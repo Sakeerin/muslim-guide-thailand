@@ -9,6 +9,7 @@ import { TrustBox } from '@/components/halal-badge';
 import { PlaceCard } from '@/components/place-card';
 import { PlaceActions } from '@/components/place-actions';
 import { ReviewForm } from '@/components/review-form';
+import { ClaimButton } from '@/components/claim-button';
 import { listPublishedReviews } from '@/server/services/reviews';
 
 export const dynamic = 'force-dynamic';
@@ -240,6 +241,11 @@ export default async function PlacePage({
           </p>
         )}
         <p>{t('place.dataSource', { source: place.dataSource })}</p>
+        {!place.ownerUserId && (
+          <div className="mt-2">
+            <ClaimButton slug={place.slug} />
+          </div>
+        )}
       </footer>
     </main>
   );

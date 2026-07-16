@@ -155,6 +155,23 @@
     "reported": "Terima kasih, tim kami akan meninjau."
   }
 ,
+  "merchant": {
+    "claimThisPlace": "Pemilik tempat ini? Klaim",
+    "claimTitle": "Klaim listing ini",
+    "claimIntro": "Beri tahu cara menghubungi Anda agar kami bisa memverifikasi Anda mewakili tempat ini. Tim kami meninjau setiap klaim.",
+    "contact": "Kontak Anda (email/telepon/LINE)",
+    "message": "Pesan (opsional)",
+    "submitClaim": "Kirim klaim",
+    "claimSent": "Terima kasih — tim kami akan meninjau klaim Anda.",
+    "alreadyClaimed": "Tempat ini sudah diklaim.",
+    "portalTitle": "Tempat saya",
+    "portalEmpty": "Anda belum mengelola tempat mana pun. Klaim tempat dari halamannya.",
+    "editListing": "Edit listing",
+    "editIntro": "Ajukan perubahan pada listing Anda. Editan ditinjau tim kami sebelum tayang. Status halal ditetapkan oleh tim kami dan tidak bisa diubah di sini.",
+    "editSubmitted": "Terima kasih — perubahan Anda akan tampil setelah ditinjau.",
+    "saveChanges": "Kirim perubahan untuk ditinjau",
+    "manage": "Kelola"
+  },
   "footer": {
     "privacy": "Kebijakan privasi",
     "terms": "Ketentuan penggunaan",

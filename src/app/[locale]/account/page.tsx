@@ -38,6 +38,10 @@ export default async function AccountPage({
         <SignOutButton />
       </div>
 
+      <Link href="/merchant" className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-foreground/5">
+        {(await getTranslations('merchant'))('portalTitle')} →
+      </Link>
+
       <section>
         <h2 className="mb-3 font-semibold">{t('myReviews')}</h2>
         {reviews.length === 0 ? (

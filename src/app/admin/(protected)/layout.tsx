@@ -33,6 +33,9 @@ export default async function AdminProtectedLayout({
             <Link href="/admin/reviews" className="hover:underline">
               คิวรีวิว
             </Link>
+            <Link href="/admin/merchant" className="hover:underline">
+              เจ้าของร้าน
+            </Link>
             <Link href="/admin/submissions" className="hover:underline">
               คิวรายงาน
             </Link>
