@@ -9,3 +9,4 @@ export * from './community';
 export * from './moderation';
 export * from './consent';
 export * from './prayer';
+export * from './analytics';

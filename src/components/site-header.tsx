@@ -15,6 +15,9 @@ export function SiteHeader() {
           <Link href="/search" className="hover:underline">
             {t('common.search')}
           </Link>
+          <Link href="/map" className="hover:underline">
+            {t('common.viewMap')}
+          </Link>
           <Link href="/prayer-times" className="hover:underline">
             {t('nav.prayerTimes')}
           </Link>

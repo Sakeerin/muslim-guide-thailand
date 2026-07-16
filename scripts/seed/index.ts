@@ -5,6 +5,7 @@ import {
   amenities,
   categories,
   cities,
+  islamicEvents,
   placeCategories,
   places,
 } from '../../src/server/db/schema';
@@ -12,6 +13,7 @@ import { CITIES } from './data/cities';
 import { CATEGORIES } from './data/categories';
 import { AMENITIES } from './data/amenities';
 import { DEMO_PLACES } from './data/demo-places';
+import { ISLAMIC_EVENTS_SAMPLE } from './data/islamic-events';
 
 const geog = (lng: number, lat: number) =>
   sql`ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography`;
@@ -120,10 +122,24 @@ async function seedDemoPlaces() {
   console.log(`Seeded ${DEMO_PLACES.length} demo places`);
 }
 
+async function seedIslamicEvents() {
+  for (const e of ISLAMIC_EVENTS_SAMPLE) {
+    await db
+      .insert(islamicEvents)
+      .values(e)
+      .onConflictDoUpdate({
+        target: islamicEvents.key,
+        set: { gdate: e.gdate, hijriDate: e.hijriDate, title: e.title, source: e.source },
+      });
+  }
+  console.log(`Seeded ${ISLAMIC_EVENTS_SAMPLE.length} islamic events (SAMPLE)`);
+}
+
 async function main() {
   await seedCities();
   await seedCategories();
   await seedAmenities();
+  await seedIslamicEvents();
 
   if (process.env.SEED_DEMO === '1') {
     await seedDemoPlaces();

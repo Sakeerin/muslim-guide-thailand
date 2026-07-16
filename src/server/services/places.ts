@@ -307,6 +307,62 @@ export async function upsertPlace(input: UpsertPlaceInput, actorId: string, plac
   return row.id;
 }
 
+export interface PlaceGeoFeature {
+  type: 'Feature';
+  geometry: { type: 'Point'; coordinates: [number, number] };
+  properties: { slug: string; name: string; type: string; halalStatus: string };
+}
+
+/**
+ * Published places as a GeoJSON FeatureCollection for the map (clustered
+ * client-side by MapLibre). Optional bounding box [w,s,e,n]; name resolved
+ * to the requested locale for label display.
+ */
+export async function placesGeoJson(
+  locale: string,
+  bbox?: [number, number, number, number],
+  type?: string,
+) {
+  const conditions: SQL[] = [publicStatusFilter()];
+  if (type) conditions.push(eq(places.type, type as never));
+  if (bbox) {
+    const [w, s, e, n] = bbox;
+    conditions.push(
+      sql`ST_Intersects(${places.geog}, ST_MakeEnvelope(${w}, ${s}, ${e}, ${n}, 4326)::geography)`,
+    );
+  }
+
+  const rows = await db
+    .select({
+      slug: places.slug,
+      name: places.name,
+      type: places.type,
+      halalStatus: places.halalStatus,
+      lat: latColumn,
+      lng: lngColumn,
+    })
+    .from(places)
+    .where(and(...conditions))
+    .limit(5000);
+
+  const features: PlaceGeoFeature[] = rows.map((r) => ({
+    type: 'Feature',
+    geometry: { type: 'Point', coordinates: [Number(r.lng), Number(r.lat)] },
+    properties: {
+      slug: r.slug,
+      name: resolveI18nName(r.name as Record<string, string>, locale),
+      type: r.type,
+      halalStatus: r.halalStatus,
+    },
+  }));
+
+  return { type: 'FeatureCollection' as const, features };
+}
+
+function resolveI18nName(name: Record<string, string>, locale: string): string {
+  return name[locale] ?? name.en ?? name.th ?? Object.values(name)[0] ?? '';
+}
+
 export async function listCities() {
   return db
     .select({
