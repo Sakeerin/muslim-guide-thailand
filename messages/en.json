@@ -122,6 +122,39 @@
     "submit": "Send report",
     "success": "Thank you — our team will review your report."
   },
+  "auth": {
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "signOut": "Sign out",
+    "account": "My account",
+    "myReviews": "My reviews",
+    "noAccount": "No account yet? Create one",
+    "haveAccount": "Already have an account? Sign in",
+    "consent": "I agree to the Privacy Policy and understand my reviews will be published publicly.",
+    "consentRequired": "Please accept to continue",
+    "invalidCredentials": "Incorrect email or password",
+    "signUpError": "Could not create the account",
+    "loginToReview": "Sign in to write a review"
+  },
+  "review": {
+    "title": "Reviews",
+    "write": "Write a review",
+    "rating": "Rating",
+    "yourReview": "Your review (optional)",
+    "reviewPlaceholder": "Share your experience — food, service, facilities. Please don't post accusations; use \"Report information\" for halal concerns.",
+    "submit": "Post review",
+    "submitted": "Thank you! Your review has been posted.",
+    "held": "Thank you. Your review will appear after a quick check by our team.",
+    "guidelines": "Reviews are about your experience. Claims about a place's halal status or other serious allegations are reviewed by our team before publishing — for halal concerns please use \"Report information\" instead.",
+    "empty": "No reviews yet — be the first.",
+    "disclaimer": "Reviews are the personal opinions of users, not of Muslim Guide Thailand. Found something inappropriate? Report it.",
+    "reportReview": "Report this review",
+    "reported": "Thank you, our team will review this."
+  }
+,
   "footer": {
     "privacy": "Privacy policy",
     "terms": "Terms of use",

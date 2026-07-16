@@ -8,9 +8,14 @@ export const STAFF_ROLES = ['admin', 'editor', 'moderator'] as const;
 export type StaffRole = (typeof STAFF_ROLES)[number];
 
 /**
- * MVP auth = STAFF ONLY (invite-only). No public sign-up, no social login,
- * no merchant portal — public features never require an account (PDPA
- * data-minimization). Create staff with: pnpm tsx scripts/create-staff.ts
+ * Auth roles:
+ *  - 'user'   → public accounts (Phase 2: reviews). DEFAULT for public sign-up.
+ *  - staff    → admin | editor | moderator, assigned ONLY via
+ *               scripts/create-staff.ts (never self-assignable at sign-up).
+ *
+ * Public sign-up is enabled for the review feature. Public users get role
+ * 'user', so isStaff() still gates /admin. Core browsing needs no account
+ * (PDPA data-minimization); an account is required only to post reviews.
  */
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -21,11 +26,16 @@ export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL,
   emailAndPassword: {
     enabled: true,
-    disableSignUp: true, // invite-only
+    minPasswordLength: 8,
+  },
+  user: {
+    additionalFields: {
+      role: { type: 'string', required: false, defaultValue: 'user', input: false },
+    },
   },
   plugins: [
     admin({
-      defaultRole: 'editor',
+      defaultRole: 'user', // public sign-ups are plain users, never staff
       adminRoles: ['admin'],
     }),
   ],

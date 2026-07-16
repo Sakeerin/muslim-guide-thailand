@@ -1,9 +1,9 @@
 import { boolean, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 
 /**
- * Better Auth core tables (staff accounts only in MVP — invite-only,
- * roles: admin | editor | moderator via the admin plugin).
- * Column shapes follow Better Auth's drizzle adapter expectations.
+ * Better Auth core tables. Roles: 'user' (public, Phase 2 reviews) is the
+ * DEFAULT; staff roles (admin | editor | moderator) are assigned only via
+ * scripts/create-staff.ts. Column shapes follow Better Auth's drizzle adapter.
  */
 export const user = pgTable('user', {
   id: text('id').primaryKey(),
@@ -11,8 +11,9 @@ export const user = pgTable('user', {
   email: text('email').notNull().unique(),
   emailVerified: boolean('email_verified').notNull().default(false),
   image: text('image'),
-  // admin plugin fields
-  role: text('role').notNull().default('editor'),
+  // least-privilege default: a row inserted without an explicit role is a
+  // plain user, never staff (fail-closed).
+  role: text('role').notNull().default('user'),
   banned: boolean('banned').notNull().default(false),
   banReason: text('ban_reason'),
   banExpires: timestamp('ban_expires', { withTimezone: true }),

@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { LanguageSwitcher } from './language-switcher';
+import { AccountNav } from './account-nav';
 
 export function SiteHeader() {
   const t = useTranslations();
@@ -27,6 +28,7 @@ export function SiteHeader() {
           <Link href="/saved" className="hover:underline">
             {t('nav.saved')}
           </Link>
+          <AccountNav />
         </nav>
         <LanguageSwitcher />
       </div>

@@ -164,6 +164,27 @@ export async function setDisputedAction(formData: FormData) {
   revalidatePath('/admin/places');
 }
 
+export async function approveReviewAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { approveReview } = await import('@/server/services/reviews');
+  await approveReview(String(formData.get('reviewId')), actor.id);
+  revalidatePath('/admin/reviews');
+}
+
+export async function hideReviewAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { hideReview } = await import('@/server/services/reviews');
+  await hideReview(String(formData.get('reviewId')), actor.id);
+  revalidatePath('/admin/reviews');
+}
+
+export async function removeReviewAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { removeReview } = await import('@/server/services/reviews');
+  await removeReview(String(formData.get('reviewId')), actor.id);
+  revalidatePath('/admin/reviews');
+}
+
 export async function createCertificationAction(formData: FormData) {
   const actor = await requireStaff();
   const parsed = createCertificationSchema.safeParse({
