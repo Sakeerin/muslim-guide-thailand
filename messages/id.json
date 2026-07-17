@@ -189,6 +189,15 @@
     "sourceOfficial": "Waktu menurut Kantor Sheikhul Islam Thailand",
     "sourceCalculated": "Waktu hasil perhitungan (perkiraan)"
   },
+  "push": {
+    "title": "Notifikasi Ramadan & Idulfitri",
+    "intro": "Dapatkan notifikasi saat tanggal resmi Ramadan dan Idulfitri diumumkan. Tanpa akun — Anda bisa menonaktifkannya kapan saja.",
+    "enable": "Aktifkan notifikasi",
+    "enabled": "Notifikasi aktif",
+    "disable": "Nonaktifkan",
+    "blocked": "Notifikasi diblokir. Aktifkan di pengaturan browser untuk menerima notifikasi.",
+    "iosHint": "Di iPhone atau iPad: ketuk tombol Bagikan, pilih \"Tambahkan ke Layar Utama\", lalu buka aplikasi dari sana untuk mengaktifkan notifikasi."
+  },
   "footer": {
     "privacy": "Kebijakan privasi",
     "terms": "Ketentuan penggunaan",

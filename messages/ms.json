@@ -189,6 +189,15 @@
     "sourceOfficial": "Waktu mengikut Pejabat Sheikhul Islam Thailand",
     "sourceCalculated": "Waktu dikira (anggaran)"
   },
+  "push": {
+    "title": "Makluman Ramadan & Aidilfitri",
+    "intro": "Dapatkan pemberitahuan apabila tarikh rasmi Ramadan dan Aidilfitri diumumkan. Tanpa akaun — anda boleh matikannya bila-bila masa.",
+    "enable": "Hidupkan makluman",
+    "enabled": "Makluman dihidupkan",
+    "disable": "Matikan",
+    "blocked": "Pemberitahuan disekat. Hidupkannya dalam tetapan pelayar untuk menerima makluman.",
+    "iosHint": "Pada iPhone atau iPad: ketik butang Kongsi, pilih \"Tambah ke Skrin Utama\", kemudian buka aplikasi dari situ untuk menghidupkan makluman."
+  },
   "footer": {
     "privacy": "Dasar privasi",
     "terms": "Terma penggunaan",

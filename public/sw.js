@@ -133,3 +133,42 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('message', (event) => {
   if (event.data === 'SKIP_WAITING') self.skipWaiting();
 });
+
+// --- Web Push -------------------------------------------------------------
+// Payload is JSON: { title, body, url, icon, tag }. Announcements only
+// (Ramadan/Eid) — every notification is user-visible per userVisibleOnly.
+self.addEventListener('push', (event) => {
+  let data = {};
+  try {
+    data = event.data ? event.data.json() : {};
+  } catch {
+    data = { body: event.data ? event.data.text() : '' };
+  }
+  const title = data.title || 'Muslim Guide Thailand';
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body: data.body || '',
+      icon: data.icon || '/icons/icon-192.png',
+      badge: '/icons/icon-192.png',
+      lang: data.lang,
+      tag: data.tag,
+      renotify: Boolean(data.tag),
+      data: { url: data.url || '/' },
+    }),
+  );
+});
+
+// Focus an already-open tab on the target URL if there is one, else open it.
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const target = (event.notification.data && event.notification.data.url) || '/';
+  event.waitUntil(
+    (async () => {
+      const all = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+      for (const client of all) {
+        if (client.url.includes(target) && 'focus' in client) return client.focus();
+      }
+      return self.clients.openWindow(target);
+    })(),
+  );
+});

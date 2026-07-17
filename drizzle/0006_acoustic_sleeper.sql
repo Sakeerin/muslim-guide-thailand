@@ -1,0 +1,1 @@
+ALTER TABLE "islamic_events" ADD COLUMN "push_sent_at" timestamp with time zone;

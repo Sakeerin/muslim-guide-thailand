@@ -36,6 +36,9 @@ export default async function AdminProtectedLayout({
             <Link href="/admin/featured" className="hover:underline">
               สนับสนุน
             </Link>
+            <Link href="/admin/announce" className="hover:underline">
+              ประกาศ
+            </Link>
             <Link href="/admin/reviews" className="hover:underline">
               คิวรีวิว
             </Link>
