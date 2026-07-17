@@ -30,6 +30,9 @@ export default async function AdminProtectedLayout({
             <Link href="/admin/certificates" className="hover:underline">
               ใบรับรอง
             </Link>
+            <Link href="/admin/import" className="hover:underline">
+              นำเข้า
+            </Link>
             <Link href="/admin/reviews" className="hover:underline">
               คิวรีวิว
             </Link>
