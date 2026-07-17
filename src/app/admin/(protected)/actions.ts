@@ -165,6 +165,23 @@ export async function setDisputedAction(formData: FormData) {
   revalidatePath('/admin/places');
 }
 
+export async function setFeaturedAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { setFeatured } = await import('@/server/services/featured');
+  const placeId = String(formData.get('placeId'));
+  const days = Math.min(365, Math.max(1, Number(formData.get('days')) || 30));
+  const until = new Date(Date.now() + days * 24 * 60 * 60 * 1000);
+  await setFeatured(placeId, until, opt(formData, 'note') ?? null, actor.id);
+  revalidatePath('/admin/featured');
+}
+
+export async function clearFeaturedAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { clearFeatured } = await import('@/server/services/featured');
+  await clearFeatured(String(formData.get('placeId')), actor.id);
+  revalidatePath('/admin/featured');
+}
+
 export async function importAsNewAction(formData: FormData) {
   const actor = await requireStaff();
   const { importAsNew } = await import('@/server/services/imports');

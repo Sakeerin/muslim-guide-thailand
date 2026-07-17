@@ -36,6 +36,11 @@ export function PlaceCard({ place }: { place: PlaceListItem }) {
 
       <div className="flex flex-wrap items-center gap-2">
         <HalalBadge status={place.halalStatus} />
+        {place.featured && (
+          <span className="rounded-full border border-amber-300 bg-amber-50 px-2 py-0.5 text-xs text-amber-800">
+            {t('common.sponsored')}
+          </span>
+        )}
         {place.priceRange && (
           <span className="text-xs opacity-60">{'฿'.repeat(place.priceRange)}</span>
         )}

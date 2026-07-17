@@ -17,7 +17,8 @@
     "offline": "You are offline — showing saved data",
     "lastUpdated": "Last updated {date}",
     "seeAll": "See all",
-    "back": "Back"
+    "back": "Back",
+    "sponsored": "Sponsored"
   },
   "nav": {
     "home": "Home",
@@ -170,7 +171,8 @@
     "editIntro": "Propose changes to your listing. Edits are reviewed by our team before going live. Halal status is set by our team and can't be changed here.",
     "editSubmitted": "Thank you — your changes will appear after review.",
     "saveChanges": "Submit changes for review",
-    "manage": "Manage"
+    "manage": "Manage",
+    "sponsoredUntil": "Sponsored until {date}"
   },
   "ramadan": {
     "title": "Ramadan",

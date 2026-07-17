@@ -34,6 +34,7 @@ export async function listMyPlaces(ownerId: string) {
       type: places.type,
       status: places.status,
       halalStatus: places.halalStatus,
+      featuredUntil: places.featuredUntil,
     })
     .from(places)
     .where(eq(places.ownerUserId, ownerId))

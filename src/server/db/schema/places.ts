@@ -66,6 +66,14 @@ export const places = pgTable(
     disputed: boolean('disputed').notNull().default(false),
 
     ownerUserId: text('owner_user_id').references(() => user.id), // Phase 2 claim
+
+    // B2B sponsored placement (Phase 3). Staff-set flag; billing is offline
+    // (no in-app payment). Orthogonal to trust: a featured place still shows
+    // its real halal status and never implies endorsement. Active while
+    // featured_until > now(); expires automatically.
+    featuredUntil: timestamp('featured_until', { withTimezone: true }),
+    featuredNote: text('featured_note'),
+
     createdBy: text('created_by').references(() => user.id),
     createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
@@ -79,6 +87,9 @@ export const places = pgTable(
       .on(t.halalStatus)
       .where(sql`${t.status} IN ('published','published_unverified')`),
     index('places_review_due').on(t.nextReviewDue),
+    index('places_featured')
+      .on(t.featuredUntil)
+      .where(sql`${t.status} IN ('published','published_unverified')`),
     index('places_name_th_trgm').using('gin', sql`(${t.name}->>'th') gin_trgm_ops`),
     index('places_name_en_trgm').using('gin', sql`(${t.name}->>'en') gin_trgm_ops`),
     index('places_attrs_gin').using('gin', sql`${t.attributes} jsonb_path_ops`),

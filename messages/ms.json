@@ -17,7 +17,8 @@
     "offline": "Anda di luar talian — memaparkan data tersimpan",
     "lastUpdated": "Kemas kini terakhir {date}",
     "seeAll": "Lihat semua",
-    "back": "Kembali"
+    "back": "Kembali",
+    "sponsored": "Ditaja"
   },
   "nav": {
     "home": "Utama",
@@ -170,7 +171,8 @@
     "editIntro": "Cadangkan perubahan pada penyenaraian anda. Suntingan disemak pasukan kami sebelum disiarkan. Status halal ditetapkan oleh pasukan kami dan tidak boleh diubah di sini.",
     "editSubmitted": "Terima kasih — perubahan anda akan dipapar selepas semakan.",
     "saveChanges": "Hantar perubahan untuk semakan",
-    "manage": "Urus"
+    "manage": "Urus",
+    "sponsoredUntil": "Ditaja sehingga {date}"
   },
   "ramadan": {
     "title": "Ramadan",

@@ -10,6 +10,7 @@ import {
 } from '@/server/db/schema';
 import type { ListPlacesQuery, UpsertPlaceInput } from '@/lib/validators/place';
 import { openStatusAt } from '@/lib/opening-hours';
+import { isFeatured } from '@/lib/featured';
 
 /** Public listings: only these statuses are ever exposed. */
 const PUBLIC_STATUSES = ['published', 'published_unverified'] as const;
@@ -38,6 +39,8 @@ export interface PlaceListItem {
   status: string;
   lat: number;
   lng: number;
+  featuredUntil?: Date | null;
+  featured?: boolean;
   distanceM?: number;
   openNow?: boolean | null;
 }
@@ -57,18 +60,23 @@ function baseSelection() {
     lastVerifiedAt: places.lastVerifiedAt,
     disputed: places.disputed,
     status: places.status,
+    featuredUntil: places.featuredUntil,
     lat: latColumn,
     lng: lngColumn,
   };
 }
 
-function decorateOpenNow<T extends { openingHours: unknown }>(
+function decorateOpenNow<T extends { openingHours: unknown; featuredUntil?: Date | null }>(
   rows: T[],
   now = new Date(),
-): (T & { openNow: boolean | null })[] {
+): (T & { openNow: boolean | null; featured: boolean })[] {
   return rows.map((row) => {
     const status = openStatusAt(row.openingHours as never, now);
-    return { ...row, openNow: status.known ? status.open : null };
+    return {
+      ...row,
+      openNow: status.known ? status.open : null,
+      featured: isFeatured(row.featuredUntil, now),
+    };
   });
 }
 
@@ -117,9 +125,12 @@ export async function listPlaces(query: ListPlacesQuery) {
     ? { ...baseSelection(), distanceM: sql<number>`ST_Distance(${places.geog}, ${point})`.as('distance_m') }
     : baseSelection();
 
+  // Browse (no geo point): sponsored listings first (labeled "Sponsored" in
+  // the UI), then alphabetical. Proximity search keeps honest nearest-first
+  // ordering — sponsorship never reorders a "near me" result.
   const orderBy = point
     ? sql`${places.geog} <-> ${point}` // KNN, GiST-accelerated
-    : asc(places.slug);
+    : sql`(CASE WHEN ${places.featuredUntil} > now() THEN 0 ELSE 1 END), ${places.slug}`;
 
   const rows = await db
     .select(selection)

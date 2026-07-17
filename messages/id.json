@@ -17,7 +17,8 @@
     "offline": "Anda sedang offline — menampilkan data tersimpan",
     "lastUpdated": "Terakhir diperbarui {date}",
     "seeAll": "Lihat semua",
-    "back": "Kembali"
+    "back": "Kembali",
+    "sponsored": "Bersponsor"
   },
   "nav": {
     "home": "Beranda",
@@ -170,7 +171,8 @@
     "editIntro": "Ajukan perubahan pada listing Anda. Editan ditinjau tim kami sebelum tayang. Status halal ditetapkan oleh tim kami dan tidak bisa diubah di sini.",
     "editSubmitted": "Terima kasih — perubahan Anda akan tampil setelah ditinjau.",
     "saveChanges": "Kirim perubahan untuk ditinjau",
-    "manage": "Kelola"
+    "manage": "Kelola",
+    "sponsoredUntil": "Bersponsor hingga {date}"
   },
   "ramadan": {
     "title": "Ramadan",
