@@ -1,21 +1,16 @@
 import 'dotenv/config';
-import { eq, sql } from 'drizzle-orm';
-import { db } from '../../src/server/db/client';
-import { cities, places } from '../../src/server/db/schema';
+import { ingestRecords, type IngestRecord } from '../../src/server/services/imports';
 import { CITIES } from '../seed/data/cities';
 
 /**
- * One-off mosque seed from OpenStreetMap via Overpass API.
- * - Imported rows: status=published_unverified, halal L4 (unverified),
- *   data_source='osm', source_ref='node/…' — ODbL attribution is rendered
- *   in the site footer and per-listing data-source line.
- * - Idempotent: skips elements whose source_ref already exists, and skips
- *   anything within 75 m of an existing mosque (cross-source dedupe).
+ * Ingest mosques from OpenStreetMap (Overpass) into the import STAGING table.
+ * Nothing goes public here — staff review + promote/merge/reject in
+ * /admin/import. ODbL attribution is attached to every record.
  * Usage: pnpm import:osm-mosques [--radius-km 40] [--city bangkok]
  */
-
 const OVERPASS_URL = 'https://overpass-api.de/api/interpreter';
 const USER_AGENT = 'muslim-guide-thai/0.1 (data bootstrap; contact: admin@localhost)';
+const ATTRIBUTION = '© OpenStreetMap contributors (ODbL)';
 
 interface OverpassElement {
   type: 'node' | 'way' | 'relation';
@@ -43,8 +38,7 @@ async function queryOverpass(lat: number, lng: number, radiusM: number): Promise
     body: `data=${encodeURIComponent(query)}`,
   });
   if (!res.ok) throw new Error(`Overpass ${res.status}: ${await res.text()}`);
-  const json = (await res.json()) as { elements: OverpassElement[] };
-  return json.elements;
+  return ((await res.json()) as { elements: OverpassElement[] }).elements;
 }
 
 function coordsOf(el: OverpassElement): { lat: number; lng: number } | null {
@@ -53,93 +47,48 @@ function coordsOf(el: OverpassElement): { lat: number; lng: number } | null {
   return null;
 }
 
-async function importCity(citySlug: string, radiusKm: number) {
-  const seed = CITIES.find((c) => c.slug === citySlug);
-  if (!seed) throw new Error(`Unknown city: ${citySlug}`);
-  const city = await db.query.cities.findFirst({ where: eq(cities.slug, citySlug) });
-  if (!city) throw new Error(`City not in DB (run pnpm db:seed first): ${citySlug}`);
-
-  console.log(`\n[${citySlug}] querying Overpass (radius ${radiusKm} km)...`);
-  const elements = await queryOverpass(seed.lat, seed.lng, radiusKm * 1000);
-  console.log(`[${citySlug}] ${elements.length} elements returned`);
-
-  let inserted = 0;
-  let skipped = 0;
-
-  for (const el of elements) {
-    const coords = coordsOf(el);
-    if (!coords || !el.tags) {
-      skipped++;
-      continue;
-    }
-    const sourceRef = `${el.type}/${el.id}`;
-
-    // already imported?
-    const existingByRef = await db.query.places.findFirst({
-      where: eq(places.sourceRef, sourceRef),
-    });
-    if (existingByRef) {
-      skipped++;
-      continue;
-    }
-
-    // near-duplicate from another source?
-    const nearby = await db
-      .select({ id: places.id })
-      .from(places)
-      .where(
-        sql`${places.type} = 'mosque' AND ST_DWithin(${places.geog}, ST_SetSRID(ST_MakePoint(${coords.lng}, ${coords.lat}), 4326)::geography, 75)`,
-      )
-      .limit(1);
-    if (nearby.length > 0) {
-      skipped++;
-      continue;
-    }
-
-    const nameTh = el.tags['name:th'] ?? el.tags.name;
-    const nameEn = el.tags['name:en'];
-    const nameAr = el.tags['name:ar'];
-    if (!nameTh && !nameEn) {
-      skipped++; // unnamed node — not useful as a listing
-      continue;
-    }
-
-    await db.insert(places).values({
-      type: 'mosque',
-      slug: `osm-mosque-${el.type}-${el.id}`,
-      name: {
-        ...(nameTh ? { th: nameTh } : {}),
-        ...(nameEn ? { en: nameEn } : {}),
-        ...(nameAr ? { ar: nameAr } : {}),
-      },
-      address: {},
-      cityId: city.id,
-      geog: sql`ST_SetSRID(ST_MakePoint(${coords.lng}, ${coords.lat}), 4326)::geography` as unknown as string,
-      halalStatus: 'unverified',
-      halalSource: 'none',
-      attributes: {},
-      status: 'published_unverified',
-      dataSource: 'osm',
-      sourceRef,
-    });
-    inserted++;
-  }
-
-  console.log(`[${citySlug}] inserted ${inserted}, skipped ${skipped}`);
-}
-
 async function main() {
   const radiusKm = Number(argValue('--radius-km') ?? 40);
   const onlyCity = argValue('--city');
-  const targets = onlyCity ? [onlyCity] : CITIES.map((c) => c.slug);
+  const targets = onlyCity ? CITIES.filter((c) => c.slug === onlyCity) : CITIES;
+  if (targets.length === 0) throw new Error(`Unknown city: ${onlyCity}`);
 
-  for (const slug of targets) {
-    await importCity(slug, radiusKm);
-    // be polite to the public Overpass instance
-    await new Promise((r) => setTimeout(r, 3000));
+  let total = 0;
+  for (const city of targets) {
+    console.log(`\n[${city.slug}] Overpass query (radius ${radiusKm} km)...`);
+    const elements = await queryOverpass(city.lat, city.lng, radiusKm * 1000);
+
+    const records: IngestRecord[] = [];
+    for (const el of elements) {
+      const coords = coordsOf(el);
+      if (!coords || !el.tags) continue;
+      const nameTh = el.tags['name:th'] ?? el.tags.name;
+      const nameEn = el.tags['name:en'];
+      const nameAr = el.tags['name:ar'];
+      if (!nameTh && !nameEn) continue; // unnamed node — not useful
+      records.push({
+        source: 'osm',
+        sourceRef: `${el.type}/${el.id}`,
+        placeType: 'mosque',
+        name: {
+          ...(nameTh ? { th: nameTh } : {}),
+          ...(nameEn ? { en: nameEn } : {}),
+          ...(nameAr ? { ar: nameAr } : {}),
+        },
+        lat: coords.lat,
+        lng: coords.lng,
+        raw: el.tags,
+        attribution: ATTRIBUTION,
+      });
+    }
+
+    const n = await ingestRecords(records);
+    total += n;
+    console.log(`[${city.slug}] staged ${n} mosque record(s)`);
+    await new Promise((r) => setTimeout(r, 3000)); // be polite to public Overpass
   }
 
-  console.log('\nOSM mosque import complete. All rows are published_unverified (L4).');
+  console.log(`\nStaged ${total} record(s) → review at /admin/import`);
   process.exit(0);
 }
 

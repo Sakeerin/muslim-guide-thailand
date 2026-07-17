@@ -77,7 +77,18 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       owner edits, alongside reviews/reports/takedowns.
 - [ ] Add rate limiting on the claim endpoint (shares the review/sign-up gap).
 
+## Data import pipeline (Phase 2 — shipped month 7)
+- [ ] Bootstrap coverage via staging: `pnpm import:osm-mosques` and
+      `pnpm import:csv-places` (GD Catalog / TAT / CICOT exports) → review in
+      `/admin/import` (import-new / merge / reject). Never bulk-publish blindly.
+- [ ] Respect source licences: OSM records carry ODbL attribution (shown in the
+      footer + per-listing); keep attribution on any promoted place.
+- [ ] Moderator time budgeted for the import queue (dedupe review is manual by
+      design — the "likely duplicate" flag assists, doesn't auto-merge).
+- [ ] Imported places land as unverified (L4) / draft — field-verify before
+      raising trust level (existing verification workflow).
+
 ## Still deferred to later Phase 2 (not launch blockers)
-Full import pipeline (TAT/CICOT + dedupe UI), review photo upload (needs object
-storage), Meilisearch, city-pack offline downloads, guides/itineraries,
-Ramadan mode, hotel type, push notifications.
+Live TAT/CICOT API connectors (CSV export path works today), review photo
+upload (needs object storage), Meilisearch, city-pack offline downloads,
+guides/itineraries, Ramadan mode, hotel type, push notifications.

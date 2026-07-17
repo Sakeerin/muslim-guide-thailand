@@ -165,6 +165,27 @@ export async function setDisputedAction(formData: FormData) {
   revalidatePath('/admin/places');
 }
 
+export async function importAsNewAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { importAsNew } = await import('@/server/services/imports');
+  await importAsNew(String(formData.get('recordId')), actor.id);
+  revalidatePath('/admin/import');
+}
+
+export async function mergeImportAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { mergeInto } = await import('@/server/services/imports');
+  await mergeInto(String(formData.get('recordId')), String(formData.get('placeId')), actor.id);
+  revalidatePath('/admin/import');
+}
+
+export async function rejectImportAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { rejectRecord } = await import('@/server/services/imports');
+  await rejectRecord(String(formData.get('recordId')), actor.id);
+  revalidatePath('/admin/import');
+}
+
 export async function approveClaimAction(formData: FormData) {
   const actor = await requireStaff();
   const { approveClaim } = await import('@/server/services/claims');
