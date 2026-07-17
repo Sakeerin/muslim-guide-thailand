@@ -149,6 +149,7 @@ export async function getPlaceBySlug(slug: string) {
       sourceRef: places.sourceRef,
       cityId: places.cityId,
       districtId: places.districtId,
+      ownerUserId: places.ownerUserId,
       avgRating: places.avgRating,
       reviewCount: places.reviewCount,
     })

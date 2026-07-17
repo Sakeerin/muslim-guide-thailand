@@ -155,6 +155,23 @@
     "reported": "Terima kasih, pasukan kami akan menyemak."
   }
 ,
+  "merchant": {
+    "claimThisPlace": "Pemilik tempat ini? Tuntut",
+    "claimTitle": "Tuntut penyenaraian ini",
+    "claimIntro": "Beritahu cara menghubungi anda supaya kami boleh sahkan anda mewakili tempat ini. Pasukan kami menyemak setiap tuntutan.",
+    "contact": "Hubungan anda (e-mel/telefon/LINE)",
+    "message": "Mesej (pilihan)",
+    "submitClaim": "Hantar tuntutan",
+    "claimSent": "Terima kasih — pasukan kami akan menyemak tuntutan anda.",
+    "alreadyClaimed": "Tempat ini telah dituntut.",
+    "portalTitle": "Tempat saya",
+    "portalEmpty": "Anda belum menguruskan mana-mana tempat. Tuntut tempat dari halamannya.",
+    "editListing": "Sunting penyenaraian",
+    "editIntro": "Cadangkan perubahan pada penyenaraian anda. Suntingan disemak pasukan kami sebelum disiarkan. Status halal ditetapkan oleh pasukan kami dan tidak boleh diubah di sini.",
+    "editSubmitted": "Terima kasih — perubahan anda akan dipapar selepas semakan.",
+    "saveChanges": "Hantar perubahan untuk semakan",
+    "manage": "Urus"
+  },
   "footer": {
     "privacy": "Dasar privasi",
     "terms": "Terma penggunaan",

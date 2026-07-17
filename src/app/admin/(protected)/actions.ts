@@ -7,6 +7,7 @@ import { auth, isStaff } from '@/server/auth';
 import { upsertPlaceSchema } from '@/lib/validators/place';
 import { createCertificationSchema } from '@/lib/validators/certification';
 import { upsertPlace } from '@/server/services/places';
+import { resolveSubmission } from '@/server/services/moderation';
 import { writeAudit } from '@/server/services/audit';
 import {
   canPublishAtLevel,
@@ -162,6 +163,26 @@ export async function setDisputedAction(formData: FormData) {
     actor.id,
   );
   revalidatePath('/admin/places');
+}
+
+export async function approveClaimAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { approveClaim } = await import('@/server/services/claims');
+  await approveClaim(String(formData.get('submissionId')), actor.id);
+  revalidatePath('/admin/merchant');
+}
+
+export async function applyOwnerEditAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { applyOwnerEdit } = await import('@/server/services/claims');
+  await applyOwnerEdit(String(formData.get('submissionId')), actor.id);
+  revalidatePath('/admin/merchant');
+}
+
+export async function rejectOwnerSubmissionAction(formData: FormData) {
+  const actor = await requireStaff();
+  await resolveSubmission(String(formData.get('submissionId')), actor.id, 'rejected', 'ปฏิเสธโดยทีมงาน');
+  revalidatePath('/admin/merchant');
 }
 
 export async function approveReviewAction(formData: FormData) {

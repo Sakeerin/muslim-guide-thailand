@@ -155,6 +155,23 @@
     "reported": "Thank you, our team will review this."
   }
 ,
+  "merchant": {
+    "claimThisPlace": "Own this place? Claim it",
+    "claimTitle": "Claim this listing",
+    "claimIntro": "Tell us how to reach you to verify you represent this place. Our team reviews every claim.",
+    "contact": "Your contact (email/phone/LINE)",
+    "message": "Message (optional)",
+    "submitClaim": "Submit claim",
+    "claimSent": "Thank you — our team will review your claim.",
+    "alreadyClaimed": "This place has already been claimed.",
+    "portalTitle": "My places",
+    "portalEmpty": "You don't manage any places yet. Claim a place from its page.",
+    "editListing": "Edit listing",
+    "editIntro": "Propose changes to your listing. Edits are reviewed by our team before going live. Halal status is set by our team and can't be changed here.",
+    "editSubmitted": "Thank you — your changes will appear after review.",
+    "saveChanges": "Submit changes for review",
+    "manage": "Manage"
+  },
   "footer": {
     "privacy": "Privacy policy",
     "terms": "Terms of use",

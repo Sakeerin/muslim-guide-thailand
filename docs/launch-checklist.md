@@ -67,7 +67,17 @@ Gate before the public MVP launch. Grouped by owner. Anything under
 - [ ] Privacy policy covers public accounts + review publication (consent is logged
       with a policy version — keep the version in sync with the published policy).
 
+## Merchant claim & owner management (Phase 2 — shipped month 6)
+- [ ] Field-verify ownership before approving a claim (phone/email/on-site) —
+      approval grants the claimant management of the listing.
+- [ ] Confirm owners can never change halal status/verification: owner edits are
+      moderated and limited to the field allowlist (`OWNER_EDITABLE_FIELDS`);
+      trust level stays a staff decision.
+- [ ] Moderator rota covers the merchant queue (`/admin/merchant`): claims +
+      owner edits, alongside reviews/reports/takedowns.
+- [ ] Add rate limiting on the claim endpoint (shares the review/sign-up gap).
+
 ## Still deferred to later Phase 2 (not launch blockers)
-Merchant claim portal, full import pipeline (TAT/CICOT + dedupe UI), review photo
-upload (needs object storage), Meilisearch, city-pack offline downloads,
-guides/itineraries, Ramadan mode, hotel type, push notifications.
+Full import pipeline (TAT/CICOT + dedupe UI), review photo upload (needs object
+storage), Meilisearch, city-pack offline downloads, guides/itineraries,
+Ramadan mode, hotel type, push notifications.
