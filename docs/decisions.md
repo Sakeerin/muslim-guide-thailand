@@ -46,6 +46,12 @@ recorded reason.
   keyword list must be lawyer-reviewed before launch.
 - **`published_unverified`** status: government-registry mosques may be public with an unverified badge;
   never used for restaurants.
+- **Web Push (Phase 3)**: anonymous topic-broadcast (Ramadan/Eid), no login required. Consent = the
+  browser permission grant + explicit opt-in, evidenced by `push_subscriptions.consent_policy_version`
+  (anonymous subscribers can't use `consent_logs`, which requires a user_id); signed-in users also get a
+  `consent_logs` mirror. Consent is unbundled from privacy-policy acceptance; withdrawal hard-deletes the
+  row (endpoint+keys are device-identifying). Announcements only — never marketing. VAPID private key is
+  server-only; `web-push` runs on the Node runtime. Per-prayer reminders deferred (need a sub-daily scheduler).
 
 ## Adversarial-review resolutions carried into code
 - Mosque data: one-off OSM seed script (`scripts/import/osm-mosques.ts`), L4 + ODbL attribution,

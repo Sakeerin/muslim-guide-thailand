@@ -36,6 +36,20 @@
       "when": 1784277730772,
       "tag": "0004_featured_listings",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1784300205698,
+      "tag": "0005_lively_leper_queen",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1784300677770,
+      "tag": "0006_acoustic_sleeper",
+      "breakpoints": true
     }
   ]
 }

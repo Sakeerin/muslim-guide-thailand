@@ -6,6 +6,7 @@ import { getRamadanInfo } from '@/server/services/ramadan';
 import { resolveI18n } from '@/lib/i18n-content';
 import { alternatesFor } from '@/lib/seo';
 import { PlaceCard } from '@/components/place-card';
+import { PushOptIn } from '@/components/push-optin';
 
 export const dynamic = 'force-dynamic';
 
@@ -63,6 +64,8 @@ export default async function RamadanPage({
           </button>
         </form>
       </header>
+
+      <PushOptIn />
 
       {info?.active ? (
         <>

@@ -44,4 +44,7 @@ export const islamicEvents = pgTable('islamic_events', {
   title: text('title'),
   source: text('source').notNull().default('สำนักจุฬาราชมนตรี'),
   announcedAt: timestamp('announced_at', { withTimezone: true }),
+  // set once a Web Push announcement has gone out for this event, so the
+  // push-events cron never notifies the same event twice.
+  pushSentAt: timestamp('push_sent_at', { withTimezone: true }),
 });

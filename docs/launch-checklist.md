@@ -106,7 +106,26 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       Proximity ("near me") results are never reordered by sponsorship.
 - [ ] Featured windows expire automatically (featured_until); no manual cleanup.
 
-## Still deferred to later Phase 2 (not launch blockers)
+## Web Push announcements (Phase 3 — shipped)
+- [ ] **Generate VAPID keys once** (`npx web-push generate-vapid-keys --json`)
+      and set `VAPID_PUBLIC_KEY` / `VAPID_PRIVATE_KEY` / `VAPID_SUBJECT` /
+      `NEXT_PUBLIC_VAPID_PUBLIC_KEY` in prod. Keep the **private key server-only**
+      (never `NEXT_PUBLIC_`). Regenerating invalidates every subscription — don't.
+- [ ] **PDPA**: push is opt-in via a user gesture; anonymous subscribers' consent
+      lives on the `push_subscriptions` row (`consent_policy_version`), signed-in
+      users also get a `consent_logs` mirror. Withdrawal hard-deletes the row.
+      Consent is **unbundled** from privacy-policy acceptance. Keep it that way.
+- [ ] **Announcements only** (Ramadan/Eid), never marketing — enforced by the
+      `/admin/announce` copy + topic list. Per-prayer reminders are deferred
+      (need a sub-daily scheduler, not the daily cron).
+- [ ] **iOS**: Web Push needs a home-screen-installed PWA (iOS 16.4+); the opt-in
+      shows Add-to-Home-Screen instructions in a normal Safari tab.
+- [ ] Schedule `pnpm cron:push-events` (daily) — broadcasts newly-announced
+      `islamic_events` once (`push_sent_at` guards against re-sending). Dead
+      endpoints (404/410) are pruned automatically.
+
+## Still deferred to later Phase 2/3 (not launch blockers)
 Live TAT/CICOT API connectors (CSV export path works today), review photo
 upload (needs object storage), Meilisearch, city-pack offline downloads,
-guides/itineraries, hotel type + affiliate booking, push notifications.
+guides/itineraries, hotel type + affiliate booking, per-prayer push reminders,
+native app (React Native over `/api/v1` + bearer auth), community/Q&A.

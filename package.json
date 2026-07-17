@@ -22,6 +22,7 @@
     "import:csv-places": "tsx scripts/import/csv-places.ts",
     "import:prayer-times": "tsx scripts/prayer-times/import-official.ts",
     "cron:cert-expiry": "tsx scripts/cron/cert-expiry.ts",
+    "cron:push-events": "tsx scripts/cron/push-events.ts",
     "dev:services": "docker compose -f docker/docker-compose.dev.yml up -d"
   },
   "dependencies": {
@@ -36,6 +37,7 @@
     "postgres": "^3.4.9",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "web-push": "^3.6.7",
     "zod": "^4.4.3",
     "zustand": "^5.0.14"
   },
@@ -45,6 +47,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/web-push": "^3.6.4",
     "dotenv": "^17.4.2",
     "drizzle-kit": "^0.31.10",
     "eslint": "^9",

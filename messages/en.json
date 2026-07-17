@@ -189,6 +189,15 @@
     "sourceOfficial": "Times per the Sheikhul Islam Office of Thailand",
     "sourceCalculated": "Calculated times (approximate)"
   },
+  "push": {
+    "title": "Ramadan & Eid alerts",
+    "intro": "Get a notification when the official Ramadan and Eid dates are announced. No account needed — you can turn this off anytime.",
+    "enable": "Turn on alerts",
+    "enabled": "Alerts on",
+    "disable": "Turn off",
+    "blocked": "Notifications are blocked. Turn them on in your browser settings to receive alerts.",
+    "iosHint": "On iPhone or iPad: tap the Share button, choose \"Add to Home Screen\", then open the app from there to turn on alerts."
+  },
   "footer": {
     "privacy": "Privacy policy",
     "terms": "Terms of use",

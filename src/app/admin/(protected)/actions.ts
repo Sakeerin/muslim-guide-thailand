@@ -182,6 +182,29 @@ export async function clearFeaturedAction(formData: FormData) {
   revalidatePath('/admin/featured');
 }
 
+/** Broadcast a Ramadan/Eid announcement to Web Push subscribers. */
+export async function broadcastAnnouncementAction(formData: FormData) {
+  const actor = await requireStaff();
+  const title = i18nFromForm(formData, 'title');
+  const body = i18nFromForm(formData, 'body');
+  if (!title || !body) redirect('/admin/announce?error=missing');
+
+  const { broadcast } = await import('@/server/services/push');
+  const { isPushTopic } = await import('@/lib/push');
+  const topicRaw = opt(formData, 'topic');
+  const topic = isPushTopic(topicRaw) ? topicRaw : undefined;
+
+  const result = await broadcast(
+    { title, body, path: opt(formData, 'path') ?? '/ramadan', tag: opt(formData, 'tag') },
+    { topic, actorId: actor.id },
+  );
+
+  revalidatePath('/admin/announce');
+  redirect(
+    `/admin/announce?sent=${result.sent}&failed=${result.failed}&pruned=${result.pruned}&total=${result.total}`,
+  );
+}
+
 export async function importAsNewAction(formData: FormData) {
   const actor = await requireStaff();
   const { importAsNew } = await import('@/server/services/imports');
