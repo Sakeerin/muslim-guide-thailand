@@ -25,6 +25,9 @@ export function SiteHeader() {
           <Link href="/qibla" className="hover:underline">
             {t('nav.qibla')}
           </Link>
+          <Link href="/ramadan" className="hover:underline">
+            {t('ramadan.title')}
+          </Link>
           <Link href="/saved" className="hover:underline">
             {t('nav.saved')}
           </Link>

@@ -88,7 +88,14 @@ Gate before the public MVP launch. Grouped by owner. Anything under
 - [ ] Imported places land as unverified (L4) / draft — field-verify before
       raising trust level (existing verification workflow).
 
+## Ramadan mode (Phase 2 — shipped month 8)
+- [ ] Ensure official islamic_events (ramadan_start / eid_fitr per year) are
+      loaded before Ramadan — the window, banner, and day count derive from
+      them (moon-sighting announcement, not calculation).
+- [ ] Sanity-check suhur/iftar against the official prayer table for launch
+      cities before Ramadan; the /ramadan page + banner surface them prominently.
+
 ## Still deferred to later Phase 2 (not launch blockers)
 Live TAT/CICOT API connectors (CSV export path works today), review photo
 upload (needs object storage), Meilisearch, city-pack offline downloads,
-guides/itineraries, Ramadan mode, hotel type, push notifications.
+guides/itineraries, hotel type + affiliate booking, push notifications.

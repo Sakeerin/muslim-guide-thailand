@@ -172,6 +172,21 @@
     "saveChanges": "Hantar perubahan untuk semakan",
     "manage": "Urus"
   },
+  "ramadan": {
+    "title": "Ramadan",
+    "titleCity": "Ramadan di {city}",
+    "bannerActive": "Ramadan Mubarak — hari ke-{day}. Iftar hari ini pukul {iftar}.",
+    "bannerView": "Waktu solat & iftar",
+    "suhurEnds": "Sahur tamat (imsak)",
+    "iftar": "Iftar (maghrib)",
+    "dayOf": "Hari ke-{day} Ramadan",
+    "upcoming": "Ramadan {year} bermula {date}",
+    "notNow": "Sekarang bukan Ramadan. Ramadan seterusnya dipaparkan di bawah.",
+    "openForIftar": "Restoran halal yang buka waktu iftar",
+    "selectCity": "Pilih bandar",
+    "sourceOfficial": "Waktu mengikut Pejabat Sheikhul Islam Thailand",
+    "sourceCalculated": "Waktu dikira (anggaran)"
+  },
   "footer": {
     "privacy": "Dasar privasi",
     "terms": "Terma penggunaan",
