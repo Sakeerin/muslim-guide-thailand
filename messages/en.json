@@ -172,6 +172,21 @@
     "saveChanges": "Submit changes for review",
     "manage": "Manage"
   },
+  "ramadan": {
+    "title": "Ramadan",
+    "titleCity": "Ramadan in {city}",
+    "bannerActive": "Ramadan Mubarak — day {day}. Iftar today at {iftar}.",
+    "bannerView": "Prayer & iftar times",
+    "suhurEnds": "Suhur ends (imsak)",
+    "iftar": "Iftar (maghrib)",
+    "dayOf": "Day {day} of Ramadan",
+    "upcoming": "Ramadan {year} begins {date}",
+    "notNow": "It's not Ramadan right now. The next Ramadan is shown below.",
+    "openForIftar": "Halal restaurants open at iftar",
+    "selectCity": "Select city",
+    "sourceOfficial": "Times per the Sheikhul Islam Office of Thailand",
+    "sourceCalculated": "Calculated times (approximate)"
+  },
   "footer": {
     "privacy": "Privacy policy",
     "terms": "Terms of use",

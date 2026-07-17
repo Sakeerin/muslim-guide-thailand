@@ -8,6 +8,7 @@ import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { Pwa } from '@/components/pwa';
 import { UmamiScript } from '@/components/umami-script';
+import { RamadanBanner } from '@/components/ramadan-banner';
 import '../globals.css';
 
 const notoSans = Noto_Sans({
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
     >
       <body className="flex min-h-full flex-col font-sans">
         <NextIntlClientProvider>
+          <RamadanBanner />
           <SiteHeader />
           {children}
           <SiteFooter />
