@@ -1,5 +1,5 @@
 import { headers } from 'next/headers';
-import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
+import { getFormatter, getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 import { redirect, Link } from '@/i18n/navigation';
 import { auth } from '@/server/auth';
 import { listMyPlaces } from '@/server/services/claims';
@@ -25,6 +25,7 @@ export default async function MerchantPage({
 
   const t = await getTranslations('merchant');
   const currentLocale = await getLocale();
+  const format = await getFormatter();
   const myPlaces = await listMyPlaces(session!.user.id);
 
   // if editing, load the owned place (getPlaceForEdit returns full fields)
@@ -49,6 +50,11 @@ export default async function MerchantPage({
                   {resolveI18n(p.name as never, currentLocale)}
                 </Link>
                 <p className="text-xs opacity-60">{p.type} · {p.status} · {p.halalStatus}</p>
+                {p.featuredUntil && new Date(p.featuredUntil) > new Date() && (
+                  <p className="mt-0.5 text-xs text-amber-700">
+                    ★ {t('sponsoredUntil', { date: format.dateTime(new Date(p.featuredUntil), { dateStyle: 'medium' }) })}
+                  </p>
+                )}
               </div>
               <Link
                 href={`/merchant?edit=${p.id}`}

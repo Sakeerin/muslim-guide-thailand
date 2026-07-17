@@ -33,6 +33,9 @@ export default async function AdminProtectedLayout({
             <Link href="/admin/import" className="hover:underline">
               นำเข้า
             </Link>
+            <Link href="/admin/featured" className="hover:underline">
+              สนับสนุน
+            </Link>
             <Link href="/admin/reviews" className="hover:underline">
               คิวรีวิว
             </Link>

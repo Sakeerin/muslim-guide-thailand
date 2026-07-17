@@ -95,6 +95,17 @@ Gate before the public MVP launch. Grouped by owner. Anything under
 - [ ] Sanity-check suhur/iftar against the official prayer table for launch
       cities before Ramadan; the /ramadan page + banner surface them prominently.
 
+## Sponsored / featured listings (Phase 3 — shipped)
+- [ ] **Disclosure**: featured placements always render a "Sponsored" label
+      (`/admin/featured` sets them). Keep the label — required for ad transparency.
+- [ ] **No in-app payment**: the app never collects payment. Featuring is a
+      staff-set window; billing/contracts are handled offline. Do not add a
+      payment flow without a proper PSP + legal review.
+- [ ] **No endorsement**: featuring is orthogonal to halal trust — a sponsored
+      place still shows its real halal level and is never implied as endorsed.
+      Proximity ("near me") results are never reordered by sponsorship.
+- [ ] Featured windows expire automatically (featured_until); no manual cleanup.
+
 ## Still deferred to later Phase 2 (not launch blockers)
 Live TAT/CICOT API connectors (CSV export path works today), review photo
 upload (needs object storage), Meilisearch, city-pack offline downloads,
