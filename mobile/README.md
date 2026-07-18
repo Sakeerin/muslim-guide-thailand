@@ -11,12 +11,21 @@ never affects the Next.js build. Use **npm** here (not pnpm).
 ## Screens
 
 Home · Map (MapLibre + OpenFreeMap, clustered GeoJSON) · Search + list
-(query/type/halal filters, load-more) · Place detail + trust panel · Prayer times
-(per province) · Qibla compass (expo-location heading + sensor-free fallback) ·
-Saved (AsyncStorage) · i18n (5 langs) + RTL · Better Auth bearer client.
+(query/type/halal filters, load-more) · Place detail + trust panel + **reviews** ·
+Prayer times (per province) · Qibla compass (expo-location heading + sensor-free
+fallback) · Saved (AsyncStorage) · **Account / sign-in / sign-up** · i18n (5 langs)
++ RTL.
 
-**Deferred:** reviews + PDPA consent flow, place claim, push (native uses Expo push
-tokens, a different contract).
+**Deferred:** place claim, push (native uses Expo push tokens, a different
+contract), community/Q&A.
+
+### Reviews & consent
+- Reviewing requires a Better Auth account (bearer token in SecureStore). Core
+  browsing needs no login (PDPA).
+- Sign-up records `privacy_policy` + `review_publication` PDPA consent. Posting a
+  review without that consent 403s (`consent_required`); the review form then
+  shows an inline consent checkbox and retries — consent is always enforced
+  **server-side**. Published-review reads come from `GET /api/v1/places/:slug/reviews`.
 
 ### Map & Qibla notes
 - Map uses `@maplibre/maplibre-react-native` (v11, New-Architecture-only) with the

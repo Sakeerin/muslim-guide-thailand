@@ -153,7 +153,8 @@
     "empty": "Belum ada ulasan — jadilah yang pertama.",
     "disclaimer": "Ulasan adalah pendapat pribadi pengguna, bukan Muslim Guide Thailand. Menemukan konten tidak pantas? Laporkan.",
     "reportReview": "Laporkan ulasan ini",
-    "reported": "Terima kasih, tim kami akan meninjau."
+    "reported": "Terima kasih, tim kami akan meninjau.",
+    "submitError": "Tidak dapat mengirim ulasan Anda. Silakan coba lagi."
   }
 ,
   "merchant": {

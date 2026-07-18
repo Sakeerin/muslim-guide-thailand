@@ -115,3 +115,22 @@ export interface PrayerTimesResponse {
   sourceNote?: string;
   days: DayPrayerTimes[];
 }
+
+export interface PlaceReview {
+  id: string;
+  rating: number;
+  body: string | null;
+  lang: string | null;
+  createdAt: string;
+  authorName: string;
+}
+
+export interface PlaceReviewsResponse {
+  reviews: PlaceReview[];
+}
+
+export interface CreateReviewResult {
+  id: string;
+  /** 'published' = live now; 'pending' = held for moderation */
+  status: 'published' | 'pending';
+}

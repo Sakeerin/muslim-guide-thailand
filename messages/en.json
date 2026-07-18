@@ -153,7 +153,8 @@
     "empty": "No reviews yet — be the first.",
     "disclaimer": "Reviews are the personal opinions of users, not of Muslim Guide Thailand. Found something inappropriate? Report it.",
     "reportReview": "Report this review",
-    "reported": "Thank you, our team will review this."
+    "reported": "Thank you, our team will review this.",
+    "submitError": "Couldn't post your review. Please try again."
   }
 ,
   "merchant": {

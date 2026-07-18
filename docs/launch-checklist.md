@@ -136,10 +136,12 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       **custom dev build** — it does not run in Expo Go. Tiles are keyless
       OpenFreeMap (no SLA — same as the web).
 - [ ] Device QA before release: RTL (Arabic) layout flip + restart, SecureStore
-      bearer sign-in → protected calls (reviews/consent), Metro bundling of the
-      shared `../messages` catalogs, deep-link scheme ↔ trustedOrigins,
-      map render/cluster/tap, and qibla live compass (heading permission,
-      trueHeading vs magHeading fallback).
+      bearer sign-in → protected calls, Metro bundling of the shared `../messages`
+      catalogs, deep-link scheme ↔ trustedOrigins, map render/cluster/tap, qibla
+      live compass (heading permission, trueHeading vs magHeading fallback), and
+      the **reviews consent flow** end-to-end (sign-up records consent → post
+      review published/held; sign-in-only user hits the 403 consent gate → grants
+      → posts).
 - [ ] `EXPO_PUBLIC_API_URL` points at the production API over HTTPS for release builds.
 
 ## Still deferred to later Phase 2/3 (not launch blockers)

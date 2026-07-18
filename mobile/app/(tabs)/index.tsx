@@ -32,6 +32,11 @@ export default function HomeScreen() {
             <Text style={styles.ghostText}>🌐</Text>
           </Pressable>
         </Link>
+        <Link href="/account" asChild>
+          <Pressable style={styles.ghostBtn} accessibilityRole="button" accessibilityLabel={t('auth.account')}>
+            <Text style={styles.ghostText}>👤</Text>
+          </Pressable>
+        </Link>
       </View>
 
       <Text style={styles.section}>{t('home.popularCities')}</Text>

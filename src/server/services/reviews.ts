@@ -115,6 +115,17 @@ export async function listPublishedReviews(placeId: string, limit = 30) {
     .limit(limit);
 }
 
+/** Published reviews for a place identified by slug (for the public API /
+ *  native app). Returns null when the slug doesn't resolve to a place. */
+export async function listPublishedReviewsBySlug(slug: string, limit = 30) {
+  const place = await db.query.places.findFirst({
+    where: eq(places.slug, slug),
+    columns: { id: true },
+  });
+  if (!place) return null;
+  return listPublishedReviews(place.id, limit);
+}
+
 /** A user's own reviews (any status), with place name/slug. */
 export async function listReviewsByUser(userId: string) {
   return db
