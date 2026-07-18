@@ -16,8 +16,19 @@ Prayer times (per province) · Qibla compass (expo-location heading + sensor-fre
 fallback) · Saved (AsyncStorage) · **Account / sign-in / sign-up** · i18n (5 langs)
 + RTL.
 
-**Deferred:** push (native uses Expo push tokens, a different contract),
-community/Q&A.
+**Deferred:** community/Q&A.
+
+### Push (Ramadan/Eid announcements)
+- Native push uses **Expo push tokens** (`expo-notifications`), a separate
+  transport from the web's Web Push. The existing admin announce + cron fan out
+  to **both** — the server `broadcast()` sends web-push and Expo in one call.
+- The opt-in (`PushOptIn`, on the Prayer tab) requests permission on a tap and
+  registers the token at `POST /api/v1/push/devices`. Consent + PDPA mirror the
+  web (consent on the row for anonymous; `consent_logs` when signed in).
+- **Inert until set up**: it needs a **custom dev build** (Expo Go can't do
+  remote push since SDK 53), an **EAS `projectId`** (`eas init` — none committed,
+  so the component renders nothing here), and FCM (Android) / APNs (iOS)
+  credentials via EAS. Tapping a notification deep-links off `data.url`.
 
 ### Reviews & consent
 - Reviewing requires a Better Auth account (bearer token in SecureStore). Core

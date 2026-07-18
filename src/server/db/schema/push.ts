@@ -32,3 +32,24 @@ export const pushSubscriptions = pgTable('push_subscriptions', {
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   lastSeenAt: timestamp('last_seen_at', { withTimezone: true }).notNull().defaultNow(),
 });
+
+/**
+ * Native (Expo) push device tokens. Same anonymous + PDPA-on-row model as
+ * push_subscriptions, but keyed by the Expo token (ExponentPushToken[...]) —
+ * a single opaque string with no keypair, so it gets its own table rather than
+ * forcing push_subscriptions' notNull p256dh/auth to be nullable.
+ */
+export const pushDevices = pgTable('push_devices', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  // nullable = anonymous device; onDelete cascade for PDPA right-to-erasure
+  userId: text('user_id').references(() => user.id, { onDelete: 'cascade' }),
+  // ExponentPushToken[...] — natural upsert key
+  token: text('token').notNull().unique(),
+  platform: text('platform'), // 'ios' | 'android' (validated at the zod boundary)
+  locale: text('locale'),
+  topics: text('topics').array(),
+  consentPolicyVersion: text('consent_policy_version').notNull(),
+  consentedAt: timestamp('consented_at', { withTimezone: true }).notNull().defaultNow(),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  lastSeenAt: timestamp('last_seen_at', { withTimezone: true }).notNull().defaultNow(),
+});

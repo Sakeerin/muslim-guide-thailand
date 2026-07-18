@@ -3,6 +3,7 @@ import { WebPushError } from 'web-push';
 import {
   buildAnnouncementPayload,
   isExpiredPushStatus,
+  isExpoPushToken,
   isPushTopic,
   shouldPrunePushError,
   urlBase64ToUint8Array,
@@ -58,6 +59,22 @@ describe('shouldPrunePushError', () => {
     expect(shouldPrunePushError({ statusCode: '410' })).toBe(false); // string, not number
     expect(shouldPrunePushError(null)).toBe(false);
     expect(shouldPrunePushError(undefined)).toBe(false);
+  });
+});
+
+describe('isExpoPushToken', () => {
+  it('accepts ExponentPushToken and ExpoPushToken shapes', () => {
+    expect(isExpoPushToken('ExponentPushToken[abc123]')).toBe(true);
+    expect(isExpoPushToken('ExpoPushToken[xyz-789]')).toBe(true);
+  });
+
+  it('rejects everything else', () => {
+    expect(isExpoPushToken('')).toBe(false);
+    expect(isExpoPushToken('ExponentPushToken[]')).toBe(false); // empty body
+    expect(isExpoPushToken('fcm:abc')).toBe(false);
+    expect(isExpoPushToken('https://fcm.googleapis.com/x')).toBe(false); // a web-push endpoint
+    expect(isExpoPushToken(42)).toBe(false);
+    expect(isExpoPushToken(null)).toBe(false);
   });
 });
 

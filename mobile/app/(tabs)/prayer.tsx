@@ -6,6 +6,7 @@ import { useAsync } from '@/lib/hooks/useAsync';
 import { CITIES, DEFAULT_CITY } from '@/lib/cities';
 import { resolveI18n } from '@/lib/i18n/content';
 import { PrayerTimesTable } from '@/components/PrayerTimesTable';
+import { PushOptIn } from '@/components/PushOptIn';
 import { ErrorState, LoadingState } from '@/components/states';
 import { colors, radius, space } from '@/lib/theme';
 
@@ -27,6 +28,8 @@ export default function PrayerScreen() {
 
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
+      <PushOptIn />
+
       <View style={styles.chips}>
         {CITIES.map((c) => {
           const active = province === c.provinceCode;
