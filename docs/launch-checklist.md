@@ -3,6 +3,12 @@
 Gate before the public MVP launch. Grouped by owner. Anything under
 **Blocker** must be done; **Should** is strongly recommended.
 
+**Status:** all MVP + Phase 2 + Phase 3 features are built, tested, and merged to
+`main` — nothing below is feature work. What remains is **legal sign-off, real
+data, prod infra/secrets, and device/store QA** — most of which can only be done
+by the project owner (counsel, hosting, real devices, EAS credentials), not in
+code.
+
 ## Legal / compliance (Blocker)
 - [ ] Privacy policy drafted by counsel and **human-translated** into th/en/ms/id/ar
       (religion is PDPA sensitive data). Replace the placeholder at `/legal/privacy`.
@@ -130,7 +136,7 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       `islamic_events` once (`push_sent_at` guards against re-sending). Dead
       endpoints (404/410) are pruned automatically.
 
-## Native app (Phase 3 — foundation shipped)
+## Native app (Phase 3 — shipped: foundation, map, qibla, reviews, claim, push, Q&A)
 - [ ] The app lives in `mobile/` (isolated Expo project). It is **excluded** from
       the web `tsconfig`/`eslint`/pnpm-workspace — keep it that way so it never
       enters the web build/CI. Verify the app from inside `mobile/`.
@@ -147,7 +153,9 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       live compass (heading permission, trueHeading vs magHeading fallback), and
       the **reviews consent flow** end-to-end (sign-up records consent → post
       review published/held; sign-in-only user hits the 403 consent gate → grants
-      → posts), and the **place claim** flow (unowned place → claim → admin queue).
+      → posts), the **place claim** flow (unowned place → claim → admin queue), and
+      the **Q&A** flow (ask → published/held; answer a published question; 403
+      consent gate on both).
 - [ ] **Native push** needs setup before it does anything: `eas init` (writes the
       EAS `projectId`), a **custom dev build** (Expo Go can't do remote push since
       SDK 53), and FCM (Android) / APNs (iOS) credentials via EAS. Until then the
@@ -155,9 +163,19 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       `/admin/announce` → notification on device → tap deep-links off `data.url`.
       Optionally set `EXPO_ACCESS_TOKEN` (server) if Expo Enhanced Security is on.
 - [ ] `EXPO_PUBLIC_API_URL` points at the production API over HTTPS for release builds.
+- [ ] App-store submission (once device QA passes): App Store + Play Console
+      listings, screenshots, **privacy labels / Data Safety form** (location used
+      on-device only; account email; push token), age rating, and an EAS
+      production build with release signing.
 
-## Still deferred to later Phase 2/3 (not launch blockers)
-Live TAT/CICOT API connectors (CSV export path works today), review photo
+## Web parity note
+The native app now mirrors the web's public surface (browse/search/map → place
+detail with trust · reviews · Q&A · claim → prayer times → qibla → saved →
+account). Web-only surfaces stay web-only: the **admin backend** and the
+**merchant portal** (`/merchant`) are not in the native app by design.
+
+## Still deferred (not launch blockers)
+Live TAT/CICOT API connectors (the CSV export path works today), review/Q&A photo
 upload (needs object storage), Meilisearch, city-pack offline downloads,
-guides/itineraries, hotel type + affiliate booking, per-prayer push reminders,
-live TAT/CICOT API connectors, review photo upload, Meilisearch, city-pack offline downloads.
+guides/itineraries, hotel type + affiliate booking, per-prayer push reminders
+(needs a sub-daily scheduler), delayed Expo push-receipt pruning.
