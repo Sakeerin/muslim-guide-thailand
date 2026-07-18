@@ -135,3 +135,24 @@ export interface CreateReviewResult {
   /** 'published' = live now; 'pending' = held for moderation */
   status: 'published' | 'pending';
 }
+
+export interface PlaceAnswer {
+  id: string;
+  body: string;
+  lang: string | null;
+  createdAt: string;
+  authorName: string;
+}
+
+export interface PlaceQuestion extends PlaceAnswer {
+  answers: PlaceAnswer[];
+}
+
+export interface PlaceQuestionsResponse {
+  questions: PlaceQuestion[];
+}
+
+export interface QAResult {
+  id: string;
+  status: 'published' | 'pending';
+}

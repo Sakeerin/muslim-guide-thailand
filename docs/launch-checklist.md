@@ -62,6 +62,12 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       guidelines are legally approved.
 - [ ] Moderator rota for the review queue (risk-flagged first); halal accusations
       routed to the confidential report queue, never published as reviews.
+- [ ] **Community Q&A (Phase 3 — shipped)** reuses the SAME moderation engine +
+      `review_publication` consent, so it is under the **same legal gate**: keep it
+      OFF/flagged until the keyword list is signed off. Questions/answers that read
+      like factual accusations are held for the `/admin/qa` queue (risk-flagged
+      first); halal concerns still go to the confidential report channel. Answers
+      are only accepted on published questions.
 - [ ] Decide on email verification for public sign-up before opening reviews widely
       (spam/abuse); add rate limiting on review + sign-up endpoints.
 - [ ] Privacy policy covers public accounts + review publication (consent is logged
@@ -154,4 +160,4 @@ Gate before the public MVP launch. Grouped by owner. Anything under
 Live TAT/CICOT API connectors (CSV export path works today), review photo
 upload (needs object storage), Meilisearch, city-pack offline downloads,
 guides/itineraries, hotel type + affiliate booking, per-prayer push reminders,
-native app (React Native over `/api/v1` + bearer auth), community/Q&A.
+live TAT/CICOT API connectors, review photo upload, Meilisearch, city-pack offline downloads.

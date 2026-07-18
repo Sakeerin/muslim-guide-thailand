@@ -267,6 +267,48 @@ export async function removeReviewAction(formData: FormData) {
   revalidatePath('/admin/reviews');
 }
 
+export async function approveQuestionAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { approveQuestion } = await import('@/server/services/qa');
+  await approveQuestion(String(formData.get('id')), actor.id);
+  revalidatePath('/admin/qa');
+}
+
+export async function hideQuestionAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { hideQuestion } = await import('@/server/services/qa');
+  await hideQuestion(String(formData.get('id')), actor.id);
+  revalidatePath('/admin/qa');
+}
+
+export async function removeQuestionAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { removeQuestion } = await import('@/server/services/qa');
+  await removeQuestion(String(formData.get('id')), actor.id);
+  revalidatePath('/admin/qa');
+}
+
+export async function approveAnswerAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { approveAnswer } = await import('@/server/services/qa');
+  await approveAnswer(String(formData.get('id')), actor.id);
+  revalidatePath('/admin/qa');
+}
+
+export async function hideAnswerAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { hideAnswer } = await import('@/server/services/qa');
+  await hideAnswer(String(formData.get('id')), actor.id);
+  revalidatePath('/admin/qa');
+}
+
+export async function removeAnswerAction(formData: FormData) {
+  const actor = await requireStaff();
+  const { removeAnswer } = await import('@/server/services/qa');
+  await removeAnswer(String(formData.get('id')), actor.id);
+  revalidatePath('/admin/qa');
+}
+
 export async function createCertificationAction(formData: FormData) {
   const actor = await requireStaff();
   const parsed = createCertificationSchema.safeParse({

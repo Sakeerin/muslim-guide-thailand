@@ -13,10 +13,12 @@ never affects the Next.js build. Use **npm** here (not pnpm).
 Home · Map (MapLibre + OpenFreeMap, clustered GeoJSON) · Search + list
 (query/type/halal filters, load-more) · Place detail + trust panel + **reviews** ·
 Prayer times (per province) · Qibla compass (expo-location heading + sensor-free
-fallback) · Saved (AsyncStorage) · **Account / sign-in / sign-up** · i18n (5 langs)
-+ RTL.
+fallback) · Saved (AsyncStorage) · **Account / sign-in / sign-up** · **Q&A** (ask/answer,
+moderated) · i18n (5 langs) + RTL.
 
-**Deferred:** community/Q&A.
+Place detail now covers the full public surface: trust · reviews · **Q&A** ·
+claim. Q&A reuses the reviews moderation + `review_publication` consent (403 →
+inline consent gate); answers are only allowed on published questions.
 
 ### Push (Ramadan/Eid announcements)
 - Native push uses **Expo push tokens** (`expo-notifications`), a separate

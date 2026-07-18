@@ -10,7 +10,9 @@ import { PlaceCard } from '@/components/place-card';
 import { PlaceActions } from '@/components/place-actions';
 import { ReviewForm } from '@/components/review-form';
 import { ClaimButton } from '@/components/claim-button';
+import { AnswerForm, AskQuestionForm } from '@/components/qa-forms';
 import { listPublishedReviews } from '@/server/services/reviews';
+import { listPublishedQABySlug } from '@/server/services/qa';
 
 export const dynamic = 'force-dynamic';
 
@@ -59,7 +61,7 @@ export default async function PlacePage({
   const place = await getPlaceBySlug(slug);
   if (!place) notFound();
 
-  const [t, format, prayerNearby, nearby, publishedReviews] = await Promise.all([
+  const [t, format, prayerNearby, nearby, publishedReviews, qa] = await Promise.all([
     getTranslations(),
     getFormatter(),
     place.type === 'mosque' || place.type === 'prayer_room'
@@ -67,7 +69,9 @@ export default async function PlacePage({
       : prayerPlacesNearby(place.lat, place.lng),
     nearbyPlaces(place.lat, place.lng, place.id),
     listPublishedReviews(place.id),
+    listPublishedQABySlug(place.slug),
   ]);
+  const questions = qa ?? [];
 
   const name = resolveI18n(place.name as never, locale);
   const thaiName = (place.name as Record<string, string>).th;
@@ -230,6 +234,44 @@ export default async function PlacePage({
             ))}
           </ul>
         )}
+      </section>
+
+      <section id="qa">
+        <h2 className="mb-2 font-semibold">{t('qa.title')}</h2>
+        <p className="mb-3 text-xs opacity-70">{t('qa.guidelines')}</p>
+        <div className="mb-4">
+          <AskQuestionForm placeId={place.id} />
+        </div>
+        {questions.length === 0 ? (
+          <p className="text-sm opacity-60">{t('qa.empty')}</p>
+        ) : (
+          <ul className="flex flex-col gap-3">
+            {questions.map((q) => (
+              <li key={q.id} className="rounded-xl border p-3">
+                <p className="font-medium">{q.body}</p>
+                <p className="mt-1 text-xs opacity-50">
+                  {q.authorName} · {format.dateTime(q.createdAt, { dateStyle: 'medium' })}
+                </p>
+                {q.answers.length > 0 && (
+                  <ul className="mt-2 flex flex-col gap-2 border-s ps-3">
+                    {q.answers.map((a) => (
+                      <li key={a.id}>
+                        <p className="text-sm opacity-90">{a.body}</p>
+                        <p className="mt-1 text-xs opacity-50">
+                          {a.authorName} · {format.dateTime(a.createdAt, { dateStyle: 'medium' })}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div className="mt-2">
+                  <AnswerForm questionId={q.id} />
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+        <p className="mt-3 text-xs opacity-60">{t('qa.disclaimer')}</p>
       </section>
 
       <footer className="border-t pt-3 text-xs opacity-60">

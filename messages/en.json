@@ -200,6 +200,25 @@
     "blocked": "Notifications are blocked. Turn them on in your browser settings to receive alerts.",
     "iosHint": "On iPhone or iPad: tap the Share button, choose \"Add to Home Screen\", then open the app from there to turn on alerts."
   },
+  "qa": {
+    "title": "Questions & answers",
+    "ask": "Ask a question",
+    "askPlaceholder": "Ask about facilities, halal details, prayer space…",
+    "submitQuestion": "Post question",
+    "questionSubmitted": "Your question has been posted.",
+    "questionHeld": "Thank you. Your question will appear after a quick check by our team.",
+    "answer": "Answer",
+    "answerPlaceholder": "Share what you know…",
+    "submitAnswer": "Post answer",
+    "answerSubmitted": "Your answer has been posted.",
+    "answerHeld": "Thank you. Your answer will appear after a quick check by our team.",
+    "empty": "No questions yet — be the first to ask.",
+    "loginToAsk": "Sign in to ask a question",
+    "loginToAnswer": "Sign in to answer",
+    "guidelines": "Questions and answers are about your experience. Claims about a place's halal status or other serious allegations are reviewed before publishing — for halal concerns please use \"Report information\" instead.",
+    "disclaimer": "Answers are the personal opinions of users, not of Muslim Guide Thailand.",
+    "submitError": "Something went wrong. Please try again."
+  },
   "footer": {
     "privacy": "Privacy policy",
     "terms": "Terms of use",
