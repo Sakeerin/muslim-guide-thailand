@@ -141,7 +141,7 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       live compass (heading permission, trueHeading vs magHeading fallback), and
       the **reviews consent flow** end-to-end (sign-up records consent → post
       review published/held; sign-in-only user hits the 403 consent gate → grants
-      → posts).
+      → posts), and the **place claim** flow (unowned place → claim → admin queue).
 - [ ] `EXPO_PUBLIC_API_URL` points at the production API over HTTPS for release builds.
 
 ## Still deferred to later Phase 2/3 (not launch blockers)

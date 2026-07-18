@@ -16,8 +16,8 @@ Prayer times (per province) · Qibla compass (expo-location heading + sensor-fre
 fallback) · Saved (AsyncStorage) · **Account / sign-in / sign-up** · i18n (5 langs)
 + RTL.
 
-**Deferred:** place claim, push (native uses Expo push tokens, a different
-contract), community/Q&A.
+**Deferred:** push (native uses Expo push tokens, a different contract),
+community/Q&A.
 
 ### Reviews & consent
 - Reviewing requires a Better Auth account (bearer token in SecureStore). Core
@@ -26,6 +26,10 @@ contract), community/Q&A.
   review without that consent 403s (`consent_required`); the review form then
   shows an inline consent checkbox and retries — consent is always enforced
   **server-side**. Published-review reads come from `GET /api/v1/places/:slug/reviews`.
+- **Claim**: places with no owner show "Own this place? Claim it" (sign-in gated).
+  The claim (contact + optional message) posts to `POST /api/v1/places/:slug/claim`
+  and lands in the admin queue. The client never sends the server's `website`
+  honeypot; already-claimed (409) is handled.
 
 ### Map & Qibla notes
 - Map uses `@maplibre/maplibre-react-native` (v11, New-Architecture-only) with the

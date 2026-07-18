@@ -166,6 +166,7 @@
     "submitClaim": "Submit claim",
     "claimSent": "Thank you — our team will review your claim.",
     "alreadyClaimed": "This place has already been claimed.",
+    "claimError": "Couldn't submit your claim. Please try again.",
     "portalTitle": "My places",
     "portalEmpty": "You don't manage any places yet. Claim a place from its page.",
     "editListing": "Edit listing",

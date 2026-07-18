@@ -85,6 +85,7 @@ export interface PlaceDetail extends PlaceListItem {
   lineId: string | null;
   googleMapsUrl: string | null;
   dataSource: string | null;
+  ownerUserId: string | null;
   avgRating: number | null;
   reviewCount: number | null;
   city: { slug: string; name: I18nText; provinceCode: string } | null;

@@ -9,6 +9,7 @@ import { TrustPanel } from '@/components/TrustPanel';
 import { SavedButton } from '@/components/SavedButton';
 import { PlaceCard } from '@/components/PlaceCard';
 import { ReviewForm } from '@/components/ReviewForm';
+import { ClaimButton } from '@/components/ClaimButton';
 import { ErrorState, LoadingState } from '@/components/states';
 import { colors, radius, space } from '@/lib/theme';
 
@@ -103,6 +104,12 @@ export default function PlaceScreen() {
           <Text style={styles.muted}>{t('review.empty')}</Text>
         )}
       </View>
+
+      {!place.ownerUserId ? (
+        <View style={styles.footer}>
+          <ClaimButton slug={place.slug} />
+        </View>
+      ) : null}
     </ScrollView>
   );
 }
@@ -138,4 +145,5 @@ const styles = StyleSheet.create({
   starsOff: { color: '#d1d5db' },
   reviewBody: { fontSize: 14, color: colors.text },
   reviewDate: { fontSize: 11, color: colors.textMuted },
+  footer: { marginTop: space.sm, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: colors.border, paddingTop: space.md },
 });

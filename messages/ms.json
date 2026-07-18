@@ -166,6 +166,7 @@
     "submitClaim": "Hantar tuntutan",
     "claimSent": "Terima kasih — pasukan kami akan menyemak tuntutan anda.",
     "alreadyClaimed": "Tempat ini telah dituntut.",
+    "claimError": "Tidak dapat menghantar tuntutan anda. Sila cuba lagi.",
     "portalTitle": "Tempat saya",
     "portalEmpty": "Anda belum menguruskan mana-mana tempat. Tuntut tempat dari halamannya.",
     "editListing": "Sunting penyenaraian",
