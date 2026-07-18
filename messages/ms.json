@@ -200,6 +200,25 @@
     "blocked": "Pemberitahuan disekat. Hidupkannya dalam tetapan pelayar untuk menerima makluman.",
     "iosHint": "Pada iPhone atau iPad: ketik butang Kongsi, pilih \"Tambah ke Skrin Utama\", kemudian buka aplikasi dari situ untuk menghidupkan makluman."
   },
+  "qa": {
+    "title": "Soalan & jawapan",
+    "ask": "Tanya soalan",
+    "askPlaceholder": "Tanya tentang kemudahan, butiran halal, ruang solat…",
+    "submitQuestion": "Hantar soalan",
+    "questionSubmitted": "Soalan anda telah dihantar.",
+    "questionHeld": "Terima kasih. Soalan anda akan dipaparkan selepas semakan pasukan kami.",
+    "answer": "Jawab",
+    "answerPlaceholder": "Kongsi apa yang anda tahu…",
+    "submitAnswer": "Hantar jawapan",
+    "answerSubmitted": "Jawapan anda telah dihantar.",
+    "answerHeld": "Terima kasih. Jawapan anda akan dipaparkan selepas semakan pasukan kami.",
+    "empty": "Belum ada soalan — jadilah yang pertama bertanya.",
+    "loginToAsk": "Log masuk untuk bertanya",
+    "loginToAnswer": "Log masuk untuk menjawab",
+    "guidelines": "Soalan dan jawapan adalah tentang pengalaman anda. Dakwaan tentang status halal atau tuduhan serius disemak sebelum diterbitkan — untuk kebimbangan halal sila gunakan \"Laporkan maklumat\".",
+    "disclaimer": "Jawapan ialah pendapat peribadi pengguna, bukan Muslim Guide Thailand.",
+    "submitError": "Sesuatu tidak kena. Sila cuba lagi."
+  },
   "footer": {
     "privacy": "Dasar privasi",
     "terms": "Terma penggunaan",

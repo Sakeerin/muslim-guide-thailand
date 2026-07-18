@@ -10,6 +10,7 @@ import { SavedButton } from '@/components/SavedButton';
 import { PlaceCard } from '@/components/PlaceCard';
 import { ReviewForm } from '@/components/ReviewForm';
 import { ClaimButton } from '@/components/ClaimButton';
+import { QASection } from '@/components/QASection';
 import { ErrorState, LoadingState } from '@/components/states';
 import { colors, radius, space } from '@/lib/theme';
 
@@ -104,6 +105,8 @@ export default function PlaceScreen() {
           <Text style={styles.muted}>{t('review.empty')}</Text>
         )}
       </View>
+
+      <QASection slug={place.slug} placeId={place.id} locale={locale} />
 
       {!place.ownerUserId ? (
         <View style={styles.footer}>

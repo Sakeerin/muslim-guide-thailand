@@ -48,6 +48,58 @@ export const reviews = pgTable(
   ],
 );
 
+/**
+ * Community Q&A (place-scoped). Same defamation-safe hybrid moderation as
+ * reviews: risk-flagged text or brand-new accounts are held for a moderator;
+ * clean text from an established account publishes (post-moderation). Halal
+ * concerns still belong in the confidential report channel, not public Q&A.
+ */
+export const questions = pgTable(
+  'questions',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    placeId: uuid('place_id')
+      .notNull()
+      .references(() => places.id, { onDelete: 'cascade' }),
+    userId: text('user_id')
+      .notNull()
+      .references(() => user.id),
+    body: text('body').notNull(),
+    lang: text('lang'),
+    status: reviewStatusEnum('status').notNull().default('pending'),
+    riskFlag: boolean('risk_flag').notNull().default(false),
+    createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    index('questions_place_idx').on(t.placeId, t.status, t.createdAt),
+    index('questions_mod_queue').on(t.createdAt).where(sql`${t.status} = 'pending'`),
+  ],
+);
+
+export const answers = pgTable(
+  'answers',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    questionId: uuid('question_id')
+      .notNull()
+      .references(() => questions.id, { onDelete: 'cascade' }),
+    userId: text('user_id')
+      .notNull()
+      .references(() => user.id),
+    body: text('body').notNull(),
+    lang: text('lang'),
+    status: reviewStatusEnum('status').notNull().default('pending'),
+    riskFlag: boolean('risk_flag').notNull().default(false),
+    createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    index('answers_question_idx').on(t.questionId, t.status, t.createdAt),
+    index('answers_mod_queue').on(t.createdAt).where(sql`${t.status} = 'pending'`),
+  ],
+);
+
 export const media = pgTable('media', {
   id: uuid('id').primaryKey().defaultRandom(),
   placeId: uuid('place_id').references(() => places.id, { onDelete: 'cascade' }),

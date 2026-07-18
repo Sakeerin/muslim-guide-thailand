@@ -60,6 +60,13 @@ recorded reason.
   server code into the RN bundle); the 5 `messages/*.json` catalogs are reused verbatim as the single
   source of truth. Verified on Windows via tsc/eslint/vitest(pure)/expo-doctor; device-only behaviours
   (RTL flip, SecureStore, Metro bundling) are checked on hardware later.
+- **Community Q&A (Phase 3)**: place-scoped questions + answers (like Google Maps/HappyCow). Deliberately
+  REUSES the reviews stack — same `reviewStatusEnum`, the same defamation-safe moderation
+  (`screenReview` + `decideReviewStatus`: risk-flagged text or <48h accounts held for the `/admin/qa`
+  queue), and the same `review_publication` consent — so it inherits the same lawyer-sign-off gate as
+  reviews (no new legal surface). Answers are only accepted on PUBLISHED questions; only published Q&A is
+  shown; the public API exposes `authorName` only (no user id/email). Full stack: web place page + admin
+  moderation + native app, all gated on sign-in + consent (403 → inline consent gate).
 - **Native push (Phase 3)**: Expo push tokens (`expo-notifications` + `expo-server-sdk`) as a SECOND
   transport alongside Web Push — a new `push_devices` table (token natural key; `push_subscriptions`'
   notNull p256dh/auth don't fit an opaque Expo token). The server `broadcast()` fans out to both

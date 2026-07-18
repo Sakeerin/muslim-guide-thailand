@@ -200,6 +200,25 @@
     "blocked": "Notifikasi diblokir. Aktifkan di pengaturan browser untuk menerima notifikasi.",
     "iosHint": "Di iPhone atau iPad: ketuk tombol Bagikan, pilih \"Tambahkan ke Layar Utama\", lalu buka aplikasi dari sana untuk mengaktifkan notifikasi."
   },
+  "qa": {
+    "title": "Tanya & jawab",
+    "ask": "Ajukan pertanyaan",
+    "askPlaceholder": "Tanya tentang fasilitas, detail halal, ruang salat…",
+    "submitQuestion": "Kirim pertanyaan",
+    "questionSubmitted": "Pertanyaan Anda telah dikirim.",
+    "questionHeld": "Terima kasih. Pertanyaan Anda akan tampil setelah ditinjau tim kami.",
+    "answer": "Jawab",
+    "answerPlaceholder": "Bagikan yang Anda ketahui…",
+    "submitAnswer": "Kirim jawaban",
+    "answerSubmitted": "Jawaban Anda telah dikirim.",
+    "answerHeld": "Terima kasih. Jawaban Anda akan tampil setelah ditinjau tim kami.",
+    "empty": "Belum ada pertanyaan — jadilah yang pertama bertanya.",
+    "loginToAsk": "Masuk untuk bertanya",
+    "loginToAnswer": "Masuk untuk menjawab",
+    "guidelines": "Tanya jawab adalah tentang pengalaman Anda. Klaim tentang status halal atau tuduhan serius ditinjau sebelum diterbitkan — untuk masalah halal gunakan \"Laporkan informasi\".",
+    "disclaimer": "Jawaban adalah pendapat pribadi pengguna, bukan Muslim Guide Thailand.",
+    "submitError": "Terjadi kesalahan. Silakan coba lagi."
+  },
   "footer": {
     "privacy": "Kebijakan privasi",
     "terms": "Ketentuan penggunaan",
