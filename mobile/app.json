@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Muslim Guide Thailand",
+    "slug": "muslim-guide-thai",
+    "scheme": "muslimguide",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "co.vbeyond.muslimguide"
+    },
+    "android": {
+      "package": "co.vbeyond.muslimguide"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": ["expo-router", "expo-localization", "expo-secure-store"],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "supportsRTL": true
+    }
+  }
+}

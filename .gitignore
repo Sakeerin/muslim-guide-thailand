@@ -45,3 +45,11 @@ next-env.d.ts
 /test-results
 /playwright-report
 /playwright/.cache
+
+# native app (mobile/) — isolated Expo project with its own toolchain
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+mobile/expo-env.d.ts
+mobile/.metro-health-check*

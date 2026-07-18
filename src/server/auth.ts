@@ -1,8 +1,19 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { admin } from 'better-auth/plugins';
+import { admin, bearer } from 'better-auth/plugins';
 import { db } from './db/client';
 import { user, session, account, verification } from './db/schema';
+
+/**
+ * Origins allowed to drive auth (in addition to BETTER_AUTH_URL). The native
+ * app authenticates over its deep-link scheme; add extra origins via env.
+ */
+const trustedOrigins = [
+  ...(process.env.BETTER_AUTH_TRUSTED_ORIGINS?.split(',').map((s) => s.trim()).filter(Boolean) ??
+    []),
+  'muslimguide://', // native app scheme (mobile/app.json → expo.scheme)
+  'exp://', // Expo Go / dev-client
+];
 
 export const STAFF_ROLES = ['admin', 'editor', 'moderator'] as const;
 export type StaffRole = (typeof STAFF_ROLES)[number];
@@ -24,6 +35,7 @@ export const auth = betterAuth({
   }),
   secret: process.env.BETTER_AUTH_SECRET,
   baseURL: process.env.BETTER_AUTH_URL,
+  trustedOrigins,
   emailAndPassword: {
     enabled: true,
     minPasswordLength: 8,
@@ -38,6 +50,10 @@ export const auth = betterAuth({
       defaultRole: 'user', // public sign-ups are plain users, never staff
       adminRoles: ['admin'],
     }),
+    // Lets the native app authenticate with `Authorization: Bearer <token>`
+    // instead of cookies. Only activates when the header is present, so the
+    // web cookie flow is unchanged.
+    bearer(),
   ],
 });
 

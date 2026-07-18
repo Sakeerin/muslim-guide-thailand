@@ -52,6 +52,14 @@ recorded reason.
   `consent_logs` mirror. Consent is unbundled from privacy-policy acceptance; withdrawal hard-deletes the
   row (endpoint+keys are device-identifying). Announcements only — never marketing. VAPID private key is
   server-only; `web-push` runs on the Node runtime. Per-prayer reminders deferred (need a sub-daily scheduler).
+- **Native app (Phase 3)**: Expo SDK 57 / React Native 0.86 / expo-router 7, in an **isolated `mobile/`
+  project** (own npm lockfile + toolchain, excluded from the web tsconfig/eslint/pnpm-workspace so it can
+  never break the web build). It consumes the existing `/api/v1` and authenticates via Better Auth's
+  `bearer()` plugin (`Authorization: Bearer <token>`, token in expo-secure-store) — the only server change.
+  Core browsing needs no login (PDPA). Types/`resolveI18n` are re-declared in `mobile/` (never import
+  server code into the RN bundle); the 5 `messages/*.json` catalogs are reused verbatim as the single
+  source of truth. Verified on Windows via tsc/eslint/vitest(pure)/expo-doctor; device-only behaviours
+  (RTL flip, SecureStore, Metro bundling) are checked on hardware later.
 
 ## Adversarial-review resolutions carried into code
 - Mosque data: one-off OSM seed script (`scripts/import/osm-mosques.ts`), L4 + ODbL attribution,
