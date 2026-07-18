@@ -166,6 +166,7 @@
     "submitClaim": "Kirim klaim",
     "claimSent": "Terima kasih — tim kami akan meninjau klaim Anda.",
     "alreadyClaimed": "Tempat ini sudah diklaim.",
+    "claimError": "Tidak dapat mengirim klaim Anda. Silakan coba lagi.",
     "portalTitle": "Tempat saya",
     "portalEmpty": "Anda belum mengelola tempat mana pun. Klaim tempat dari halamannya.",
     "editListing": "Edit listing",
