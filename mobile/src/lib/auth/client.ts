@@ -29,12 +29,23 @@ export const authClient = createAuthClient({
   },
 });
 
+export const { useSession, signIn, signUp } = authClient;
+
 export function getBearerToken(): Promise<string | null> {
   return SecureStore.getItemAsync(TOKEN_KEY);
 }
 
 export async function clearBearerToken(): Promise<void> {
   await SecureStore.deleteItemAsync(TOKEN_KEY);
+}
+
+/** Sign out of Better Auth AND drop the stored bearer token. */
+export async function signOut(): Promise<void> {
+  try {
+    await authClient.signOut();
+  } finally {
+    await clearBearerToken();
+  }
 }
 
 // Feed stored bearer tokens to the /api/v1 client (pure module, no expo import).
