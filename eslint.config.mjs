@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The native app is a separate, isolated project with its own toolchain
+    // (Expo/React Native). It is linted/typechecked from within mobile/.
+    "mobile/**",
   ]),
 ]);
 

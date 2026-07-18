@@ -124,6 +124,19 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       `islamic_events` once (`push_sent_at` guards against re-sending). Dead
       endpoints (404/410) are pruned automatically.
 
+## Native app (Phase 3 — foundation shipped)
+- [ ] The app lives in `mobile/` (isolated Expo project). It is **excluded** from
+      the web `tsconfig`/`eslint`/pnpm-workspace — keep it that way so it never
+      enters the web build/CI. Verify the app from inside `mobile/`.
+- [ ] Server auth exposes the `bearer()` plugin + `trustedOrigins` (incl. the app
+      scheme `muslimguide://`). Set `BETTER_AUTH_TRUSTED_ORIGINS` for any extra
+      origins. This is additive — the web cookie flow is unchanged.
+- [ ] Ship a real app icon/splash before store submission (none committed yet).
+- [ ] Device QA before release: RTL (Arabic) layout flip + restart, SecureStore
+      bearer sign-in → protected calls (reviews/consent), Metro bundling of the
+      shared `../messages` catalogs, deep-link scheme ↔ trustedOrigins.
+- [ ] `EXPO_PUBLIC_API_URL` points at the production API over HTTPS for release builds.
+
 ## Still deferred to later Phase 2/3 (not launch blockers)
 Live TAT/CICOT API connectors (CSV export path works today), review photo
 upload (needs object storage), Meilisearch, city-pack offline downloads,
