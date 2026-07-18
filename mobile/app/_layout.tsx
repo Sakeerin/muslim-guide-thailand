@@ -7,10 +7,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { I18nextProvider } from 'react-i18next';
 import { i18next, initI18n } from '@/lib/i18n';
 import { useSavedStore } from '@/lib/saved/store';
+import { useNotificationRouting } from '@/lib/push/handler';
 import { colors } from '@/lib/theme';
 
 export default function RootLayout() {
   const [ready, setReady] = useState(false);
+
+  // deep-link when an announcement notification is tapped (cold start + running).
+  // Gated on `ready` so routing waits until the <Stack> below is mounted.
+  useNotificationRouting(ready);
 
   useEffect(() => {
     let mounted = true;

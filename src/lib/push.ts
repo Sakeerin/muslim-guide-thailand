@@ -16,6 +16,15 @@ export function isPushTopic(value: unknown): value is PushTopic {
 }
 
 /**
+ * Validate an Expo push token shape (`ExponentPushToken[...]` / `ExpoPushToken[...]`).
+ * Pure regex — the same check expo-server-sdk's `Expo.isExpoPushToken` does, kept
+ * here so this module stays free of the (Node-only, ESM) server SDK.
+ */
+export function isExpoPushToken(value: unknown): value is string {
+  return typeof value === 'string' && /^Expo(nent)?PushToken\[[^\]]+\]$/.test(value);
+}
+
+/**
  * Convert a URL-safe base64 VAPID public key into the Uint8Array that
  * PushManager.subscribe({ applicationServerKey }) requires — browsers reject
  * the raw string.

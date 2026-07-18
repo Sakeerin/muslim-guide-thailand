@@ -27,7 +27,8 @@
         {
           "locationWhenInUsePermission": "Muslim Guide uses your location to point you toward the Qibla and to find halal places near you. Your location stays on your device."
         }
-      ]
+      ],
+      "expo-notifications"
     ],
     "experiments": {
       "typedRoutes": true

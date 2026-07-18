@@ -60,6 +60,14 @@ recorded reason.
   server code into the RN bundle); the 5 `messages/*.json` catalogs are reused verbatim as the single
   source of truth. Verified on Windows via tsc/eslint/vitest(pure)/expo-doctor; device-only behaviours
   (RTL flip, SecureStore, Metro bundling) are checked on hardware later.
+- **Native push (Phase 3)**: Expo push tokens (`expo-notifications` + `expo-server-sdk`) as a SECOND
+  transport alongside Web Push — a new `push_devices` table (token natural key; `push_subscriptions`'
+  notNull p256dh/auth don't fit an opaque Expo token). The server `broadcast()` fans out to both
+  transports with `Promise.allSettled` and independent guards (missing VAPID never blocks Expo, and Expo
+  needs no VAPID), summed into the unchanged `BroadcastResult` so the admin action + cron are untouched.
+  Same anonymous/PDPA model (consent on the row; `consent_logs` only when signed in); prune only on
+  `DeviceNotRegistered`. `src/lib/push-expo.ts` keeps the payload/ticket mapping pure (type-only SDK
+  import). Client is inert until `eas init` (no projectId) / a dev build (Expo Go can't do remote push).
 
 ## Adversarial-review resolutions carried into code
 - Mosque data: one-off OSM seed script (`scripts/import/osm-mosques.ts`), L4 + ODbL attribution,

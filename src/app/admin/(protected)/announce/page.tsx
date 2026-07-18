@@ -1,4 +1,4 @@
-import { countSubscriptions } from '@/server/services/push';
+import { countDevices, countSubscriptions } from '@/server/services/push';
 import { broadcastAnnouncementAction } from '@/app/admin/(protected)/actions';
 
 export const dynamic = 'force-dynamic';
@@ -16,11 +16,17 @@ export default async function AdminAnnouncePage({
 }: {
   searchParams: Promise<{ sent?: string; failed?: string; pruned?: string; total?: string; error?: string }>;
 }) {
-  const [count, sp] = await Promise.all([countSubscriptions(), searchParams]);
+  const [count, devices, sp] = await Promise.all([
+    countSubscriptions(),
+    countDevices(),
+    searchParams,
+  ]);
 
   return (
     <main className="flex flex-col gap-6">
-      <h1 className="text-2xl font-bold">ประกาศ / Push ({count} เครื่อง)</h1>
+      <h1 className="text-2xl font-bold">
+        ประกาศ / Push (เว็บ {count} · แอป {devices})
+      </h1>
       <p className="rounded-xl bg-foreground/5 p-3 text-sm">
         ส่งการแจ้งเตือนถึงผู้ที่สมัครรับ (รอมฎอน/อีด) — <strong>ประกาศเท่านั้น</strong>, ไม่ใช่การตลาด.
         ผู้ใช้สมัครแบบไม่ต้องล็อกอิน และถอนได้ทุกเมื่อ. ข้อความจะส่งตามภาษาของแต่ละเครื่อง (เว้นว่างได้ ระบบจะถอยไปใช้ EN/TH).
