@@ -132,9 +132,14 @@ Gate before the public MVP launch. Grouped by owner. Anything under
       scheme `muslimguide://`). Set `BETTER_AUTH_TRUSTED_ORIGINS` for any extra
       origins. This is additive — the web cookie flow is unchanged.
 - [ ] Ship a real app icon/splash before store submission (none committed yet).
+- [ ] The **map** (`@maplibre/maplibre-react-native`, New-Arch-only) needs a
+      **custom dev build** — it does not run in Expo Go. Tiles are keyless
+      OpenFreeMap (no SLA — same as the web).
 - [ ] Device QA before release: RTL (Arabic) layout flip + restart, SecureStore
       bearer sign-in → protected calls (reviews/consent), Metro bundling of the
-      shared `../messages` catalogs, deep-link scheme ↔ trustedOrigins.
+      shared `../messages` catalogs, deep-link scheme ↔ trustedOrigins,
+      map render/cluster/tap, and qibla live compass (heading permission,
+      trueHeading vs magHeading fallback).
 - [ ] `EXPO_PUBLIC_API_URL` points at the production API over HTTPS for release builds.
 
 ## Still deferred to later Phase 2/3 (not launch blockers)
