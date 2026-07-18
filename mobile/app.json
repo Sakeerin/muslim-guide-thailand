@@ -17,7 +17,18 @@
       "bundler": "metro",
       "output": "static"
     },
-    "plugins": ["expo-router", "expo-localization", "expo-secure-store"],
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      "expo-secure-store",
+      "@maplibre/maplibre-react-native",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Muslim Guide uses your location to point you toward the Qibla and to find halal places near you. Your location stays on your device."
+        }
+      ]
+    ],
     "experiments": {
       "typedRoutes": true
     },

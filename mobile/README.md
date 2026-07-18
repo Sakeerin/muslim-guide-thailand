@@ -8,14 +8,24 @@ never affects the Next.js build. Use **npm** here (not pnpm).
 - Expo SDK **57** · React Native **0.86** · React **19.2** · expo-router **v7** · TypeScript **6**
 - New Architecture is always on in SDK 57 (no config needed).
 
-## First PR scope (foundation + core read screens)
+## Screens
 
-Home · Search + list (query/type/halal filters, load-more) · Place detail + trust
-panel · Prayer times (per province) · Saved (AsyncStorage) · i18n (5 langs) + RTL ·
-Better Auth bearer client (sign-in UI is later).
+Home · Map (MapLibre + OpenFreeMap, clustered GeoJSON) · Search + list
+(query/type/halal filters, load-more) · Place detail + trust panel · Prayer times
+(per province) · Qibla compass (expo-location heading + sensor-free fallback) ·
+Saved (AsyncStorage) · i18n (5 langs) + RTL · Better Auth bearer client.
 
-**Deferred:** map/geojson, qibla (magnetometer), reviews + PDPA consent flow, place
-claim, push (native uses Expo push tokens, a different contract).
+**Deferred:** reviews + PDPA consent flow, place claim, push (native uses Expo push
+tokens, a different contract).
+
+### Map & Qibla notes
+- Map uses `@maplibre/maplibre-react-native` (v11, New-Architecture-only) with the
+  same keyless OpenFreeMap "liberty" style as the web. **Requires a custom dev
+  build** (`expo run:ios`/`run:android` or EAS) — it cannot run in Expo Go.
+- Qibla uses `expo-location` `watchHeadingAsync` (prefers `trueHeading`). The
+  bearing is a pure reimplementation of adhan's `Qibla()` (proven identical), so
+  the flagship "degrees from north + distance" always shows even with no compass /
+  permission denied. User coordinates never leave the device (PDPA).
 
 ## Setup
 

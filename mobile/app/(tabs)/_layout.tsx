@@ -24,10 +24,24 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+        name="map"
+        options={{
+          title: t('common.viewMap'),
+          tabBarIcon: ({ color }) => <TabGlyph glyph="🗺️" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="prayer"
         options={{
           title: t('nav.prayerTimes'),
           tabBarIcon: ({ color }) => <TabGlyph glyph="🕌" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="qibla"
+        options={{
+          title: t('nav.qibla'),
+          tabBarIcon: ({ color }) => <TabGlyph glyph="🧭" color={color} />,
         }}
       />
       <Tabs.Screen
