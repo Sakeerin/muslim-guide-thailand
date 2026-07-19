@@ -5,11 +5,18 @@ import { createAnswerSchema } from '@/lib/validators/qa';
 import { createAnswer } from '@/server/services/qa';
 import { hasReviewConsent } from '@/server/services/reviews';
 import { apiError, apiOk, apiValidationError } from '@/lib/api';
+import { communityUgcEnabled } from '@/lib/flags';
+import { RATE_LIMITS, checkRateLimit, rateLimitedResponse } from '@/lib/rate-limit-guard';
 
 /** Answer a published question. Requires sign-in + PDPA publication consent. */
 export async function POST(request: NextRequest) {
   const session = await auth.api.getSession({ headers: await headers() });
   if (!session) return apiError(401, 'unauthorized', 'Sign in required');
+  if (!communityUgcEnabled()) {
+    return apiError(403, 'feature_disabled', 'Q&A is not available yet');
+  }
+  const rl = checkRateLimit(session.user.id, RATE_LIMITS.ugcWrite);
+  if (!rl.allowed) return rateLimitedResponse(rl);
   if (!(await hasReviewConsent(session.user.id))) {
     return apiError(403, 'consent_required', 'Publication consent required');
   }

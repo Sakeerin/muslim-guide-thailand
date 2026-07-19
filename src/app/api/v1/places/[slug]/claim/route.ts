@@ -7,6 +7,7 @@ import { eq } from 'drizzle-orm';
 import { createClaimSchema } from '@/lib/validators/claim';
 import { createClaim } from '@/server/services/claims';
 import { apiOk, apiError, apiValidationError } from '@/lib/api';
+import { RATE_LIMITS, checkRateLimit, rateLimitedResponse } from '@/lib/rate-limit-guard';
 
 /** Submit an ownership claim for a place. Requires sign-in; goes to the
  *  admin queue (staff grants ownership after checking). */
@@ -16,6 +17,9 @@ export async function POST(
 ) {
   const session = await auth.api.getSession({ headers: await headers() });
   if (!session) return apiError(401, 'unauthorized', 'Sign in required');
+
+  const rl = checkRateLimit(session.user.id, RATE_LIMITS.claim);
+  if (!rl.allowed) return rateLimitedResponse(rl);
 
   const { slug } = await params;
   const place = await db.query.places.findFirst({ where: eq(places.slug, slug) });
