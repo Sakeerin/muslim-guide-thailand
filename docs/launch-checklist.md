@@ -64,18 +64,27 @@ code.
 - [ ] **NEEDS-LEGAL-REVIEW**: the risk-keyword list in `src/lib/review-moderation.ts`
       (th/en/ms/id/ar) must be reviewed & signed off by counsel before reviews are
       enabled in production. It decides what gets held for pre-moderation.
-- [ ] Confirm reviews stay OFF (or behind a flag) until the keyword list + review
-      guidelines are legally approved.
+- [ ] **Flip the flag last**: community UGC (reviews + Q&A) is gated by
+      `COMMUNITY_UGC_ENABLED` (server-authoritative — the write APIs 403
+      `feature_disabled` and the web/native UI hides the sections when it isn't
+      `on`). Ship with it **unset** and only set `COMMUNITY_UGC_ENABLED=on` (web)
+      + rebuild the native app with `EXPO_PUBLIC_COMMUNITY_UGC=on` **after** the
+      keyword list + review guidelines are legally approved.
 - [ ] Moderator rota for the review queue (risk-flagged first); halal accusations
       routed to the confidential report queue, never published as reviews.
 - [ ] **Community Q&A (Phase 3 — shipped)** reuses the SAME moderation engine +
-      `review_publication` consent, so it is under the **same legal gate**: keep it
-      OFF/flagged until the keyword list is signed off. Questions/answers that read
+      `review_publication` consent, so it is under the **same legal gate** and the
+      **same `COMMUNITY_UGC_ENABLED` flag** as reviews — one switch turns reviews +
+      Q&A on together, only after sign-off. Questions/answers that read
       like factual accusations are held for the `/admin/qa` queue (risk-flagged
       first); halal concerns still go to the confidential report channel. Answers
       are only accepted on published questions.
-- [ ] Decide on email verification for public sign-up before opening reviews widely
-      (spam/abuse); add rate limiting on review + sign-up endpoints.
+- [ ] Decide on email verification for public sign-up before opening reviews
+      widely (spam/abuse). **Rate limiting shipped**: per-user UGC writes
+      (10 / 10 min), per-IP sign-up (5 / h) and sign-in (10 / 15 min), each
+      returning 429 + `Retry-After`. In-memory + per-instance (fine for the
+      single-VPS MVP; swap the store in `src/lib/rate-limit.ts` for Redis if the
+      app is ever scaled to multiple replicas).
 - [ ] Privacy policy covers public accounts + review publication (consent is logged
       with a policy version — keep the version in sync with the published policy).
 
@@ -87,7 +96,9 @@ code.
       trust level stays a staff decision.
 - [ ] Moderator rota covers the merchant queue (`/admin/merchant`): claims +
       owner edits, alongside reviews/reports/takedowns.
-- [ ] Add rate limiting on the claim endpoint (shares the review/sign-up gap).
+- [x] Rate limiting on the claim endpoint — **shipped** (per-user, 5 / h). Claim
+      is *not* behind `COMMUNITY_UGC_ENABLED` (it is an admin-queued action, not
+      keyword-moderated UGC), so claims keep working while UGC is gated off.
 
 ## Data import pipeline (Phase 2 — shipped month 7)
 - [ ] Bootstrap coverage via staging: `pnpm import:osm-mosques` and
@@ -163,6 +174,10 @@ code.
       `/admin/announce` → notification on device → tap deep-links off `data.url`.
       Optionally set `EXPO_ACCESS_TOKEN` (server) if Expo Enhanced Security is on.
 - [ ] `EXPO_PUBLIC_API_URL` points at the production API over HTTPS for release builds.
+- [ ] `EXPO_PUBLIC_COMMUNITY_UGC` stays unset for the first release (hides
+      reviews + Q&A). It is inlined at build time, so enabling UGC later needs a
+      **rebuild** — flip it together with the server's `COMMUNITY_UGC_ENABLED`
+      after legal sign-off.
 - [ ] App-store submission (once device QA passes): App Store + Play Console
       listings, screenshots, **privacy labels / Data Safety form** (location used
       on-device only; account email; push token), age rating, and an EAS

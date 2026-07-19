@@ -13,6 +13,7 @@ import { ClaimButton } from '@/components/claim-button';
 import { AnswerForm, AskQuestionForm } from '@/components/qa-forms';
 import { listPublishedReviews } from '@/server/services/reviews';
 import { listPublishedQABySlug } from '@/server/services/qa';
+import { communityUgcEnabled } from '@/lib/flags';
 
 export const dynamic = 'force-dynamic';
 
@@ -72,6 +73,7 @@ export default async function PlacePage({
     listPublishedQABySlug(place.slug),
   ]);
   const questions = qa ?? [];
+  const ugc = communityUgcEnabled(); // reviews + Q&A behind the legal gate
 
   const name = resolveI18n(place.name as never, locale);
   const thaiName = (place.name as Record<string, string>).th;
@@ -200,6 +202,7 @@ export default async function PlacePage({
         </section>
       )}
 
+      {ugc && (
       <section id="reviews">
         <h2 className="mb-3 font-semibold">{t('review.title')}</h2>
         <div className="mb-4">
@@ -235,7 +238,9 @@ export default async function PlacePage({
           </ul>
         )}
       </section>
+      )}
 
+      {ugc && (
       <section id="qa">
         <h2 className="mb-2 font-semibold">{t('qa.title')}</h2>
         <p className="mb-3 text-xs opacity-70">{t('qa.guidelines')}</p>
@@ -273,6 +278,7 @@ export default async function PlacePage({
         )}
         <p className="mt-3 text-xs opacity-60">{t('qa.disclaimer')}</p>
       </section>
+      )}
 
       <footer className="border-t pt-3 text-xs opacity-60">
         {place.lastVerifiedAt && (

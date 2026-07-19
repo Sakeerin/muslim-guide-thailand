@@ -12,6 +12,7 @@ import { ReviewForm } from '@/components/ReviewForm';
 import { ClaimButton } from '@/components/ClaimButton';
 import { QASection } from '@/components/QASection';
 import { ErrorState, LoadingState } from '@/components/states';
+import { COMMUNITY_UGC_ENABLED } from '@/lib/flags';
 import { colors, radius, space } from '@/lib/theme';
 
 function ActionButton({ label, onPress }: { label: string; onPress: () => void }) {
@@ -39,7 +40,13 @@ export default function PlaceScreen() {
     (signal) => getPlace(String(slug), signal),
     [slug],
   );
-  const reviews = useAsync((signal) => getPlaceReviews(String(slug), signal), [slug]);
+  // Skip the reviews fetch entirely when UGC is gated off — the section is
+  // hidden anyway, and the write APIs would 403.
+  const reviews = useAsync(
+    (signal) =>
+      COMMUNITY_UGC_ENABLED ? getPlaceReviews(String(slug), signal) : Promise.resolve({ reviews: [] }),
+    [slug],
+  );
 
   if (loading) return <LoadingState />;
   if (error || !data) return <ErrorState onRetry={reload} />;
@@ -83,30 +90,34 @@ export default function PlaceScreen() {
         </View>
       ) : null}
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>{t('review.title')}</Text>
-        <ReviewForm placeId={place.id} locale={locale} onSubmitted={reviews.reload} />
+      {COMMUNITY_UGC_ENABLED ? (
+        <>
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>{t('review.title')}</Text>
+            <ReviewForm placeId={place.id} locale={locale} onSubmitted={reviews.reload} />
 
-        {reviewList.length > 0 ? (
-          <>
-            <Text style={styles.disclaimer}>{t('review.disclaimer')}</Text>
-            {reviewList.map((r) => (
-              <View key={r.id} style={styles.reviewCard}>
-                <View style={styles.reviewHead}>
-                  <Text style={styles.reviewAuthor}>{r.authorName}</Text>
-                  <Stars rating={r.rating} />
-                </View>
-                {r.body ? <Text style={styles.reviewBody}>{r.body}</Text> : null}
-                <Text style={styles.reviewDate}>{r.createdAt.slice(0, 10)}</Text>
-              </View>
-            ))}
-          </>
-        ) : reviews.loading ? null : (
-          <Text style={styles.muted}>{t('review.empty')}</Text>
-        )}
-      </View>
+            {reviewList.length > 0 ? (
+              <>
+                <Text style={styles.disclaimer}>{t('review.disclaimer')}</Text>
+                {reviewList.map((r) => (
+                  <View key={r.id} style={styles.reviewCard}>
+                    <View style={styles.reviewHead}>
+                      <Text style={styles.reviewAuthor}>{r.authorName}</Text>
+                      <Stars rating={r.rating} />
+                    </View>
+                    {r.body ? <Text style={styles.reviewBody}>{r.body}</Text> : null}
+                    <Text style={styles.reviewDate}>{r.createdAt.slice(0, 10)}</Text>
+                  </View>
+                ))}
+              </>
+            ) : reviews.loading ? null : (
+              <Text style={styles.muted}>{t('review.empty')}</Text>
+            )}
+          </View>
 
-      <QASection slug={place.slug} placeId={place.id} locale={locale} />
+          <QASection slug={place.slug} placeId={place.id} locale={locale} />
+        </>
+      ) : null}
 
       {!place.ownerUserId ? (
         <View style={styles.footer}>
