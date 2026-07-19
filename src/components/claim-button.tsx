@@ -4,17 +4,19 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { useSession } from '@/lib/auth-client';
+import { errorMessageKey } from '@/lib/api-errors';
 
-type State = 'idle' | 'open' | 'submitting' | 'sent' | 'error';
+type State = 'idle' | 'open' | 'submitting' | 'sent' | 'claimed';
 
 /** "Own this place? Claim it" — login-gated claim form on the place page. */
 export function ClaimButton({ slug }: { slug: string }) {
   const t = useTranslations('merchant');
-  const tAuth = useTranslations('auth');
+  const tErr = useTranslations('errors');
   const { data: session, isPending } = useSession();
   const [state, setState] = useState<State>('idle');
   const [contact, setContact] = useState('');
   const [message, setMessage] = useState('');
+  const [errorKey, setErrorKey] = useState<string | null>(null);
 
   if (isPending) return null;
 
@@ -30,7 +32,12 @@ export function ClaimButton({ slug }: { slug: string }) {
     return <p className="text-emerald-700">{t('claimSent')}</p>;
   }
 
-  if (state !== 'open' && state !== 'submitting' && state !== 'error') {
+  // Someone claimed it between page load and submit — say so instead of erroring.
+  if (state === 'claimed') {
+    return <p className="opacity-70">{t('alreadyClaimed')}</p>;
+  }
+
+  if (state !== 'open' && state !== 'submitting') {
     return (
       <button onClick={() => setState('open')} className="underline">
         {t('claimThisPlace')}
@@ -41,15 +48,27 @@ export function ClaimButton({ slug }: { slug: string }) {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setState('submitting');
+    setErrorKey(null);
     try {
       const res = await fetch(`/api/v1/places/${slug}/claim`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contact, message: message || undefined }),
       });
-      setState(res.ok ? 'sent' : 'error');
+      if (res.ok) {
+        setState('sent');
+        return;
+      }
+      const json = await res.json().catch(() => null);
+      if (json?.error?.code === 'already_claimed') {
+        setState('claimed');
+        return;
+      }
+      setErrorKey(errorMessageKey(json?.error?.code));
+      setState('open');
     } catch {
-      setState('error');
+      setErrorKey('network');
+      setState('open');
     }
   };
 
@@ -71,7 +90,7 @@ export function ClaimButton({ slug }: { slug: string }) {
         rows={2}
         className="rounded border bg-background px-2 py-1"
       />
-      {state === 'error' && <p className="text-red-600">{tAuth('signUpError')}</p>}
+      {errorKey && <p className="text-red-600">{tErr(errorKey)}</p>}
       <button
         type="submit"
         disabled={state === 'submitting'}
