@@ -231,5 +231,24 @@
     "validation": "Silakan periksa data yang Anda masukkan dan coba lagi.",
     "network": "Tidak dapat menghubungi server. Silakan periksa koneksi Anda dan coba lagi.",
     "generic": "Terjadi kesalahan. Silakan coba lagi."
+  },
+  "takedown": {
+    "intro": "Jika Anda yakin konten di situs ini melanggar hukum atau melanggar hak Anda, silakan kirim formulir ini. Tim kami meninjau setiap permintaan dalam waktu 24 jam, sesuai peraturan MDES Thailand.",
+    "contentType": "Jenis konten",
+    "typePlace": "Halaman tempat",
+    "typeMedia": "Foto",
+    "typeReview": "Ulasan",
+    "reporting": "Anda melaporkan: {type}",
+    "contentId": "ID konten",
+    "contentIdHint": "Tidak yakin? Gunakan tautan “Laporkan” pada tempat, ulasan, atau foto terkait dan ini akan terisi otomatis.",
+    "requesterName": "Nama Anda (opsional)",
+    "requesterContact": "Kontak (email atau telepon)",
+    "reason": "Alasan / dasar hukum",
+    "affirm": "Saya menyatakan bahwa informasi di atas benar.",
+    "submit": "Kirim permintaan",
+    "successTitle": "Permintaan diterima",
+    "success": "Terima kasih. Tim kami akan meninjau permintaan Anda dalam waktu 24 jam, sesuai peraturan MDES Thailand, dan mungkin menghubungi Anda melalui detail yang Anda berikan.",
+    "error": "Kami tidak dapat mengirim permintaan Anda. Silakan periksa kolom yang wajib diisi dan coba lagi.",
+    "reportListing": "Laporkan tempat ini"
   }
 }

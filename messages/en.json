@@ -231,5 +231,24 @@
     "validation": "Please check what you entered and try again.",
     "network": "Couldn't reach the server. Check your connection and try again.",
     "generic": "Something went wrong. Please try again."
+  },
+  "takedown": {
+    "intro": "If you believe content on this site is unlawful or infringes your rights, submit this form. Our team reviews every request within 24 hours, as required by Thailand's MDES regulations.",
+    "contentType": "Content type",
+    "typePlace": "Place page",
+    "typeMedia": "Photo",
+    "typeReview": "Review",
+    "reporting": "You are reporting: {type}",
+    "contentId": "Content ID",
+    "contentIdHint": "Not sure? Use the “Report” link on the specific place, review, or photo and this is filled in for you.",
+    "requesterName": "Your name (optional)",
+    "requesterContact": "Contact (email or phone)",
+    "reason": "Reason / legal basis",
+    "affirm": "I affirm the information above is truthful.",
+    "submit": "Submit request",
+    "successTitle": "Request received",
+    "success": "Thank you. Our team will review your request within 24 hours, as required by Thai MDES regulations, and may contact you at the details you provided.",
+    "error": "We couldn’t submit your request. Please check the required fields and try again.",
+    "reportListing": "Report this listing"
   }
 }

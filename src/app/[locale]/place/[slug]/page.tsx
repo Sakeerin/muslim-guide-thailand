@@ -209,12 +209,7 @@ export default async function PlacePage({
           <ReviewForm placeId={place.id} />
         </div>
         {publishedReviews.length > 0 && (
-          <p className="mb-3 text-xs opacity-60">
-            {t('review.disclaimer')}{' '}
-            <a href={`/${locale}/legal/takedown`} className="underline">
-              {t('review.reportReview')}
-            </a>
-          </p>
+          <p className="mb-3 text-xs opacity-60">{t('review.disclaimer')}</p>
         )}
         {publishedReviews.length === 0 ? (
           <p className="text-sm opacity-60">{t('review.empty')}</p>
@@ -230,9 +225,17 @@ export default async function PlacePage({
                   </span>
                 </div>
                 {r.body && <p className="mt-1 text-sm opacity-80">{r.body}</p>}
-                <p className="mt-1 text-xs opacity-50">
-                  {format.dateTime(r.createdAt, { dateStyle: 'medium' })}
-                </p>
+                <div className="mt-1 flex items-center justify-between gap-2">
+                  <p className="text-xs opacity-50">
+                    {format.dateTime(r.createdAt, { dateStyle: 'medium' })}
+                  </p>
+                  <a
+                    href={`/${locale}/legal/takedown?type=review&id=${r.id}`}
+                    className="text-xs underline opacity-50 hover:opacity-80"
+                  >
+                    {t('review.reportReview')}
+                  </a>
+                </div>
               </li>
             ))}
           </ul>
@@ -289,6 +292,14 @@ export default async function PlacePage({
           </p>
         )}
         <p>{t('place.dataSource', { source: place.dataSource })}</p>
+        <p className="mt-2">
+          <a
+            href={`/${locale}/legal/takedown?type=place&id=${place.id}`}
+            className="underline hover:opacity-80"
+          >
+            {t('takedown.reportListing')}
+          </a>
+        </p>
         {!place.ownerUserId && (
           <div className="mt-2">
             <ClaimButton slug={place.slug} />
