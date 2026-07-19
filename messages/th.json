@@ -261,6 +261,20 @@
       "requester": "ผู้ร้อง: {name} ({contact})",
       "hideNow": "ซ่อนเนื้อหาทันที (กู้คืนได้)",
       "empty": "ไม่มีคำร้องค้าง — SLA compliance 100%"
+    },
+    "nav": {
+      "home": "หลังบ้าน",
+      "places": "สถานที่",
+      "verification": "คิวตรวจสอบ",
+      "certificates": "ใบรับรอง",
+      "import": "นำเข้า",
+      "featured": "สนับสนุน",
+      "announce": "ประกาศ",
+      "reviews": "คิวรีวิว",
+      "qa": "คิวถาม-ตอบ",
+      "merchant": "เจ้าของร้าน",
+      "submissions": "คิวรายงาน",
+      "takedowns": "Takedown (24 ชม.)"
     }
   }
 }

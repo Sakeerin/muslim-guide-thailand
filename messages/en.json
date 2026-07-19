@@ -261,6 +261,20 @@
       "requester": "Requester: {name} ({contact})",
       "hideNow": "Hide content now (reversible)",
       "empty": "No open requests — 100% SLA compliance"
+    },
+    "nav": {
+      "home": "Admin",
+      "places": "Places",
+      "verification": "Verification",
+      "certificates": "Certificates",
+      "import": "Import",
+      "featured": "Featured",
+      "announce": "Announcements",
+      "reviews": "Reviews",
+      "qa": "Q&A",
+      "merchant": "Merchants",
+      "submissions": "Reports",
+      "takedowns": "Takedowns (24h)"
     }
   }
 }
