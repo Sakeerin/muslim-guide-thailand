@@ -250,5 +250,17 @@
     "success": "Terima kasih. Tim kami akan meninjau permintaan Anda dalam waktu 24 jam, sesuai peraturan MDES Thailand, dan mungkin menghubungi Anda melalui detail yang Anda berikan.",
     "error": "Kami tidak dapat mengirim permintaan Anda. Silakan periksa kolom yang wajib diisi dan coba lagi.",
     "reportListing": "Laporkan tempat ini"
+  },
+  "admin": {
+    "takedowns": {
+      "title": "Antrean takedown — SLA 24 jam ({count})",
+      "note": "Berdasarkan peraturan MDES, permintaan harus ditindaklanjuti dalam 24 jam sejak diterima. Jika Anda belum bisa memutuskan tepat waktu, selalu “sembunyikan sementara” dulu (dapat dipulihkan). Setiap tindakan dicatat dalam log audit.",
+      "hoursLeft": "sisa {hours} jam",
+      "receivedAt": "Diterima {date}",
+      "legalRef": "Dasar hukum: {ref}",
+      "requester": "Pemohon: {name} ({contact})",
+      "hideNow": "Sembunyikan konten sekarang (dapat dipulihkan)",
+      "empty": "Tidak ada permintaan terbuka — kepatuhan SLA 100%"
+    }
   }
 }
