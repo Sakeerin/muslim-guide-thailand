@@ -4,6 +4,7 @@ import { Link } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import type { QAResult } from '@/types/api';
 import { ApiRequestError } from '@/lib/api/envelope';
+import { errorMessageKey } from '@/lib/api/error-message';
 import { getPlaceQuestions, postAnswer, postQuestion } from '@/lib/api/qa';
 import { recordReviewConsent } from '@/lib/api/reviews';
 import { useSession } from '@/lib/auth/client';
@@ -80,7 +81,7 @@ function QAForm({
         setErrorKey(null);
         return;
       }
-      setErrorKey('qa.submitError');
+      setErrorKey(errorMessageKey(e));
     }
   }
 

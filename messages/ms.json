@@ -153,10 +153,8 @@
     "empty": "Belum ada ulasan — jadilah yang pertama.",
     "disclaimer": "Ulasan ialah pendapat peribadi pengguna, bukan Muslim Guide Thailand. Jumpa kandungan tak sesuai? Laporkan.",
     "reportReview": "Lapor ulasan ini",
-    "reported": "Terima kasih, pasukan kami akan menyemak.",
-    "submitError": "Tidak dapat menghantar ulasan anda. Sila cuba lagi."
-  }
-,
+    "reported": "Terima kasih, pasukan kami akan menyemak."
+  },
   "merchant": {
     "claimThisPlace": "Pemilik tempat ini? Tuntut",
     "claimTitle": "Tuntut penyenaraian ini",
@@ -166,7 +164,6 @@
     "submitClaim": "Hantar tuntutan",
     "claimSent": "Terima kasih — pasukan kami akan menyemak tuntutan anda.",
     "alreadyClaimed": "Tempat ini telah dituntut.",
-    "claimError": "Tidak dapat menghantar tuntutan anda. Sila cuba lagi.",
     "portalTitle": "Tempat saya",
     "portalEmpty": "Anda belum menguruskan mana-mana tempat. Tuntut tempat dari halamannya.",
     "editListing": "Sunting penyenaraian",
@@ -216,8 +213,7 @@
     "loginToAsk": "Log masuk untuk bertanya",
     "loginToAnswer": "Log masuk untuk menjawab",
     "guidelines": "Soalan dan jawapan adalah tentang pengalaman anda. Dakwaan tentang status halal atau tuduhan serius disemak sebelum diterbitkan — untuk kebimbangan halal sila gunakan \"Laporkan maklumat\".",
-    "disclaimer": "Jawapan ialah pendapat peribadi pengguna, bukan Muslim Guide Thailand.",
-    "submitError": "Sesuatu tidak kena. Sila cuba lagi."
+    "disclaimer": "Jawapan ialah pendapat peribadi pengguna, bukan Muslim Guide Thailand."
   },
   "footer": {
     "privacy": "Dasar privasi",
@@ -226,5 +222,12 @@
     "contact": "Hubungi kami",
     "osmAttribution": "Sebahagian data lokasi © penyumbang OpenStreetMap (ODbL)",
     "copyright": "© {year} Muslim Guide Thailand"
+  },
+  "errors": {
+    "rateLimited": "Anda membuat permintaan terlalu kerap. Sila tunggu sebentar dan cuba lagi.",
+    "featureDisabled": "Ciri ini tidak tersedia buat masa ini. Sila cuba semula kemudian.",
+    "validation": "Sila semak maklumat yang anda masukkan dan cuba lagi.",
+    "network": "Tidak dapat menghubungi pelayan. Sila semak sambungan anda dan cuba lagi.",
+    "generic": "Sesuatu tidak kena. Sila cuba lagi."
   }
 }

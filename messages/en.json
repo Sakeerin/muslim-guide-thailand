@@ -153,10 +153,8 @@
     "empty": "No reviews yet — be the first.",
     "disclaimer": "Reviews are the personal opinions of users, not of Muslim Guide Thailand. Found something inappropriate? Report it.",
     "reportReview": "Report this review",
-    "reported": "Thank you, our team will review this.",
-    "submitError": "Couldn't post your review. Please try again."
-  }
-,
+    "reported": "Thank you, our team will review this."
+  },
   "merchant": {
     "claimThisPlace": "Own this place? Claim it",
     "claimTitle": "Claim this listing",
@@ -166,7 +164,6 @@
     "submitClaim": "Submit claim",
     "claimSent": "Thank you — our team will review your claim.",
     "alreadyClaimed": "This place has already been claimed.",
-    "claimError": "Couldn't submit your claim. Please try again.",
     "portalTitle": "My places",
     "portalEmpty": "You don't manage any places yet. Claim a place from its page.",
     "editListing": "Edit listing",
@@ -216,8 +213,7 @@
     "loginToAsk": "Sign in to ask a question",
     "loginToAnswer": "Sign in to answer",
     "guidelines": "Questions and answers are about your experience. Claims about a place's halal status or other serious allegations are reviewed before publishing — for halal concerns please use \"Report information\" instead.",
-    "disclaimer": "Answers are the personal opinions of users, not of Muslim Guide Thailand.",
-    "submitError": "Something went wrong. Please try again."
+    "disclaimer": "Answers are the personal opinions of users, not of Muslim Guide Thailand."
   },
   "footer": {
     "privacy": "Privacy policy",
@@ -226,5 +222,12 @@
     "contact": "Contact us",
     "osmAttribution": "Some location data © OpenStreetMap contributors (ODbL)",
     "copyright": "© {year} Muslim Guide Thailand"
+  },
+  "errors": {
+    "rateLimited": "You're doing that a bit too fast. Please wait a moment and try again.",
+    "featureDisabled": "This isn't available right now. Please check back later.",
+    "validation": "Please check what you entered and try again.",
+    "network": "Couldn't reach the server. Check your connection and try again.",
+    "generic": "Something went wrong. Please try again."
   }
 }

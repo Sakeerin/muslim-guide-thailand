@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Link } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { ApiRequestError } from '@/lib/api/envelope';
+import { errorMessageKey } from '@/lib/api/error-message';
 import { postReview, recordReviewConsent } from '@/lib/api/reviews';
 import { useSession } from '@/lib/auth/client';
 import { colors, radius, space } from '@/lib/theme';
@@ -73,7 +74,7 @@ export function ReviewForm({
         setErrorKey(null);
         return;
       }
-      setErrorKey('review.submitError');
+      setErrorKey(errorMessageKey(e));
     }
   }
 

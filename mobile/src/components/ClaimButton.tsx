@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Link } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { ApiRequestError } from '@/lib/api/envelope';
+import { errorMessageKey } from '@/lib/api/error-message';
 import { claimPlace } from '@/lib/api/claims';
 import { useSession } from '@/lib/auth/client';
 import { colors, radius, space } from '@/lib/theme';
@@ -53,7 +54,7 @@ export function ClaimButton({ slug }: { slug: string }) {
   // state is 'open' or 'submitting'
   async function submit() {
     if (contact.trim().length < 3) {
-      setErrorKey('merchant.claimError');
+      setErrorKey('errors.validation');
       return;
     }
     setState('submitting');
@@ -66,7 +67,7 @@ export function ClaimButton({ slug }: { slug: string }) {
         setState('claimed');
         return;
       }
-      setErrorKey('merchant.claimError');
+      setErrorKey(errorMessageKey(e));
       setState('open');
     }
   }

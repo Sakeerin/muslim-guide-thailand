@@ -153,10 +153,8 @@
     "empty": "Belum ada ulasan — jadilah yang pertama.",
     "disclaimer": "Ulasan adalah pendapat pribadi pengguna, bukan Muslim Guide Thailand. Menemukan konten tidak pantas? Laporkan.",
     "reportReview": "Laporkan ulasan ini",
-    "reported": "Terima kasih, tim kami akan meninjau.",
-    "submitError": "Tidak dapat mengirim ulasan Anda. Silakan coba lagi."
-  }
-,
+    "reported": "Terima kasih, tim kami akan meninjau."
+  },
   "merchant": {
     "claimThisPlace": "Pemilik tempat ini? Klaim",
     "claimTitle": "Klaim listing ini",
@@ -166,7 +164,6 @@
     "submitClaim": "Kirim klaim",
     "claimSent": "Terima kasih — tim kami akan meninjau klaim Anda.",
     "alreadyClaimed": "Tempat ini sudah diklaim.",
-    "claimError": "Tidak dapat mengirim klaim Anda. Silakan coba lagi.",
     "portalTitle": "Tempat saya",
     "portalEmpty": "Anda belum mengelola tempat mana pun. Klaim tempat dari halamannya.",
     "editListing": "Edit listing",
@@ -216,8 +213,7 @@
     "loginToAsk": "Masuk untuk bertanya",
     "loginToAnswer": "Masuk untuk menjawab",
     "guidelines": "Tanya jawab adalah tentang pengalaman Anda. Klaim tentang status halal atau tuduhan serius ditinjau sebelum diterbitkan — untuk masalah halal gunakan \"Laporkan informasi\".",
-    "disclaimer": "Jawaban adalah pendapat pribadi pengguna, bukan Muslim Guide Thailand.",
-    "submitError": "Terjadi kesalahan. Silakan coba lagi."
+    "disclaimer": "Jawaban adalah pendapat pribadi pengguna, bukan Muslim Guide Thailand."
   },
   "footer": {
     "privacy": "Kebijakan privasi",
@@ -226,5 +222,12 @@
     "contact": "Hubungi kami",
     "osmAttribution": "Sebagian data lokasi © kontributor OpenStreetMap (ODbL)",
     "copyright": "© {year} Muslim Guide Thailand"
+  },
+  "errors": {
+    "rateLimited": "Anda melakukan ini terlalu sering. Silakan tunggu sebentar dan coba lagi.",
+    "featureDisabled": "Fitur ini belum tersedia saat ini. Silakan periksa kembali nanti.",
+    "validation": "Silakan periksa data yang Anda masukkan dan coba lagi.",
+    "network": "Tidak dapat menghubungi server. Silakan periksa koneksi Anda dan coba lagi.",
+    "generic": "Terjadi kesalahan. Silakan coba lagi."
   }
 }
