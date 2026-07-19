@@ -134,7 +134,7 @@
     "myReviews": "My reviews",
     "noAccount": "No account yet? Create one",
     "haveAccount": "Already have an account? Sign in",
-    "consent": "I agree to the Privacy Policy and understand my reviews will be published publicly.",
+    "consent": "I agree to the Privacy Policy and understand my reviews, questions, and answers will be shown publicly with my name.",
     "consentRequired": "Please accept to continue",
     "invalidCredentials": "Incorrect email or password",
     "signUpError": "Could not create the account",
@@ -153,7 +153,8 @@
     "empty": "No reviews yet — be the first.",
     "disclaimer": "Reviews are the personal opinions of users, not of Muslim Guide Thailand. Found something inappropriate? Report it.",
     "reportReview": "Report this review",
-    "reported": "Thank you, our team will review this."
+    "reported": "Thank you, our team will review this.",
+    "consent": "I agree to the Privacy Policy and understand my review will be shown publicly with my name."
   },
   "merchant": {
     "claimThisPlace": "Own this place? Claim it",
@@ -213,7 +214,8 @@
     "loginToAsk": "Sign in to ask a question",
     "loginToAnswer": "Sign in to answer",
     "guidelines": "Questions and answers are about your experience. Claims about a place's halal status or other serious allegations are reviewed before publishing — for halal concerns please use \"Report information\" instead.",
-    "disclaimer": "Answers are the personal opinions of users, not of Muslim Guide Thailand."
+    "disclaimer": "Answers are the personal opinions of users, not of Muslim Guide Thailand.",
+    "consent": "I agree to the Privacy Policy and understand my question or answer will be shown publicly with my name."
   },
   "footer": {
     "privacy": "Privacy policy",
