@@ -261,6 +261,20 @@
       "requester": "Pemohon: {name} ({contact})",
       "hideNow": "Sembunyikan konten sekarang (dapat dipulihkan)",
       "empty": "Tidak ada permintaan terbuka — kepatuhan SLA 100%"
+    },
+    "nav": {
+      "home": "Admin",
+      "places": "Tempat",
+      "verification": "Verifikasi",
+      "certificates": "Sertifikat",
+      "import": "Impor",
+      "featured": "Bersponsor",
+      "announce": "Pengumuman",
+      "reviews": "Ulasan",
+      "qa": "Tanya jawab",
+      "merchant": "Pedagang",
+      "submissions": "Laporan",
+      "takedowns": "Takedown (24j)"
     }
   }
 }

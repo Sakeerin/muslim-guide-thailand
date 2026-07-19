@@ -261,6 +261,20 @@
       "requester": "Pemohon: {name} ({contact})",
       "hideNow": "Sembunyikan kandungan sekarang (boleh dipulihkan)",
       "empty": "Tiada permintaan tertunggak — pematuhan SLA 100%"
+    },
+    "nav": {
+      "home": "Pentadbir",
+      "places": "Tempat",
+      "verification": "Pengesahan",
+      "certificates": "Sijil",
+      "import": "Import",
+      "featured": "Ditaja",
+      "announce": "Pengumuman",
+      "reviews": "Ulasan",
+      "qa": "Soal jawab",
+      "merchant": "Peniaga",
+      "submissions": "Laporan",
+      "takedowns": "Takedown (24j)"
     }
   }
 }
