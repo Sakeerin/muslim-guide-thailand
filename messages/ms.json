@@ -231,5 +231,24 @@
     "validation": "Sila semak maklumat yang anda masukkan dan cuba lagi.",
     "network": "Tidak dapat menghubungi pelayan. Sila semak sambungan anda dan cuba lagi.",
     "generic": "Sesuatu tidak kena. Sila cuba lagi."
+  },
+  "takedown": {
+    "intro": "Jika anda percaya kandungan di laman ini menyalahi undang-undang atau melanggar hak anda, sila hantar borang ini. Pasukan kami menyemak setiap permintaan dalam masa 24 jam, seperti yang dikehendaki oleh peraturan MDES Thailand.",
+    "contentType": "Jenis kandungan",
+    "typePlace": "Halaman tempat",
+    "typeMedia": "Foto",
+    "typeReview": "Ulasan",
+    "reporting": "Anda melaporkan: {type}",
+    "contentId": "ID kandungan",
+    "contentIdHint": "Tidak pasti? Gunakan pautan “Lapor” pada tempat, ulasan atau foto berkenaan dan ini akan diisi untuk anda.",
+    "requesterName": "Nama anda (pilihan)",
+    "requesterContact": "Hubungan (e-mel atau telefon)",
+    "reason": "Sebab / asas undang-undang",
+    "affirm": "Saya mengesahkan maklumat di atas adalah benar.",
+    "submit": "Hantar permintaan",
+    "successTitle": "Permintaan diterima",
+    "success": "Terima kasih. Pasukan kami akan menyemak permintaan anda dalam masa 24 jam, seperti yang dikehendaki oleh peraturan MDES Thailand, dan mungkin menghubungi anda melalui butiran yang diberikan.",
+    "error": "Kami tidak dapat menghantar permintaan anda. Sila semak medan yang diperlukan dan cuba lagi.",
+    "reportListing": "Laporkan tempat ini"
   }
 }
