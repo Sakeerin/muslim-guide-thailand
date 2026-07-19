@@ -106,7 +106,7 @@ function QAForm({
           accessibilityState={{ checked: consent }}
         >
           <Text style={styles.checkbox}>{consent ? '☑' : '☐'}</Text>
-          <Text style={styles.consentText}>{t('auth.consent')}</Text>
+          <Text style={styles.consentText}>{t('qa.consent')}</Text>
         </Pressable>
       ) : null}
       {errorKey ? <Text style={styles.error}>{t(errorKey)}</Text> : null}

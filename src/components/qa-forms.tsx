@@ -118,7 +118,7 @@ function QaForm({
             }}
             className="mt-1"
           />
-          <span>{tMsg('auth.consent')}</span>
+          <span>{tMsg('qa.consent')}</span>
         </label>
       )}
       {errorKey && <p className="text-sm text-red-600">{tMsg(errorKey)}</p>}

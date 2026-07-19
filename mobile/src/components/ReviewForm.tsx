@@ -111,7 +111,7 @@ export function ReviewForm({
           accessibilityState={{ checked: consent }}
         >
           <Text style={styles.checkbox}>{consent ? '☑' : '☐'}</Text>
-          <Text style={styles.consentText}>{t('auth.consent')}</Text>
+          <Text style={styles.consentText}>{t('review.consent')}</Text>
         </Pressable>
       ) : null}
 

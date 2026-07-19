@@ -134,7 +134,7 @@
     "myReviews": "Ulasan saya",
     "noAccount": "Belum punya akun? Daftar",
     "haveAccount": "Sudah punya akun? Masuk",
-    "consent": "Saya menyetujui Kebijakan Privasi dan memahami ulasan saya akan dipublikasikan secara publik.",
+    "consent": "Saya menyetujui Kebijakan Privasi dan memahami bahwa ulasan, pertanyaan, dan jawaban saya akan ditampilkan secara publik beserta nama saya.",
     "consentRequired": "Mohon setujui untuk melanjutkan",
     "invalidCredentials": "Email atau kata sandi salah",
     "signUpError": "Tidak dapat membuat akun",
@@ -153,7 +153,8 @@
     "empty": "Belum ada ulasan — jadilah yang pertama.",
     "disclaimer": "Ulasan adalah pendapat pribadi pengguna, bukan Muslim Guide Thailand. Menemukan konten tidak pantas? Laporkan.",
     "reportReview": "Laporkan ulasan ini",
-    "reported": "Terima kasih, tim kami akan meninjau."
+    "reported": "Terima kasih, tim kami akan meninjau.",
+    "consent": "Saya menyetujui Kebijakan Privasi dan memahami bahwa ulasan saya akan ditampilkan secara publik beserta nama saya."
   },
   "merchant": {
     "claimThisPlace": "Pemilik tempat ini? Klaim",
@@ -213,7 +214,8 @@
     "loginToAsk": "Masuk untuk bertanya",
     "loginToAnswer": "Masuk untuk menjawab",
     "guidelines": "Tanya jawab adalah tentang pengalaman Anda. Klaim tentang status halal atau tuduhan serius ditinjau sebelum diterbitkan — untuk masalah halal gunakan \"Laporkan informasi\".",
-    "disclaimer": "Jawaban adalah pendapat pribadi pengguna, bukan Muslim Guide Thailand."
+    "disclaimer": "Jawaban adalah pendapat pribadi pengguna, bukan Muslim Guide Thailand.",
+    "consent": "Saya menyetujui Kebijakan Privasi dan memahami bahwa pertanyaan atau jawaban saya akan ditampilkan secara publik beserta nama saya."
   },
   "footer": {
     "privacy": "Kebijakan privasi",
