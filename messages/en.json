@@ -250,5 +250,17 @@
     "success": "Thank you. Our team will review your request within 24 hours, as required by Thai MDES regulations, and may contact you at the details you provided.",
     "error": "We couldn’t submit your request. Please check the required fields and try again.",
     "reportListing": "Report this listing"
+  },
+  "admin": {
+    "takedowns": {
+      "title": "Takedown queue — 24h SLA ({count})",
+      "note": "Under MDES regulations, requests must be actioned within 24 hours of receipt. If you can’t adjudicate in time, always “hide temporarily” first (reversible). Every action is recorded in the audit log.",
+      "hoursLeft": "{hours}h left",
+      "receivedAt": "Received {date}",
+      "legalRef": "Legal basis: {ref}",
+      "requester": "Requester: {name} ({contact})",
+      "hideNow": "Hide content now (reversible)",
+      "empty": "No open requests — 100% SLA compliance"
+    }
   }
 }

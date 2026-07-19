@@ -250,5 +250,17 @@
     "success": "Terima kasih. Pasukan kami akan menyemak permintaan anda dalam masa 24 jam, seperti yang dikehendaki oleh peraturan MDES Thailand, dan mungkin menghubungi anda melalui butiran yang diberikan.",
     "error": "Kami tidak dapat menghantar permintaan anda. Sila semak medan yang diperlukan dan cuba lagi.",
     "reportListing": "Laporkan tempat ini"
+  },
+  "admin": {
+    "takedowns": {
+      "title": "Baris gilir takedown — SLA 24 jam ({count})",
+      "note": "Di bawah peraturan MDES, permintaan mesti ditindak dalam masa 24 jam selepas diterima. Jika anda tidak dapat memutuskan tepat pada masanya, sentiasa “sembunyikan sementara” dahulu (boleh dipulihkan). Setiap tindakan direkodkan dalam log audit.",
+      "hoursLeft": "baki {hours} jam",
+      "receivedAt": "Diterima {date}",
+      "legalRef": "Asas undang-undang: {ref}",
+      "requester": "Pemohon: {name} ({contact})",
+      "hideNow": "Sembunyikan kandungan sekarang (boleh dipulihkan)",
+      "empty": "Tiada permintaan tertunggak — pematuhan SLA 100%"
+    }
   }
 }
