@@ -11,7 +11,8 @@ type State = 'idle' | 'open' | 'submitting' | 'sent' | 'claimed';
 /** "Own this place? Claim it" — login-gated claim form on the place page. */
 export function ClaimButton({ slug }: { slug: string }) {
   const t = useTranslations('merchant');
-  const tErr = useTranslations('errors');
+  // root translator: errorKey is a full dotted path (errors.*)
+  const tMsg = useTranslations();
   const { data: session, isPending } = useSession();
   const [state, setState] = useState<State>('idle');
   const [contact, setContact] = useState('');
@@ -67,7 +68,7 @@ export function ClaimButton({ slug }: { slug: string }) {
       setErrorKey(errorMessageKey(json?.error?.code));
       setState('open');
     } catch {
-      setErrorKey('network');
+      setErrorKey('errors.network');
       setState('open');
     }
   };
@@ -90,7 +91,7 @@ export function ClaimButton({ slug }: { slug: string }) {
         rows={2}
         className="rounded border bg-background px-2 py-1"
       />
-      {errorKey && <p className="text-red-600">{tErr(errorKey)}</p>}
+      {errorKey && <p className="text-red-600">{tMsg(errorKey)}</p>}
       <button
         type="submit"
         disabled={state === 'submitting'}

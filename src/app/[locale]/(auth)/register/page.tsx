@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { Link } from '@/i18n/navigation';
 import { authClient } from '@/lib/auth-client';
+import { recordReviewConsent } from '@/lib/review-consent';
 
 export default function RegisterPage() {
   const t = useTranslations('auth');
@@ -32,11 +33,7 @@ export default function RegisterPage() {
     }
     // record PDPA consent now that a session exists (best-effort)
     try {
-      await fetch('/api/v1/account/consent', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ consents: ['privacy_policy', 'review_publication'] }),
-      });
+      await recordReviewConsent();
     } catch {
       /* consent logging is best-effort; account is created */
     }

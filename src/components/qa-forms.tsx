@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { Link, useRouter } from '@/i18n/navigation';
 import { useSession } from '@/lib/auth-client';
 import { errorMessageKey } from '@/lib/api-errors';
+import { recordReviewConsent } from '@/lib/review-consent';
 
 type State = 'idle' | 'submitting' | 'published' | 'held';
 
@@ -31,13 +32,17 @@ function QaForm({
   maxLength: number;
   rows?: number;
 }) {
-  const tErr = useTranslations('errors');
+  // root translator: errorKey is a full dotted path (errors.* or auth.*)
+  const tMsg = useTranslations();
   const locale = useLocale();
   const router = useRouter();
   const { data: session, isPending } = useSession();
   const [body, setBody] = useState('');
   const [state, setState] = useState<State>('idle');
   const [errorKey, setErrorKey] = useState<string | null>(null);
+  // Q&A shares the review_publication consent gate; grant it inline on 403.
+  const [needsConsent, setNeedsConsent] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   if (isPending) return null;
 
@@ -60,9 +65,14 @@ function QaForm({
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!body.trim()) return;
+    if (needsConsent && !consent) {
+      setErrorKey('auth.consentRequired');
+      return;
+    }
     setState('submitting');
     setErrorKey(null);
     try {
+      if (needsConsent) await recordReviewConsent();
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -71,6 +81,11 @@ function QaForm({
       const json = await res.json().catch(() => null);
       if (!res.ok) {
         setState('idle');
+        if (json?.error?.code === 'consent_required') {
+          setNeedsConsent(true);
+          setErrorKey(null);
+          return;
+        }
         setErrorKey(errorMessageKey(json?.error?.code));
         return;
       }
@@ -78,7 +93,7 @@ function QaForm({
       if (json.data.status === 'published') router.refresh();
     } catch {
       setState('idle');
-      setErrorKey('network');
+      setErrorKey('errors.network');
     }
   };
 
@@ -92,7 +107,21 @@ function QaForm({
         placeholder={placeholder}
         className="rounded-lg border bg-background px-3 py-2 text-sm"
       />
-      {errorKey && <p className="text-sm text-red-600">{tErr(errorKey)}</p>}
+      {needsConsent && (
+        <label className="flex items-start gap-2 text-sm">
+          <input
+            type="checkbox"
+            checked={consent}
+            onChange={(e) => {
+              setConsent(e.target.checked);
+              setErrorKey(null);
+            }}
+            className="mt-1"
+          />
+          <span>{tMsg('auth.consent')}</span>
+        </label>
+      )}
+      {errorKey && <p className="text-sm text-red-600">{tMsg(errorKey)}</p>}
       <button
         type="submit"
         disabled={state === 'submitting'}
