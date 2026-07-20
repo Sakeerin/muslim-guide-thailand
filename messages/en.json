@@ -310,6 +310,27 @@
       "publishStatus": "Publish status",
       "save": "Save",
       "fourEyesNote": "Rule: setting L1 (CICOT-certified) or L2 (Muslim-owned) status must go through the verification queue reviewed by someone else (4-eyes) — do it on the “Verification” page, not by publishing directly here."
+    },
+    "verification": {
+      "title": "Verification queue ({count})",
+      "note": "4-eyes rule: L1 (CICOT-certified) and L2 (Muslim-owned) status must be approved by someone other than the person who created the listing — the system rejects self-approval.",
+      "verified": "Approved and published",
+      "fourEyesError": "You created this listing — someone else must approve L1/L2 status (4-eyes).",
+      "halalStatus": "Halal status",
+      "method": "Verification method",
+      "approve": "Approve + publish",
+      "rejectPlaceholder": "Reason for sending back",
+      "reject": "Send back to draft",
+      "empty": "No listings awaiting verification",
+      "statusCicot": "L1 CICOT-certified",
+      "statusMuslimOwned": "L2 Muslim-owned",
+      "statusMuslimFriendly": "L3 Muslim-friendly",
+      "statusUnverified": "L4 Not yet verified",
+      "methodSiteVisit": "Site visit",
+      "methodPhone": "Phone call",
+      "methodDocument": "Document / certificate",
+      "methodRegistry": "Official registry",
+      "methodOwner": "Owner attestation"
     }
   }
 }
