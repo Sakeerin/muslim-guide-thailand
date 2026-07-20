@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { getFormOptions, getPlaceForEdit } from '@/server/services/admin-places';
 import { listCertificationsForPlace } from '@/server/services/certifications';
+import { getAdminLocale } from '@/server/admin-locale';
 import { PlaceForm } from '@/components/admin/place-form';
 import { submitForReviewAction } from '@/app/admin/(protected)/actions';
 
@@ -16,6 +18,8 @@ export default async function EditPlacePage({
 }) {
   const { id } = await params;
   const { error, saved } = await searchParams;
+  const locale = await getAdminLocale();
+  const t = await getTranslations({ locale, namespace: 'admin.places' });
 
   const [place, options] = await Promise.all([getPlaceForEdit(id), getFormOptions()]);
   if (!place) notFound();
@@ -25,30 +29,34 @@ export default async function EditPlacePage({
     <main className="flex flex-col gap-4">
       <div className="flex flex-wrap items-center gap-3">
         <Link href="/admin/places" className="text-sm underline">
-          ← สถานที่
+          ← {t('back')}
         </Link>
-        <h1 className="text-2xl font-bold">แก้ไข: {(place.name as Record<string, string>).th}</h1>
+        <h1 className="text-2xl font-bold">
+          {t('editTitle', { name: (place.name as Record<string, string>).th })}
+        </h1>
         <a
           href={`/th/place/${place.slug}`}
           target="_blank"
           rel="noreferrer"
           className="text-sm underline opacity-70"
         >
-          ดูหน้าเว็บ ↗
+          {t('viewPublic')} ↗
         </a>
       </div>
 
-      {saved && <p className="rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700">บันทึกแล้ว</p>}
-      {error && <p className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{decodeURIComponent(error)}</p>}
+      {saved && (
+        <p className="rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700">{t('saved')}</p>
+      )}
+      {error && (
+        <p className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{decodeURIComponent(error)}</p>
+      )}
 
       {place.status === 'draft' && (
         <form action={submitForReviewAction} className="rounded-lg border bg-foreground/5 p-3">
           <input type="hidden" name="id" value={place.id} />
-          <p className="mb-2 text-sm">
-            ส่งเข้าคิวตรวจสอบเพื่อเผยแพร่ (สถานะ L1/L2 ต้องได้รับการอนุมัติโดยผู้อื่น)
-          </p>
+          <p className="mb-2 text-sm">{t('submitReviewNote')}</p>
           <button className="rounded-lg border px-4 py-1.5 text-sm hover:bg-foreground/10">
-            ส่งเข้าคิวตรวจสอบ
+            {t('submitReview')}
           </button>
         </form>
       )}
@@ -56,12 +64,12 @@ export default async function EditPlacePage({
       <PlaceForm place={place} options={options} />
 
       <section className="rounded-lg border p-3">
-        <h2 className="mb-2 font-semibold">ใบรับรองฮาลาล</h2>
+        <h2 className="mb-2 font-semibold">{t('certsTitle')}</h2>
         {certs.length === 0 ? (
           <p className="text-sm opacity-60">
-            ยังไม่มีใบรับรอง — เพิ่มได้ที่หน้า{' '}
+            {t('certsEmpty')}{' '}
             <Link href="/admin/certificates" className="underline">
-              ใบรับรอง
+              {t('certsLink')}
             </Link>
           </p>
         ) : (
@@ -69,7 +77,7 @@ export default async function EditPlacePage({
             {certs.map((c) => (
               <li key={c.id}>
                 {c.certifyingBody} {c.certNumber ?? ''} — {c.status}
-                {c.expiresAt ? ` (หมดอายุ ${c.expiresAt})` : ''}
+                {c.expiresAt ? ` (${t('certExpires', { date: String(c.expiresAt) })})` : ''}
               </li>
             ))}
           </ul>
