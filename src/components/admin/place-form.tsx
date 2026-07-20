@@ -1,9 +1,12 @@
+import { getTranslations } from 'next-intl/server';
 import { savePlaceAction } from '@/app/admin/(protected)/actions';
+import { getAdminLocale } from '@/server/admin-locale';
 import type { getFormOptions, getPlaceForEdit } from '@/server/services/admin-places';
 
 type FormOptions = Awaited<ReturnType<typeof getFormOptions>>;
 type PlaceEdit = Awaited<ReturnType<typeof getPlaceForEdit>>;
 
+// Each locale's endonym — not translated (a language is always named in itself).
 const LOCALE_LABEL: Record<string, string> = {
   th: 'ไทย',
   en: 'English',
@@ -12,6 +15,7 @@ const LOCALE_LABEL: Record<string, string> = {
   ar: 'العربية',
 };
 
+// DB enum values — shown raw (they map 1:1 to stored values), not translated.
 const PLACE_TYPES = ['restaurant', 'mosque', 'prayer_room', 'hotel', 'attraction', 'shop', 'other'];
 const HALAL_STATUSES = ['unverified', 'muslim_friendly', 'muslim_owned', 'cicot_certified'];
 const HALAL_SOURCES = [
@@ -56,13 +60,15 @@ function i18nField(prefix: string, label: string, value?: Record<string, string>
   );
 }
 
-export function PlaceForm({
+export async function PlaceForm({
   place,
   options,
 }: {
   place: PlaceEdit;
   options: FormOptions;
 }) {
+  const locale = await getAdminLocale();
+  const t = await getTranslations({ locale, namespace: 'admin.places' });
   const selectedCats = new Set(place?.categorySlugs ?? []);
 
   return (
@@ -71,10 +77,10 @@ export function PlaceForm({
 
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
-          ประเภท
+          {t('type')}
           <select name="type" defaultValue={place?.type ?? 'restaurant'} className="rounded border bg-background px-2 py-1">
-            {PLACE_TYPES.map((t) => (
-              <option key={t} value={t}>{t}</option>
+            {PLACE_TYPES.map((ty) => (
+              <option key={ty} value={ty}>{ty}</option>
             ))}
           </select>
         </label>
@@ -85,14 +91,14 @@ export function PlaceForm({
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
-        {i18nField('name', 'ชื่อ', place?.name as Record<string, string> | undefined)}
-        {i18nField('description', 'คำอธิบาย', place?.description as Record<string, string> | undefined)}
-        {i18nField('address', 'ที่อยู่', place?.address as Record<string, string> | undefined)}
+        {i18nField('name', t('name'), place?.name as Record<string, string> | undefined)}
+        {i18nField('description', t('description'), place?.description as Record<string, string> | undefined)}
+        {i18nField('address', t('address'), place?.address as Record<string, string> | undefined)}
       </div>
 
       <div className="grid gap-4 sm:grid-cols-4">
         <label className="flex flex-col gap-1 text-sm">
-          เมือง
+          {t('city')}
           <select name="citySlug" defaultValue={place?.citySlug ?? ''} className="rounded border bg-background px-2 py-1">
             <option value="">—</option>
             {options.cities.map((c) => (
@@ -111,18 +117,18 @@ export function PlaceForm({
           <input name="lng" required type="number" step="any" defaultValue={place?.lng ?? ''} className="rounded border bg-background px-2 py-1" />
         </label>
         <label className="flex flex-col gap-1 text-sm">
-          ช่วงราคา (1–4)
+          {t('priceRange')}
           <input name="priceRange" type="number" min="1" max="4" defaultValue={place?.priceRange ?? ''} className="rounded border bg-background px-2 py-1" />
         </label>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <label className="flex flex-col gap-1 text-sm">
-          โทรศัพท์
+          {t('phone')}
           <input name="phone" defaultValue={place?.phone ?? ''} className="rounded border bg-background px-2 py-1" />
         </label>
         <label className="flex flex-col gap-1 text-sm">
-          เว็บไซต์
+          {t('website')}
           <input name="website" defaultValue={place?.website ?? ''} className="rounded border bg-background px-2 py-1" />
         </label>
         <label className="flex flex-col gap-1 text-sm">
@@ -137,7 +143,7 @@ export function PlaceForm({
 
       <div className="grid gap-4 sm:grid-cols-3">
         <label className="flex flex-col gap-1 text-sm">
-          สถานะฮาลาล
+          {t('halalStatus')}
           <select name="halalStatus" defaultValue={place?.halalStatus ?? 'unverified'} className="rounded border bg-background px-2 py-1">
             {HALAL_STATUSES.map((s) => (
               <option key={s} value={s}>{s}</option>
@@ -145,7 +151,7 @@ export function PlaceForm({
           </select>
         </label>
         <label className="flex flex-col gap-1 text-sm">
-          แหล่งยืนยัน
+          {t('halalSource')}
           <select name="halalSource" defaultValue={place?.halalSource ?? 'none'} className="rounded border bg-background px-2 py-1">
             {HALAL_SOURCES.map((s) => (
               <option key={s} value={s}>{s}</option>
@@ -153,21 +159,21 @@ export function PlaceForm({
           </select>
         </label>
         <label className="flex flex-col gap-1 text-sm">
-          จำหน่ายแอลกอฮอล์
+          {t('servesAlcohol')}
           <select
             name="servesAlcohol"
             defaultValue={place?.servesAlcohol === true ? 'yes' : place?.servesAlcohol === false ? 'no' : ''}
             className="rounded border bg-background px-2 py-1"
           >
-            <option value="">ไม่ทราบ</option>
-            <option value="no">ไม่มี</option>
-            <option value="yes">มี</option>
+            <option value="">{t('alcoholUnknown')}</option>
+            <option value="no">{t('alcoholNo')}</option>
+            <option value="yes">{t('alcoholYes')}</option>
           </select>
         </label>
       </div>
 
       <fieldset className="rounded-lg border p-3">
-        <legend className="px-1 text-sm font-medium">หมวดหมู่</legend>
+        <legend className="px-1 text-sm font-medium">{t('categories')}</legend>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
           {options.categories.map((c) => (
             <label key={c.slug} className="flex items-center gap-2 text-sm">
@@ -186,7 +192,7 @@ export function PlaceForm({
 
       <div className="flex flex-wrap items-center gap-4">
         <label className="flex flex-col gap-1 text-sm">
-          สถานะเผยแพร่
+          {t('publishStatus')}
           <select name="status" defaultValue={place?.status ?? 'draft'} className="rounded border bg-background px-2 py-1">
             {STATUSES.map((s) => (
               <option key={s} value={s}>{s}</option>
@@ -194,14 +200,11 @@ export function PlaceForm({
           </select>
         </label>
         <button className="mt-5 rounded-lg border px-6 py-2 font-medium hover:bg-foreground/5">
-          บันทึก
+          {t('save')}
         </button>
       </div>
 
-      <p className="text-xs opacity-60">
-        กติกา: การตั้งสถานะ L1 (รับรอง กอท.) / L2 (เจ้าของมุสลิม) ต้องผ่านคิวตรวจสอบโดยผู้อื่น
-        (4-eyes) — ทำที่หน้า &quot;คิวตรวจสอบ&quot; ไม่ใช่ตั้งตรงนี้แล้วเผยแพร่เอง
-      </p>
+      <p className="text-xs opacity-60">{t('fourEyesNote')}</p>
     </form>
   );
 }
