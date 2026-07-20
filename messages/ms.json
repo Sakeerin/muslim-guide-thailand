@@ -310,6 +310,27 @@
       "publishStatus": "Status penerbitan",
       "save": "Simpan",
       "fourEyesNote": "Peraturan: menetapkan status L1 (disahkan CICOT) / L2 (milik Muslim) mesti melalui baris gilir pengesahan yang disemak oleh orang lain (4-mata) — lakukan di halaman “Pengesahan”, bukan dengan menerbitkan terus di sini."
+    },
+    "verification": {
+      "title": "Baris gilir pengesahan ({count})",
+      "note": "Peraturan 4-mata: status L1 (disahkan CICOT) dan L2 (milik Muslim) mesti diluluskan oleh orang selain pencipta senarai — sistem menolak kelulusan sendiri.",
+      "verified": "Diluluskan dan diterbitkan",
+      "fourEyesError": "Anda mencipta senarai ini — orang lain mesti meluluskan status L1/L2 (4-mata).",
+      "halalStatus": "Status halal",
+      "method": "Kaedah pengesahan",
+      "approve": "Luluskan + terbitkan",
+      "rejectPlaceholder": "Sebab dihantar semula",
+      "reject": "Hantar semula ke draf",
+      "empty": "Tiada senarai menunggu pengesahan",
+      "statusCicot": "L1 Disahkan CICOT",
+      "statusMuslimOwned": "L2 Milik Muslim",
+      "statusMuslimFriendly": "L3 Mesra Muslim",
+      "statusUnverified": "L4 Belum disahkan",
+      "methodSiteVisit": "Lawatan tapak",
+      "methodPhone": "Panggilan telefon",
+      "methodDocument": "Dokumen / sijil",
+      "methodRegistry": "Daftar rasmi",
+      "methodOwner": "Pengesahan pemilik"
     }
   }
 }

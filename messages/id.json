@@ -310,6 +310,27 @@
       "publishStatus": "Status publikasi",
       "save": "Simpan",
       "fourEyesNote": "Aturan: menetapkan status L1 (bersertifikat CICOT) / L2 (milik Muslim) harus melalui antrean verifikasi yang ditinjau orang lain (4 mata) — lakukan di halaman “Verifikasi”, bukan dengan memublikasikan langsung di sini."
+    },
+    "verification": {
+      "title": "Antrean verifikasi ({count})",
+      "note": "Aturan 4 mata: status L1 (bersertifikat CICOT) dan L2 (milik Muslim) harus disetujui oleh orang selain pembuat entri — sistem menolak persetujuan sendiri.",
+      "verified": "Disetujui dan dipublikasikan",
+      "fourEyesError": "Anda membuat entri ini — orang lain harus menyetujui status L1/L2 (4 mata).",
+      "halalStatus": "Status halal",
+      "method": "Metode verifikasi",
+      "approve": "Setujui + publikasikan",
+      "rejectPlaceholder": "Alasan dikembalikan",
+      "reject": "Kembalikan ke draf",
+      "empty": "Tidak ada entri menunggu verifikasi",
+      "statusCicot": "L1 Bersertifikat CICOT",
+      "statusMuslimOwned": "L2 Milik Muslim",
+      "statusMuslimFriendly": "L3 Ramah Muslim",
+      "statusUnverified": "L4 Belum diverifikasi",
+      "methodSiteVisit": "Kunjungan lapangan",
+      "methodPhone": "Telepon",
+      "methodDocument": "Dokumen / sertifikat",
+      "methodRegistry": "Registri resmi",
+      "methodOwner": "Pernyataan pemilik"
     }
   }
 }
