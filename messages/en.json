@@ -421,6 +421,26 @@
       "questionsEmpty": "No questions awaiting moderation",
       "answersEmpty": "No answers awaiting moderation",
       "questionPrefix": "Q: {body}"
+    },
+    "merchant": {
+      "title": "Owners: claims & edits ({count})",
+      "claimsTitle": "Ownership claims — {count}",
+      "claimsNote": "Verify the requester genuinely represents the place (confirm by phone/email) before approving — once approved they can manage the listing (via moderation).",
+      "requester": "Requester: {name} ({email})",
+      "contact": "Contact: {contact}",
+      "approveClaim": "Approve (grant ownership)",
+      "reject": "Reject",
+      "claimsEmpty": "No claims",
+      "editsTitle": "Owner edits (pending) — {count}",
+      "by": "by: {name}",
+      "approveEdit": "Approve + apply edit",
+      "editsEmpty": "No edits pending",
+      "fieldDescription": "Description",
+      "fieldAddress": "Address",
+      "fieldPhone": "Phone",
+      "fieldWebsite": "Website",
+      "fieldOpeningHours": "Opening hours",
+      "fieldPriceRange": "Price range"
     }
   }
 }
