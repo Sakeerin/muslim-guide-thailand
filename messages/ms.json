@@ -399,6 +399,15 @@
       "titlePlaceholder": "Tajuk",
       "bodyPlaceholder": "Kandungan",
       "send": "Hantar pengumuman"
+    },
+    "reviews": {
+      "title": "Baris gilir ulasan ({count})",
+      "note": "Ulasan yang ditanda <strong>berisiko</strong> (merah) mengandungi perkataan yang mungkin merupakan tuduhan fakta (cth. “tidak halal”, khinzir, penipuan) — timbangkan risiko fitnah sebelum menerbitkan; jika ia kebimbangan halal yang sebenar, uruskannya melalui baris gilir “Laporan” (sulit), bukan dengan menerbitkan ulasan.",
+      "riskFlag": "berisiko",
+      "approve": "Luluskan + terbitkan",
+      "hide": "Sembunyikan",
+      "remove": "Buang",
+      "empty": "Tiada ulasan menunggu penyederhanaan"
     }
   }
 }
