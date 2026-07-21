@@ -386,6 +386,19 @@
       "until": "hingga {date}",
       "clear": "Hapus",
       "empty": "Belum ada entri bersponsor"
+    },
+    "announce": {
+      "title": "Pengumuman / Push (web {web} · aplikasi {app})",
+      "note": "Kirim notifikasi ke pelanggan (Ramadan/Idulfitri) — <strong>pengumuman saja</strong>, bukan pemasaran. Pengguna berlangganan tanpa login dan dapat berhenti kapan saja. Pesan dikirim dalam bahasa masing-masing perangkat (kosongkan untuk kembali ke EN/TH). Langganan kedaluwarsa dihapus otomatis.",
+      "result": "Terkirim: {sent} · Gagal: {failed} · Dihapus: {pruned} · Total: {total}",
+      "errorMissing": "Berikan judul dan isi dalam setidaknya satu bahasa (disarankan Thai + Inggris).",
+      "topicLabel": "Topik",
+      "topicAll": "Semua",
+      "pathLabel": "Buka halaman (path)",
+      "tagLabel": "tag (gabungkan notifikasi berulang)",
+      "titlePlaceholder": "Judul",
+      "bodyPlaceholder": "Isi",
+      "send": "Kirim pengumuman"
     }
   }
 }

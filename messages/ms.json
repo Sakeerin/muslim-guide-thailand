@@ -386,6 +386,19 @@
       "until": "hingga {date}",
       "clear": "Buang",
       "empty": "Tiada senarai ditaja lagi"
+    },
+    "announce": {
+      "title": "Pengumuman / Push (web {web} · apl {app})",
+      "note": "Hantar pemberitahuan kepada pelanggan (Ramadan/Aidilfitri) — <strong>pengumuman sahaja</strong>, bukan pemasaran. Pengguna melanggan tanpa log masuk dan boleh berhenti melanggan bila-bila masa. Mesej dihantar dalam bahasa setiap peranti (biarkan kosong untuk kembali kepada EN/TH). Langganan tamat tempoh dibuang secara automatik.",
+      "result": "Dihantar: {sent} · Gagal: {failed} · Dibuang: {pruned} · Jumlah: {total}",
+      "errorMissing": "Sediakan tajuk dan kandungan dalam sekurang-kurangnya satu bahasa (disyorkan Thai + Inggeris).",
+      "topicLabel": "Topik",
+      "topicAll": "Semua",
+      "pathLabel": "Buka halaman (path)",
+      "tagLabel": "tag (gabung pemberitahuan berulang)",
+      "titlePlaceholder": "Tajuk",
+      "bodyPlaceholder": "Kandungan",
+      "send": "Hantar pengumuman"
     }
   }
 }

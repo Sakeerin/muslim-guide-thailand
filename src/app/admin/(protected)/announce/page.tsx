@@ -1,8 +1,11 @@
+import { getTranslations } from 'next-intl/server';
 import { countDevices, countSubscriptions } from '@/server/services/push';
 import { broadcastAnnouncementAction } from '@/app/admin/(protected)/actions';
+import { getAdminLocale } from '@/server/admin-locale';
 
 export const dynamic = 'force-dynamic';
 
+// Locale endonyms — not translated (a language is always named in itself).
 const LOCALES: { code: string; label: string }[] = [
   { code: 'th', label: 'ไทย' },
   { code: 'en', label: 'English' },
@@ -16,7 +19,9 @@ export default async function AdminAnnouncePage({
 }: {
   searchParams: Promise<{ sent?: string; failed?: string; pruned?: string; total?: string; error?: string }>;
 }) {
-  const [count, devices, sp] = await Promise.all([
+  const locale = await getAdminLocale();
+  const [t, count, devices, sp] = await Promise.all([
+    getTranslations({ locale, namespace: 'admin.announce' }),
     countSubscriptions(),
     countDevices(),
     searchParams,
@@ -25,42 +30,45 @@ export default async function AdminAnnouncePage({
   return (
     <main className="flex flex-col gap-6">
       <h1 className="text-2xl font-bold">
-        ประกาศ / Push (เว็บ {count} · แอป {devices})
+        {t('title', { web: String(count), app: String(devices) })}
       </h1>
       <p className="rounded-xl bg-foreground/5 p-3 text-sm">
-        ส่งการแจ้งเตือนถึงผู้ที่สมัครรับ (รอมฎอน/อีด) — <strong>ประกาศเท่านั้น</strong>, ไม่ใช่การตลาด.
-        ผู้ใช้สมัครแบบไม่ต้องล็อกอิน และถอนได้ทุกเมื่อ. ข้อความจะส่งตามภาษาของแต่ละเครื่อง (เว้นว่างได้ ระบบจะถอยไปใช้ EN/TH).
-        การถอนสมัครที่หมดอายุจะถูกลบออกอัตโนมัติ.
+        {t.rich('note', { strong: (chunks) => <strong>{chunks}</strong> })}
       </p>
 
       {sp.sent !== undefined && (
         <p className="rounded-lg border border-emerald-500/40 bg-emerald-50 p-3 text-sm dark:bg-emerald-950/30">
-          ส่งแล้ว: {sp.sent} · ล้มเหลว: {sp.failed} · ลบที่หมดอายุ: {sp.pruned} · ทั้งหมด: {sp.total}
+          {t('result', {
+            sent: sp.sent,
+            failed: sp.failed ?? '',
+            pruned: sp.pruned ?? '',
+            total: sp.total ?? '',
+          })}
         </p>
       )}
       {sp.error === 'missing' && (
         <p className="rounded-lg border border-red-500/40 bg-red-50 p-3 text-sm dark:bg-red-950/30">
-          ต้องระบุหัวข้อและเนื้อหาอย่างน้อยหนึ่งภาษา (แนะนำ ไทย + อังกฤษ)
+          {t('errorMissing')}
         </p>
       )}
 
       <form action={broadcastAnnouncementAction} className="flex flex-col gap-4 rounded-xl border p-4">
         <div className="flex flex-wrap items-end gap-3">
           <label className="flex flex-col gap-1 text-sm">
-            หัวข้อ (topic)
+            {t('topicLabel')}
             <select name="topic" className="rounded border bg-background px-2 py-1">
-              <option value="">ทั้งหมด</option>
+              <option value="">{t('topicAll')}</option>
               <option value="ramadan">ramadan</option>
               <option value="eid">eid</option>
               <option value="events">events</option>
             </select>
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            เปิดหน้า (path)
+            {t('pathLabel')}
             <input name="path" defaultValue="/ramadan" className="rounded border bg-background px-2 py-1" />
           </label>
           <label className="flex flex-col gap-1 text-sm">
-            tag (รวมการแจ้งเตือนซ้ำ)
+            {t('tagLabel')}
             <input name="tag" placeholder="ramadan-2026" className="rounded border bg-background px-2 py-1" />
           </label>
         </div>
@@ -71,12 +79,12 @@ export default async function AdminAnnouncePage({
               <span className="text-sm opacity-70">{l.label}</span>
               <input
                 name={`title_${l.code}`}
-                placeholder="หัวข้อ"
+                placeholder={t('titlePlaceholder')}
                 className="rounded border bg-background px-2 py-1 text-sm"
               />
               <input
                 name={`body_${l.code}`}
-                placeholder="เนื้อหา"
+                placeholder={t('bodyPlaceholder')}
                 className="rounded border bg-background px-2 py-1 text-sm"
               />
             </div>
@@ -84,7 +92,7 @@ export default async function AdminAnnouncePage({
         </div>
 
         <button className="self-start rounded-lg border px-4 py-1.5 text-sm font-medium hover:bg-foreground/5">
-          ส่งประกาศ
+          {t('send')}
         </button>
       </form>
     </main>

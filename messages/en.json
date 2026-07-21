@@ -386,6 +386,19 @@
       "until": "until {date}",
       "clear": "Remove",
       "empty": "No sponsored listings yet"
+    },
+    "announce": {
+      "title": "Announcements / Push (web {web} · app {app})",
+      "note": "Send a notification to subscribers (Ramadan/Eid) — <strong>announcements only</strong>, not marketing. Users subscribe without logging in and can unsubscribe anytime. Messages are sent in each device’s language (leave blank to fall back to EN/TH). Expired subscriptions are pruned automatically.",
+      "result": "Sent: {sent} · Failed: {failed} · Pruned: {pruned} · Total: {total}",
+      "errorMissing": "Provide a title and body in at least one language (Thai + English recommended).",
+      "topicLabel": "Topic",
+      "topicAll": "All",
+      "pathLabel": "Open path",
+      "tagLabel": "tag (dedupes repeat notifications)",
+      "titlePlaceholder": "Title",
+      "bodyPlaceholder": "Body",
+      "send": "Send announcement"
     }
   }
 }
