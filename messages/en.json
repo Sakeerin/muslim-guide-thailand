@@ -360,6 +360,18 @@
       "bucketLte60": "≤ 60 days",
       "bucketLte90": "≤ 90 days",
       "bucketLater": "> 90 days"
+    },
+    "import": {
+      "title": "Import data (staging) — {count} pending",
+      "note": "Open-source data is staged here and doesn’t go live until the team “imports it as a new listing” or “merges it with an existing one” (to avoid duplicates) — records the system suspects are duplicates get a “likely duplicate” tag. Every import keeps its source attribution (ODbL, etc.).",
+      "filterAll": "All ({count})",
+      "matchCandidates": "Possible matches:",
+      "likelyDuplicate": "likely duplicate",
+      "matchMeta": "{dist} m · name {pct}%",
+      "merge": "Merge into this",
+      "importNew": "Import as new listing",
+      "reject": "Reject",
+      "empty": "No records pending"
     }
   }
 }

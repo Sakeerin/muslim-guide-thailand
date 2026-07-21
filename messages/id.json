@@ -360,6 +360,18 @@
       "bucketLte60": "≤ 60 hari",
       "bucketLte90": "≤ 90 hari",
       "bucketLater": "> 90 hari"
+    },
+    "import": {
+      "title": "Impor data (staging) — {count} menunggu",
+      "note": "Data sumber terbuka ditahan di sini dan tidak tayang sampai tim “mengimpor sebagai entri baru” atau “menggabungkannya dengan yang sudah ada” (untuk menghindari duplikat) — entri yang dicurigai sistem sebagai duplikat diberi label “mungkin duplikat”. Setiap impor mempertahankan atribusi sumbernya (ODbL, dll.).",
+      "filterAll": "Semua ({count})",
+      "matchCandidates": "Kemungkinan cocok:",
+      "likelyDuplicate": "mungkin duplikat",
+      "matchMeta": "{dist} m · nama {pct}%",
+      "merge": "Gabungkan dengan ini",
+      "importNew": "Impor sebagai entri baru",
+      "reject": "Tolak",
+      "empty": "Tidak ada entri menunggu"
     }
   }
 }

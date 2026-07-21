@@ -360,6 +360,18 @@
       "bucketLte60": "≤ 60 hari",
       "bucketLte90": "≤ 90 hari",
       "bucketLater": "> 90 hari"
+    },
+    "import": {
+      "title": "Import data (staging) — {count} menunggu",
+      "note": "Data sumber terbuka dipentaskan di sini dan tidak disiarkan sehingga pasukan “mengimport sebagai senarai baharu” atau “menggabungkannya dengan yang sedia ada” (untuk mengelakkan pendua) — rekod yang disyaki pendua oleh sistem mendapat label “mungkin pendua”. Setiap import mengekalkan atribusi sumbernya (ODbL, dll.).",
+      "filterAll": "Semua ({count})",
+      "matchCandidates": "Kemungkinan padanan:",
+      "likelyDuplicate": "mungkin pendua",
+      "matchMeta": "{dist} m · nama {pct}%",
+      "merge": "Gabung dengan ini",
+      "importNew": "Import sebagai senarai baharu",
+      "reject": "Tolak",
+      "empty": "Tiada rekod menunggu"
     }
   }
 }

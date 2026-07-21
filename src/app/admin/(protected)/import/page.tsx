@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
 import {
   findMatchCandidates,
   listPendingImports,
@@ -9,6 +10,7 @@ import {
   mergeImportAction,
   rejectImportAction,
 } from '@/app/admin/(protected)/actions';
+import { getAdminLocale } from '@/server/admin-locale';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,6 +24,8 @@ export default async function AdminImportPage({
   searchParams: Promise<{ source?: string }>;
 }) {
   const { source } = await searchParams;
+  const locale = await getAdminLocale();
+  const t = await getTranslations({ locale, namespace: 'admin.import' });
   const [counts, records] = await Promise.all([
     pendingCountsBySource(),
     listPendingImports(source, 40),
@@ -36,16 +40,12 @@ export default async function AdminImportPage({
 
   return (
     <main className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold">นำเข้าข้อมูล (staging) — รอตรวจ {totalPending}</h1>
-      <p className="rounded-xl bg-foreground/5 p-3 text-sm">
-        ข้อมูลจากแหล่งเปิดถูกพักไว้ที่นี่ ไม่ขึ้นเว็บจนกว่าทีมงานจะ &quot;นำเข้าเป็นรายการใหม่&quot; หรือ
-        &quot;รวมกับที่มีอยู่&quot; (กันข้อมูลซ้ำ) — รายการที่ระบบสงสัยว่าซ้ำจะขึ้นป้าย &quot;น่าจะซ้ำ&quot;
-        ทุกการนำเข้าคงการอ้างอิงแหล่งที่มา (ODbL ฯลฯ)
-      </p>
+      <h1 className="text-2xl font-bold">{t('title', { count: String(totalPending) })}</h1>
+      <p className="rounded-xl bg-foreground/5 p-3 text-sm">{t('note')}</p>
 
       <nav className="flex flex-wrap gap-2 text-sm">
         <Link href="/admin/import" className={`rounded-full border px-3 py-1 ${!source ? 'bg-foreground/10' : ''}`}>
-          ทั้งหมด ({totalPending})
+          {t('filterAll', { count: String(totalPending) })}
         </Link>
         {counts.map((c) => (
           <Link
@@ -77,24 +77,29 @@ export default async function AdminImportPage({
 
             {candidates.length > 0 && (
               <div className="mt-2 rounded-lg bg-foreground/5 p-2 text-sm">
-                <p className="mb-1 text-xs font-medium opacity-70">รายการที่อาจตรงกัน:</p>
+                <p className="mb-1 text-xs font-medium opacity-70">{t('matchCandidates')}</p>
                 <ul className="flex flex-col gap-1">
                   {candidates.map((c) => (
                     <li key={c.placeId} className="flex flex-wrap items-center gap-2">
                       {c.likelyDuplicate && (
-                        <span className="rounded-full bg-amber-200 px-2 text-xs text-amber-900">น่าจะซ้ำ</span>
+                        <span className="rounded-full bg-amber-200 px-2 text-xs text-amber-900">
+                          {t('likelyDuplicate')}
+                        </span>
                       )}
                       <Link href={`/th/place/${c.slug}`} target="_blank" className="underline">
                         {nm(c.name as Record<string, string>)}
                       </Link>
                       <span className="text-xs opacity-60">
-                        {c.distanceM} ม. · ชื่อ {Math.round(c.nameSimilarity * 100)}%
+                        {t('matchMeta', {
+                          dist: String(c.distanceM),
+                          pct: String(Math.round(c.nameSimilarity * 100)),
+                        })}
                       </span>
                       <form action={mergeImportAction} className="inline">
                         <input type="hidden" name="recordId" value={r.id} />
                         <input type="hidden" name="placeId" value={c.placeId} />
                         <button className="rounded border px-2 py-0.5 text-xs hover:bg-background">
-                          รวมกับรายการนี้
+                          {t('merge')}
                         </button>
                       </form>
                     </li>
@@ -107,18 +112,20 @@ export default async function AdminImportPage({
               <form action={importAsNewAction}>
                 <input type="hidden" name="recordId" value={r.id} />
                 <button className="rounded-lg border border-emerald-300 px-3 py-1.5 text-sm text-emerald-800 hover:bg-emerald-50">
-                  นำเข้าเป็นรายการใหม่
+                  {t('importNew')}
                 </button>
               </form>
               <form action={rejectImportAction}>
                 <input type="hidden" name="recordId" value={r.id} />
-                <button className="rounded-lg border px-3 py-1.5 text-sm hover:bg-foreground/5">ปฏิเสธ</button>
+                <button className="rounded-lg border px-3 py-1.5 text-sm hover:bg-foreground/5">
+                  {t('reject')}
+                </button>
               </form>
             </div>
           </div>
         ))}
         {records.length === 0 && (
-          <p className="rounded-xl border p-6 text-center opacity-60">ไม่มีรายการรอตรวจ</p>
+          <p className="rounded-xl border p-6 text-center opacity-60">{t('empty')}</p>
         )}
       </div>
     </main>
