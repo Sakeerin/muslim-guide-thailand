@@ -331,6 +331,35 @@
       "methodDocument": "Document / certificate",
       "methodRegistry": "Official registry",
       "methodOwner": "Owner attestation"
+    },
+    "certificates": {
+      "title": "Halal certificates",
+      "created": "Certificate added (pending verification)",
+      "error": "Invalid data",
+      "addTitle": "Add certificate",
+      "place": "Place",
+      "selectPlace": "— select —",
+      "certifyingBody": "Certifying body",
+      "certNumber": "Certificate number",
+      "issuedAt": "Issue date",
+      "expiresAt": "Expiry date",
+      "add": "Add",
+      "addNote": "Evidence (certificate photo) is stored in a private bucket — file upload comes in a later phase; for now record the number + expiry date and cross-check against halal.or.th by hand.",
+      "pendingTitle": "Pending verification ({count})",
+      "expires": "expires {date}",
+      "verify": "Verify",
+      "reasonPlaceholder": "Reason",
+      "reject": "Reject",
+      "pendingEmpty": "No certificates pending verification",
+      "expiringTitle": "Expiring soon ({count})",
+      "expiringNote": "On expiry, the system automatically downgrades the place from “CICOT-certified” to “Muslim-friendly” (cron `cert-expiry`) so badges don’t claim an expired certificate.",
+      "daysLeft": "{days} days",
+      "expiringEmpty": "No certificates expiring within 90 days",
+      "bucketExpired": "Expired",
+      "bucketLte30": "≤ 30 days",
+      "bucketLte60": "≤ 60 days",
+      "bucketLte90": "≤ 90 days",
+      "bucketLater": "> 90 days"
     }
   }
 }
