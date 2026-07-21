@@ -372,6 +372,20 @@
       "importNew": "Impor sebagai entri baru",
       "reject": "Tolak",
       "empty": "Tidak ada entri menunggu"
+    },
+    "featured": {
+      "title": "Bersponsor / Featured ({count})",
+      "note": "Penempatan bersponsor (B2B) — diatur oleh tim; penagihan ditangani di luar platform (aplikasi tidak menerima pembayaran). Entri featured muncul lebih dulu di halaman kota/pencarian, selalu dengan label “Bersponsor”, dan <strong>tidak memengaruhi status halal</strong> — sponsor bukan endorsemen. Kedaluwarsa otomatis pada tanggal akhirnya.",
+      "addTitle": "Tambah / perpanjang sponsor",
+      "place": "Tempat",
+      "selectPlace": "— pilih —",
+      "duration": "Durasi (hari)",
+      "noteField": "Catatan (paket / kontak)",
+      "setFeatured": "Jadikan featured",
+      "activeTitle": "Sedang disponsori",
+      "until": "hingga {date}",
+      "clear": "Hapus",
+      "empty": "Belum ada entri bersponsor"
     }
   }
 }

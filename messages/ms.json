@@ -372,6 +372,20 @@
       "importNew": "Import sebagai senarai baharu",
       "reject": "Tolak",
       "empty": "Tiada rekod menunggu"
+    },
+    "featured": {
+      "title": "Ditaja / Featured ({count})",
+      "note": "Penempatan tajaan (B2B) — ditetapkan oleh pasukan; pengebilan dikendalikan di luar platform (apl tidak menerima bayaran). Senarai featured muncul dahulu di halaman bandar/carian, sentiasa dengan lencana “Ditaja”, dan <strong>tidak menjejaskan status halal</strong> — tajaan bukan pengesahan. Tamat secara automatik pada tarikh akhirnya.",
+      "addTitle": "Tambah / perbaharui tajaan",
+      "place": "Tempat",
+      "selectPlace": "— pilih —",
+      "duration": "Tempoh (hari)",
+      "noteField": "Nota (pakej / kenalan)",
+      "setFeatured": "Tetapkan sebagai featured",
+      "activeTitle": "Sedang ditaja",
+      "until": "hingga {date}",
+      "clear": "Buang",
+      "empty": "Tiada senarai ditaja lagi"
     }
   }
 }
