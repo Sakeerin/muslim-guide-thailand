@@ -372,6 +372,20 @@
       "importNew": "Import as new listing",
       "reject": "Reject",
       "empty": "No records pending"
+    },
+    "featured": {
+      "title": "Sponsored / Featured ({count})",
+      "note": "Sponsored placement (B2B) — set by the team; billing is handled off-platform (the app takes no payment). Featured listings appear first on city/search pages, always with a “Sponsored” badge, and <strong>do not affect halal status</strong> — sponsorship is not endorsement. Expires automatically on its end date.",
+      "addTitle": "Add / renew sponsorship",
+      "place": "Place",
+      "selectPlace": "— select —",
+      "duration": "Duration (days)",
+      "noteField": "Note (package / contact)",
+      "setFeatured": "Set as featured",
+      "activeTitle": "Currently sponsored",
+      "until": "until {date}",
+      "clear": "Remove",
+      "empty": "No sponsored listings yet"
     }
   }
 }
