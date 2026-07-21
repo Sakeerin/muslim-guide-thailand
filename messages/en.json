@@ -408,6 +408,19 @@
       "hide": "Hide",
       "remove": "Remove",
       "empty": "No reviews awaiting moderation"
+    },
+    "qa": {
+      "title": "Q&A queue (questions {questions} · answers {answers})",
+      "note": "Questions/answers flagged <strong>risky</strong> (red) contain words that could be factual accusations — weigh the defamation risk before publishing; halal concerns should be handled through the confidential “Reports” queue.",
+      "questionsTitle": "Questions ({count})",
+      "answersTitle": "Answers ({count})",
+      "riskFlag": "risky",
+      "approve": "Approve + publish",
+      "hide": "Hide",
+      "remove": "Remove",
+      "questionsEmpty": "No questions awaiting moderation",
+      "answersEmpty": "No answers awaiting moderation",
+      "questionPrefix": "Q: {body}"
     }
   }
 }
