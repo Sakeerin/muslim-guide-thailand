@@ -331,6 +331,35 @@
       "methodDocument": "Dokumen / sertifikat",
       "methodRegistry": "Registri resmi",
       "methodOwner": "Pernyataan pemilik"
+    },
+    "certificates": {
+      "title": "Sertifikat halal",
+      "created": "Sertifikat ditambahkan (menunggu verifikasi)",
+      "error": "Data tidak valid",
+      "addTitle": "Tambah sertifikat",
+      "place": "Tempat",
+      "selectPlace": "— pilih —",
+      "certifyingBody": "Lembaga sertifikasi",
+      "certNumber": "Nomor sertifikat",
+      "issuedAt": "Tanggal terbit",
+      "expiresAt": "Tanggal kedaluwarsa",
+      "add": "Tambah",
+      "addNote": "Bukti (foto sertifikat) disimpan di private bucket — unggah berkas menyusul di fase berikutnya; untuk saat ini catat nomor + tanggal kedaluwarsa dan periksa silang dengan halal.or.th secara manual.",
+      "pendingTitle": "Menunggu verifikasi ({count})",
+      "expires": "kedaluwarsa {date}",
+      "verify": "Verifikasi",
+      "reasonPlaceholder": "Alasan",
+      "reject": "Tolak",
+      "pendingEmpty": "Tidak ada sertifikat menunggu verifikasi",
+      "expiringTitle": "Segera kedaluwarsa ({count})",
+      "expiringNote": "Saat kedaluwarsa, sistem otomatis menurunkan status tempat dari “Bersertifikat CICOT” menjadi “Ramah Muslim” (cron `cert-expiry`) agar lencana tidak mengklaim sertifikat yang kedaluwarsa.",
+      "daysLeft": "{days} hari",
+      "expiringEmpty": "Tidak ada sertifikat kedaluwarsa dalam 90 hari",
+      "bucketExpired": "Kedaluwarsa",
+      "bucketLte30": "≤ 30 hari",
+      "bucketLte60": "≤ 60 hari",
+      "bucketLte90": "≤ 90 hari",
+      "bucketLater": "> 90 hari"
     }
   }
 }

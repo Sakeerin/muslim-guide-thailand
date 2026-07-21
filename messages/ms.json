@@ -331,6 +331,35 @@
       "methodDocument": "Dokumen / sijil",
       "methodRegistry": "Daftar rasmi",
       "methodOwner": "Pengesahan pemilik"
+    },
+    "certificates": {
+      "title": "Sijil halal",
+      "created": "Sijil ditambah (menunggu pengesahan)",
+      "error": "Data tidak sah",
+      "addTitle": "Tambah sijil",
+      "place": "Tempat",
+      "selectPlace": "— pilih —",
+      "certifyingBody": "Badan pensijilan",
+      "certNumber": "Nombor sijil",
+      "issuedAt": "Tarikh dikeluarkan",
+      "expiresAt": "Tarikh tamat",
+      "add": "Tambah",
+      "addNote": "Bukti (foto sijil) disimpan dalam private bucket — muat naik fail akan datang pada fasa kemudian; buat masa ini rekod nombor + tarikh tamat dan semak silang dengan halal.or.th secara manual.",
+      "pendingTitle": "Menunggu pengesahan ({count})",
+      "expires": "tamat {date}",
+      "verify": "Sahkan",
+      "reasonPlaceholder": "Sebab",
+      "reject": "Tolak",
+      "pendingEmpty": "Tiada sijil menunggu pengesahan",
+      "expiringTitle": "Akan tamat ({count})",
+      "expiringNote": "Apabila tamat, sistem menurunkan status tempat daripada “Disahkan CICOT” kepada “Mesra Muslim” secara automatik (cron `cert-expiry`) supaya lencana tidak mendakwa sijil yang telah tamat.",
+      "daysLeft": "{days} hari",
+      "expiringEmpty": "Tiada sijil akan tamat dalam 90 hari",
+      "bucketExpired": "Telah tamat",
+      "bucketLte30": "≤ 30 hari",
+      "bucketLte60": "≤ 60 hari",
+      "bucketLte90": "≤ 90 hari",
+      "bucketLater": "> 90 hari"
     }
   }
 }

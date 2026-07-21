@@ -331,6 +331,35 @@
       "methodDocument": "เอกสาร/ใบรับรอง",
       "methodRegistry": "ทะเบียนราชการ",
       "methodOwner": "คำยืนยันเจ้าของ"
+    },
+    "certificates": {
+      "title": "ใบรับรองฮาลาล",
+      "created": "เพิ่มใบรับรองแล้ว (รอตรวจสอบ)",
+      "error": "ข้อมูลไม่ถูกต้อง",
+      "addTitle": "เพิ่มใบรับรอง",
+      "place": "สถานที่",
+      "selectPlace": "— เลือก —",
+      "certifyingBody": "หน่วยงาน",
+      "certNumber": "เลขที่ใบรับรอง",
+      "issuedAt": "วันออก",
+      "expiresAt": "วันหมดอายุ",
+      "add": "เพิ่ม",
+      "addNote": "หลักฐาน (รูปใบรับรอง) เก็บใน private bucket — อัปโหลดไฟล์จะเพิ่มในเฟสถัดไป; ตอนนี้บันทึกเลขที่ + วันหมดอายุ + ตรวจไขว้กับ halal.or.th ด้วยมือ",
+      "pendingTitle": "รอตรวจสอบ ({count})",
+      "expires": "หมดอายุ {date}",
+      "verify": "ยืนยัน",
+      "reasonPlaceholder": "เหตุผล",
+      "reject": "ปฏิเสธ",
+      "pendingEmpty": "ไม่มีใบรับรองรอตรวจสอบ",
+      "expiringTitle": "ใกล้หมดอายุ ({count})",
+      "expiringNote": "เมื่อหมดอายุ ระบบจะลดสถานะร้านจาก “รับรอง กอท.” เป็น “Muslim-friendly” อัตโนมัติ (cron `cert-expiry`) เพื่อไม่ให้ป้ายอ้างใบรับรองที่หมดอายุ",
+      "daysLeft": "{days} วัน",
+      "expiringEmpty": "ไม่มีใบรับรองใกล้หมดอายุใน 90 วัน",
+      "bucketExpired": "หมดอายุแล้ว",
+      "bucketLte30": "≤ 30 วัน",
+      "bucketLte60": "≤ 60 วัน",
+      "bucketLte90": "≤ 90 วัน",
+      "bucketLater": "> 90 วัน"
     }
   }
 }

@@ -331,6 +331,35 @@
       "methodDocument": "مستند / شهادة",
       "methodRegistry": "سجل رسمي",
       "methodOwner": "إقرار المالك"
+    },
+    "certificates": {
+      "title": "شهادات الحلال",
+      "created": "تمت إضافة الشهادة (بانتظار التحقّق)",
+      "error": "بيانات غير صالحة",
+      "addTitle": "إضافة شهادة",
+      "place": "المكان",
+      "selectPlace": "— اختر —",
+      "certifyingBody": "جهة الاعتماد",
+      "certNumber": "رقم الشهادة",
+      "issuedAt": "تاريخ الإصدار",
+      "expiresAt": "تاريخ الانتهاء",
+      "add": "إضافة",
+      "addNote": "تُحفظ الأدلة (صورة الشهادة) في مجلد خاص — سيأتي رفع الملفات في مرحلة لاحقة؛ في الوقت الحالي سجّل الرقم + تاريخ الانتهاء وتحقّق يدويًا عبر halal.or.th.",
+      "pendingTitle": "بانتظار التحقّق ({count})",
+      "expires": "تنتهي {date}",
+      "verify": "توثيق",
+      "reasonPlaceholder": "السبب",
+      "reject": "رفض",
+      "pendingEmpty": "لا توجد شهادات بانتظار التحقّق",
+      "expiringTitle": "قرب الانتهاء ({count})",
+      "expiringNote": "عند الانتهاء، يخفّض النظام تلقائيًا حالة المكان من ”معتمد من CICOT“ إلى ”مناسب للمسلمين“ (مهمة cron ‏`cert-expiry`) حتى لا تدّعي الشارات شهادة منتهية.",
+      "daysLeft": "{days} يوم",
+      "expiringEmpty": "لا توجد شهادات تنتهي خلال 90 يومًا",
+      "bucketExpired": "منتهية",
+      "bucketLte30": "≤ 30 يومًا",
+      "bucketLte60": "≤ 60 يومًا",
+      "bucketLte90": "≤ 90 يومًا",
+      "bucketLater": "> 90 يومًا"
     }
   }
 }
