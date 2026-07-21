@@ -408,6 +408,19 @@
       "hide": "Sembunyikan",
       "remove": "Buang",
       "empty": "Tiada ulasan menunggu penyederhanaan"
+    },
+    "qa": {
+      "title": "Baris gilir soal jawab (soalan {questions} · jawapan {answers})",
+      "note": "Soalan/jawapan yang ditanda <strong>berisiko</strong> (merah) mengandungi perkataan yang mungkin merupakan tuduhan fakta — timbangkan risiko fitnah sebelum menerbitkan; kebimbangan halal patut diuruskan melalui baris gilir “Laporan” (sulit).",
+      "questionsTitle": "Soalan ({count})",
+      "answersTitle": "Jawapan ({count})",
+      "riskFlag": "berisiko",
+      "approve": "Luluskan + terbitkan",
+      "hide": "Sembunyikan",
+      "remove": "Buang",
+      "questionsEmpty": "Tiada soalan menunggu penyederhanaan",
+      "answersEmpty": "Tiada jawapan menunggu penyederhanaan",
+      "questionPrefix": "S: {body}"
     }
   }
 }

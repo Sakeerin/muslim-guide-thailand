@@ -408,6 +408,19 @@
       "hide": "Sembunyikan",
       "remove": "Hapus",
       "empty": "Tidak ada ulasan menunggu moderasi"
+    },
+    "qa": {
+      "title": "Antrean tanya jawab (pertanyaan {questions} · jawaban {answers})",
+      "note": "Pertanyaan/jawaban yang ditandai <strong>berisiko</strong> (merah) memuat kata yang bisa menjadi tuduhan faktual — pertimbangkan risiko pencemaran nama baik sebelum memublikasikan; kekhawatiran halal sebaiknya ditangani lewat antrean “Laporan” (rahasia).",
+      "questionsTitle": "Pertanyaan ({count})",
+      "answersTitle": "Jawaban ({count})",
+      "riskFlag": "berisiko",
+      "approve": "Setujui + publikasikan",
+      "hide": "Sembunyikan",
+      "remove": "Hapus",
+      "questionsEmpty": "Tidak ada pertanyaan menunggu moderasi",
+      "answersEmpty": "Tidak ada jawaban menunggu moderasi",
+      "questionPrefix": "T: {body}"
     }
   }
 }
