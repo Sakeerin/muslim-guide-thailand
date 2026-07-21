@@ -399,6 +399,15 @@
       "titlePlaceholder": "Judul",
       "bodyPlaceholder": "Isi",
       "send": "Kirim pengumuman"
+    },
+    "reviews": {
+      "title": "Antrean ulasan ({count})",
+      "note": "Ulasan yang ditandai <strong>berisiko</strong> (merah) memuat kata yang bisa menjadi tuduhan faktual (mis. “tidak halal”, babi, penipuan) — pertimbangkan risiko pencemaran nama baik sebelum memublikasikan; jika itu kekhawatiran halal yang nyata, tangani lewat antrean “Laporan” (rahasia), bukan dengan memublikasikan ulasan.",
+      "riskFlag": "berisiko",
+      "approve": "Setujui + publikasikan",
+      "hide": "Sembunyikan",
+      "remove": "Hapus",
+      "empty": "Tidak ada ulasan menunggu moderasi"
     }
   }
 }
