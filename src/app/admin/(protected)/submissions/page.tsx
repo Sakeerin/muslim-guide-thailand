@@ -1,23 +1,26 @@
 import { revalidatePath } from 'next/cache';
 import { headers } from 'next/headers';
+import { getTranslations } from 'next-intl/server';
 import { auth } from '@/server/auth';
 import {
   acknowledgeSubmission,
   listSubmissionQueue,
   resolveSubmission,
 } from '@/server/services/moderation';
+import { getAdminLocale } from '@/server/admin-locale';
 
 export const dynamic = 'force-dynamic';
 
-const CATEGORY_LABELS: Record<string, string> = {
-  new_place: 'เสนอสถานที่ใหม่',
-  place_edit: 'ขอแก้ไขข้อมูล',
-  place_closed: 'ร้านปิดกิจการ',
-  wrong_location: 'ตำแหน่งผิด',
-  halal_concern: '🔒 ข้อกังวลสถานะฮาลาล (ลับ)',
-  inappropriate_media: 'รูปไม่เหมาะสม',
-  claim: 'ขอ claim ร้าน',
-  other: 'อื่นๆ',
+// Submission category → i18n key. Values map 1:1 to the stored enum.
+const CATEGORY_KEY: Record<string, string> = {
+  new_place: 'catNewPlace',
+  place_edit: 'catPlaceEdit',
+  place_closed: 'catPlaceClosed',
+  wrong_location: 'catWrongLocation',
+  halal_concern: 'catHalalConcern',
+  inappropriate_media: 'catInappropriateMedia',
+  claim: 'catClaim',
+  other: 'catOther',
 };
 
 async function requireActor() {
@@ -46,15 +49,19 @@ async function resolveAction(formData: FormData) {
 }
 
 export default async function AdminSubmissionsPage() {
+  const locale = await getAdminLocale();
+  const t = await getTranslations({ locale, namespace: 'admin.submissions' });
   const queue = await listSubmissionQueue();
+  const dateFmt = new Intl.DateTimeFormat(locale, {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+    timeZone: 'Asia/Bangkok',
+  });
 
   return (
     <main className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold">คิวรายงาน/คำขอ ({queue.length})</h1>
-      <p className="text-sm opacity-70">
-        รายงานประเภท &quot;ข้อกังวลสถานะฮาลาล&quot; เป็นความลับ — ผลการตรวจสอบสะท้อนออกไปเป็นการ
-        เปลี่ยน trust status โดยทีมงานเท่านั้น ห้ามเผยแพร่ข้อกล่าวหา
-      </p>
+      <h1 className="text-2xl font-bold">{t('title', { count: String(queue.length) })}</h1>
+      <p className="text-sm opacity-70">{t('note')}</p>
 
       <div className="flex flex-col gap-3">
         {queue.map((s) => (
@@ -63,24 +70,24 @@ export default async function AdminSubmissionsPage() {
             className={`rounded-xl border p-4 ${s.isConfidential ? 'border-amber-300 bg-amber-50' : ''}`}
           >
             <div className="flex flex-wrap items-center gap-2">
-              <span className="font-medium">{CATEGORY_LABELS[s.category] ?? s.category}</span>
-              <span className="text-xs opacity-60">
-                {new Intl.DateTimeFormat('th-TH', { dateStyle: 'medium', timeStyle: 'short' }).format(s.createdAt)}
+              <span className="font-medium">
+                {CATEGORY_KEY[s.category] ? t(CATEGORY_KEY[s.category]) : s.category}
               </span>
+              <span className="text-xs opacity-60">{dateFmt.format(s.createdAt)}</span>
               <span className="rounded-full bg-foreground/10 px-2 py-0.5 text-xs">{s.status}</span>
             </div>
             <p className="mt-2 whitespace-pre-wrap text-sm">
               {(s.payload as { details?: string }).details ?? JSON.stringify(s.payload)}
             </p>
             {s.reporterContact && (
-              <p className="mt-1 text-xs opacity-60">ติดต่อกลับ: {s.reporterContact}</p>
+              <p className="mt-1 text-xs opacity-60">{t('reporterContact', { contact: s.reporterContact })}</p>
             )}
             <div className="mt-3 flex flex-wrap gap-2">
               {s.status === 'pending' && (
                 <form action={acknowledgeAction}>
                   <input type="hidden" name="id" value={s.id} />
                   <button className="rounded-lg border px-3 py-1.5 text-sm hover:bg-foreground/5">
-                    รับเรื่อง
+                    {t('acknowledge')}
                   </button>
                 </form>
               )}
@@ -88,7 +95,7 @@ export default async function AdminSubmissionsPage() {
                 <input type="hidden" name="id" value={s.id} />
                 <input
                   name="resolution"
-                  placeholder="บันทึกผลการตรวจสอบ"
+                  placeholder={t('resolutionPlaceholder')}
                   className="rounded-lg border bg-background px-3 py-1.5 text-sm"
                 />
                 <button
@@ -96,21 +103,21 @@ export default async function AdminSubmissionsPage() {
                   value="approved"
                   className="rounded-lg border border-emerald-300 px-3 py-1.5 text-sm text-emerald-800 hover:bg-emerald-50"
                 >
-                  ดำเนินการแล้ว
+                  {t('resolveApproved')}
                 </button>
                 <button
                   name="outcome"
                   value="rejected"
                   className="rounded-lg border px-3 py-1.5 text-sm hover:bg-foreground/5"
                 >
-                  ไม่พบปัญหา
+                  {t('resolveRejected')}
                 </button>
               </form>
             </div>
           </div>
         ))}
         {queue.length === 0 && (
-          <p className="rounded-xl border p-6 text-center opacity-60">ไม่มีรายการค้าง</p>
+          <p className="rounded-xl border p-6 text-center opacity-60">{t('empty')}</p>
         )}
       </div>
     </main>
