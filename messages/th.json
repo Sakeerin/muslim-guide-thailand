@@ -441,6 +441,24 @@
       "fieldWebsite": "เว็บไซต์",
       "fieldOpeningHours": "เวลาเปิด",
       "fieldPriceRange": "ช่วงราคา"
+    },
+    "submissions": {
+      "title": "คิวรายงาน/คำขอ ({count})",
+      "note": "รายงานประเภท “ข้อกังวลสถานะฮาลาล” เป็นความลับ — ผลการตรวจสอบสะท้อนออกไปเป็นการเปลี่ยน trust status โดยทีมงานเท่านั้น ห้ามเผยแพร่ข้อกล่าวหา",
+      "reporterContact": "ติดต่อกลับ: {contact}",
+      "acknowledge": "รับเรื่อง",
+      "resolutionPlaceholder": "บันทึกผลการตรวจสอบ",
+      "resolveApproved": "ดำเนินการแล้ว",
+      "resolveRejected": "ไม่พบปัญหา",
+      "empty": "ไม่มีรายการค้าง",
+      "catNewPlace": "เสนอสถานที่ใหม่",
+      "catPlaceEdit": "ขอแก้ไขข้อมูล",
+      "catPlaceClosed": "ร้านปิดกิจการ",
+      "catWrongLocation": "ตำแหน่งผิด",
+      "catHalalConcern": "🔒 ข้อกังวลสถานะฮาลาล (ลับ)",
+      "catInappropriateMedia": "รูปไม่เหมาะสม",
+      "catClaim": "ขอ claim ร้าน",
+      "catOther": "อื่นๆ"
     }
   }
 }

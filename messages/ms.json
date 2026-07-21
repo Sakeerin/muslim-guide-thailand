@@ -441,6 +441,24 @@
       "fieldWebsite": "Laman web",
       "fieldOpeningHours": "Waktu buka",
       "fieldPriceRange": "Julat harga"
+    },
+    "submissions": {
+      "title": "Baris gilir laporan/permintaan ({count})",
+      "note": "Laporan jenis “kebimbangan status halal” adalah sulit — hasilnya hanya dicerminkan sebagai perubahan status kepercayaan oleh pasukan; jangan menerbitkan tuduhan itu.",
+      "reporterContact": "Balas kepada: {contact}",
+      "acknowledge": "Terima",
+      "resolutionPlaceholder": "Rekod hasil",
+      "resolveApproved": "Telah ditindak",
+      "resolveRejected": "Tiada isu ditemui",
+      "empty": "Tiada item tertunggak",
+      "catNewPlace": "Cadangan tempat baharu",
+      "catPlaceEdit": "Permintaan suntingan",
+      "catPlaceClosed": "Tempat ditutup",
+      "catWrongLocation": "Lokasi salah",
+      "catHalalConcern": "🔒 Kebimbangan status halal (sulit)",
+      "catInappropriateMedia": "Media tidak sesuai",
+      "catClaim": "Tuntutan tempat",
+      "catOther": "Lain-lain"
     }
   }
 }

@@ -441,6 +441,24 @@
       "fieldWebsite": "Situs web",
       "fieldOpeningHours": "Jam buka",
       "fieldPriceRange": "Rentang harga"
+    },
+    "submissions": {
+      "title": "Antrean laporan/permintaan ({count})",
+      "note": "Laporan jenis “kekhawatiran status halal” bersifat rahasia — hasilnya hanya tercermin sebagai perubahan status kepercayaan oleh tim; jangan memublikasikan tuduhan itu.",
+      "reporterContact": "Balas ke: {contact}",
+      "acknowledge": "Terima",
+      "resolutionPlaceholder": "Catat hasil",
+      "resolveApproved": "Sudah ditindak",
+      "resolveRejected": "Tidak ada masalah",
+      "empty": "Tidak ada item tertunda",
+      "catNewPlace": "Saran tempat baru",
+      "catPlaceEdit": "Permintaan edit",
+      "catPlaceClosed": "Tempat tutup",
+      "catWrongLocation": "Lokasi salah",
+      "catHalalConcern": "🔒 Kekhawatiran status halal (rahasia)",
+      "catInappropriateMedia": "Media tidak pantas",
+      "catClaim": "Klaim tempat",
+      "catOther": "Lainnya"
     }
   }
 }

@@ -441,6 +441,24 @@
       "fieldWebsite": "الموقع الإلكتروني",
       "fieldOpeningHours": "ساعات العمل",
       "fieldPriceRange": "نطاق السعر"
+    },
+    "submissions": {
+      "title": "قائمة البلاغات/الطلبات ({count})",
+      "note": "بلاغات نوع ”مخاوف حالة الحلال“ سرّية — تنعكس النتيجة فقط كتغيير في حالة الثقة من قِبل الفريق؛ ولا تنشر الاتهام.",
+      "reporterContact": "الرد على: {contact}",
+      "acknowledge": "استلام",
+      "resolutionPlaceholder": "سجّل النتيجة",
+      "resolveApproved": "تم التنفيذ",
+      "resolveRejected": "لا توجد مشكلة",
+      "empty": "لا توجد عناصر معلّقة",
+      "catNewPlace": "اقتراح مكان جديد",
+      "catPlaceEdit": "طلب تعديل",
+      "catPlaceClosed": "المكان مغلق",
+      "catWrongLocation": "موقع خاطئ",
+      "catHalalConcern": "🔒 مخاوف حالة الحلال (سرّي)",
+      "catInappropriateMedia": "وسائط غير لائقة",
+      "catClaim": "مطالبة بمكان",
+      "catOther": "أخرى"
     }
   }
 }

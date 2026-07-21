@@ -441,6 +441,24 @@
       "fieldWebsite": "Website",
       "fieldOpeningHours": "Opening hours",
       "fieldPriceRange": "Price range"
+    },
+    "submissions": {
+      "title": "Reports / requests queue ({count})",
+      "note": "Reports of type “halal status concern” are confidential — the outcome is reflected only as a trust-status change by the team; do not publish the accusation.",
+      "reporterContact": "Reply to: {contact}",
+      "acknowledge": "Acknowledge",
+      "resolutionPlaceholder": "Record the outcome",
+      "resolveApproved": "Actioned",
+      "resolveRejected": "No issue found",
+      "empty": "No pending items",
+      "catNewPlace": "New place suggestion",
+      "catPlaceEdit": "Edit request",
+      "catPlaceClosed": "Place closed",
+      "catWrongLocation": "Wrong location",
+      "catHalalConcern": "🔒 Halal status concern (confidential)",
+      "catInappropriateMedia": "Inappropriate media",
+      "catClaim": "Place claim",
+      "catOther": "Other"
     }
   }
 }
