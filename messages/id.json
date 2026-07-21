@@ -421,6 +421,26 @@
       "questionsEmpty": "Tidak ada pertanyaan menunggu moderasi",
       "answersEmpty": "Tidak ada jawaban menunggu moderasi",
       "questionPrefix": "T: {body}"
+    },
+    "merchant": {
+      "title": "Pemilik: klaim & edit ({count})",
+      "claimsTitle": "Klaim kepemilikan — {count}",
+      "claimsNote": "Verifikasi bahwa pemohon benar-benar mewakili tempat itu (konfirmasi via telepon/email) sebelum menyetujui — setelah disetujui mereka dapat mengelola entri (lewat moderasi).",
+      "requester": "Pemohon: {name} ({email})",
+      "contact": "Kontak: {contact}",
+      "approveClaim": "Setujui (beri kepemilikan)",
+      "reject": "Tolak",
+      "claimsEmpty": "Tidak ada klaim",
+      "editsTitle": "Edit pemilik (menunggu) — {count}",
+      "by": "oleh: {name}",
+      "approveEdit": "Setujui + terapkan edit",
+      "editsEmpty": "Tidak ada edit menunggu",
+      "fieldDescription": "Deskripsi",
+      "fieldAddress": "Alamat",
+      "fieldPhone": "Telepon",
+      "fieldWebsite": "Situs web",
+      "fieldOpeningHours": "Jam buka",
+      "fieldPriceRange": "Rentang harga"
     }
   }
 }

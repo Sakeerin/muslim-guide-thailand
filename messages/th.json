@@ -421,6 +421,26 @@
       "questionsEmpty": "ไม่มีคำถามรอตรวจสอบ",
       "answersEmpty": "ไม่มีคำตอบรอตรวจสอบ",
       "questionPrefix": "ถาม: {body}"
+    },
+    "merchant": {
+      "title": "เจ้าของร้าน: claim & แก้ไข ({count})",
+      "claimsTitle": "คำขอเป็นเจ้าของ (claim) — {count}",
+      "claimsNote": "ตรวจว่าผู้ขอเป็นตัวแทนร้านจริง (โทร/อีเมลยืนยัน) ก่อนอนุมัติ — อนุมัติแล้วผู้ขอจะจัดการข้อมูลร้านได้ (ผ่าน moderation)",
+      "requester": "ผู้ขอ: {name} ({email})",
+      "contact": "ติดต่อ: {contact}",
+      "approveClaim": "อนุมัติ (ให้เป็นเจ้าของ)",
+      "reject": "ปฏิเสธ",
+      "claimsEmpty": "ไม่มีคำขอ",
+      "editsTitle": "การแก้ไขจากเจ้าของ (รอตรวจ) — {count}",
+      "by": "โดย: {name}",
+      "approveEdit": "อนุมัติ + ใช้การแก้ไข",
+      "editsEmpty": "ไม่มีการแก้ไขรอตรวจ",
+      "fieldDescription": "คำอธิบาย",
+      "fieldAddress": "ที่อยู่",
+      "fieldPhone": "โทรศัพท์",
+      "fieldWebsite": "เว็บไซต์",
+      "fieldOpeningHours": "เวลาเปิด",
+      "fieldPriceRange": "ช่วงราคา"
     }
   }
 }

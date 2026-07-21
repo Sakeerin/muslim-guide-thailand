@@ -421,6 +421,26 @@
       "questionsEmpty": "لا توجد أسئلة بانتظار المراجعة",
       "answersEmpty": "لا توجد أجوبة بانتظار المراجعة",
       "questionPrefix": "س: {body}"
+    },
+    "merchant": {
+      "title": "المُلّاك: مطالبات وتعديلات ({count})",
+      "claimsTitle": "مطالبات الملكية — {count}",
+      "claimsNote": "تحقّق من أن مقدّم الطلب يمثّل المكان فعلًا (بالتأكيد عبر الهاتف/البريد) قبل الاعتماد — بعد الاعتماد يمكنه إدارة الإدخال (عبر الإشراف).",
+      "requester": "مقدّم الطلب: {name} ({email})",
+      "contact": "التواصل: {contact}",
+      "approveClaim": "اعتماد (منح الملكية)",
+      "reject": "رفض",
+      "claimsEmpty": "لا توجد مطالبات",
+      "editsTitle": "تعديلات المالك (بانتظار المراجعة) — {count}",
+      "by": "بواسطة: {name}",
+      "approveEdit": "اعتماد + تطبيق التعديل",
+      "editsEmpty": "لا توجد تعديلات بانتظار المراجعة",
+      "fieldDescription": "الوصف",
+      "fieldAddress": "العنوان",
+      "fieldPhone": "الهاتف",
+      "fieldWebsite": "الموقع الإلكتروني",
+      "fieldOpeningHours": "ساعات العمل",
+      "fieldPriceRange": "نطاق السعر"
     }
   }
 }

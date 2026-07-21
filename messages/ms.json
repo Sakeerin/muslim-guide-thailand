@@ -421,6 +421,26 @@
       "questionsEmpty": "Tiada soalan menunggu penyederhanaan",
       "answersEmpty": "Tiada jawapan menunggu penyederhanaan",
       "questionPrefix": "S: {body}"
+    },
+    "merchant": {
+      "title": "Pemilik: tuntutan & suntingan ({count})",
+      "claimsTitle": "Tuntutan pemilikan — {count}",
+      "claimsNote": "Sahkan pemohon benar-benar mewakili tempat itu (sahkan melalui telefon/e-mel) sebelum meluluskan — setelah diluluskan mereka boleh menguruskan senarai (melalui moderasi).",
+      "requester": "Pemohon: {name} ({email})",
+      "contact": "Hubungan: {contact}",
+      "approveClaim": "Luluskan (beri pemilikan)",
+      "reject": "Tolak",
+      "claimsEmpty": "Tiada tuntutan",
+      "editsTitle": "Suntingan pemilik (menunggu) — {count}",
+      "by": "oleh: {name}",
+      "approveEdit": "Luluskan + guna suntingan",
+      "editsEmpty": "Tiada suntingan menunggu",
+      "fieldDescription": "Penerangan",
+      "fieldAddress": "Alamat",
+      "fieldPhone": "Telefon",
+      "fieldWebsite": "Laman web",
+      "fieldOpeningHours": "Waktu buka",
+      "fieldPriceRange": "Julat harga"
     }
   }
 }
