@@ -48,7 +48,7 @@ export default function NearbyPage() {
             {state.status === 'loading' ? t('common.loading') : t('common.nearMe')}
           </button>
           {state.status === 'error' && (
-            <p className="mt-3 text-sm text-amber-700">{t('qibla.permissionNeeded')}</p>
+            <p className="mt-3 text-sm text-amber-700">{t('errors.location')}</p>
           )}
         </div>
       )}

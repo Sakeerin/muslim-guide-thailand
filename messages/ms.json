@@ -19,7 +19,8 @@
     "seeAll": "Lihat semua",
     "back": "Kembali",
     "sponsored": "Ditaja",
-    "language": "Bahasa"
+    "language": "Bahasa",
+    "rtlRestart": "Mulakan semula apl untuk menggunakan arah susun atur baharu."
   },
   "nav": {
     "home": "Utama",
@@ -173,7 +174,8 @@
     "editSubmitted": "Terima kasih — perubahan anda akan dipapar selepas semakan.",
     "saveChanges": "Hantar perubahan untuk semakan",
     "manage": "Urus",
-    "sponsoredUntil": "Ditaja sehingga {date}"
+    "sponsoredUntil": "Ditaja sehingga {date}",
+    "editError": "Tidak dapat menghantar perubahan anda. Sila cuba lagi."
   },
   "ramadan": {
     "title": "Ramadan",
@@ -231,7 +233,15 @@
     "featureDisabled": "Ciri ini tidak tersedia buat masa ini. Sila cuba semula kemudian.",
     "validation": "Sila semak maklumat yang anda masukkan dan cuba lagi.",
     "network": "Tidak dapat menghubungi pelayan. Sila semak sambungan anda dan cuba lagi.",
-    "generic": "Sesuatu tidak kena. Sila cuba lagi."
+    "generic": "Sesuatu tidak kena. Sila cuba lagi.",
+    "mapUnavailable": "Peta tidak tersedia sekarang — cuba paparan senarai.",
+    "location": "Tidak dapat mendapatkan lokasi anda. Benarkan akses lokasi dan cuba lagi.",
+    "retry": "Cuba lagi",
+    "notFoundTitle": "Halaman tidak dijumpai",
+    "notFound": "Kami tidak dapat menemui halaman yang anda cari.",
+    "pageErrorTitle": "Sesuatu tidak kena",
+    "pageError": "Sesuatu tidak kena semasa memuatkan halaman ini. Sila cuba lagi.",
+    "backHome": "Kembali ke laman utama"
   },
   "takedown": {
     "intro": "Jika anda percaya kandungan di laman ini menyalahi undang-undang atau melanggar hak anda, sila hantar borang ini. Pasukan kami menyemak setiap permintaan dalam masa 24 jam, seperti yang dikehendaki oleh peraturan MDES Thailand.",

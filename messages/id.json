@@ -19,7 +19,8 @@
     "seeAll": "Lihat semua",
     "back": "Kembali",
     "sponsored": "Bersponsor",
-    "language": "Bahasa"
+    "language": "Bahasa",
+    "rtlRestart": "Mulai ulang aplikasi untuk menerapkan arah tata letak baru."
   },
   "nav": {
     "home": "Beranda",
@@ -173,7 +174,8 @@
     "editSubmitted": "Terima kasih — perubahan Anda akan tampil setelah ditinjau.",
     "saveChanges": "Kirim perubahan untuk ditinjau",
     "manage": "Kelola",
-    "sponsoredUntil": "Bersponsor hingga {date}"
+    "sponsoredUntil": "Bersponsor hingga {date}",
+    "editError": "Tidak dapat mengirim perubahan Anda. Silakan coba lagi."
   },
   "ramadan": {
     "title": "Ramadan",
@@ -231,7 +233,15 @@
     "featureDisabled": "Fitur ini belum tersedia saat ini. Silakan periksa kembali nanti.",
     "validation": "Silakan periksa data yang Anda masukkan dan coba lagi.",
     "network": "Tidak dapat menghubungi server. Silakan periksa koneksi Anda dan coba lagi.",
-    "generic": "Terjadi kesalahan. Silakan coba lagi."
+    "generic": "Terjadi kesalahan. Silakan coba lagi.",
+    "mapUnavailable": "Peta tidak tersedia saat ini — coba tampilan daftar.",
+    "location": "Tidak bisa mendapatkan lokasi Anda. Izinkan akses lokasi dan coba lagi.",
+    "retry": "Coba lagi",
+    "notFoundTitle": "Halaman tidak ditemukan",
+    "notFound": "Kami tidak dapat menemukan halaman yang Anda cari.",
+    "pageErrorTitle": "Terjadi kesalahan",
+    "pageError": "Terjadi kesalahan saat memuat halaman ini. Silakan coba lagi.",
+    "backHome": "Kembali ke beranda"
   },
   "takedown": {
     "intro": "Jika Anda yakin konten di situs ini melanggar hukum atau melanggar hak Anda, silakan kirim formulir ini. Tim kami meninjau setiap permintaan dalam waktu 24 jam, sesuai peraturan MDES Thailand.",
