@@ -20,7 +20,8 @@
     "back": "Kembali",
     "sponsored": "Ditaja",
     "language": "Bahasa",
-    "rtlRestart": "Mulakan semula apl untuk menggunakan arah susun atur baharu."
+    "rtlRestart": "Mulakan semula apl untuk menggunakan arah susun atur baharu.",
+    "noResults": "Tiada tempat dijumpai."
   },
   "nav": {
     "home": "Utama",
@@ -76,7 +77,9 @@
     "reportData": "Lapor maklumat tidak tepat",
     "lastVerified": "Pengesahan terakhir {date}",
     "dataSource": "Sumber data: {source}",
-    "distanceKm": "{km} km dari sini"
+    "distanceKm": "{km} km dari sini",
+    "cityEmpty": "Kami masih mengumpulkan data untuk bandar ini — sila semak semula tidak lama lagi.",
+    "categoryEmpty": "Kami masih mengumpulkan data untuk kategori ini — sila semak semula tidak lama lagi."
   },
   "prayer": {
     "title": "Waktu solat",
@@ -140,7 +143,8 @@
     "consentRequired": "Sila setuju untuk teruskan",
     "invalidCredentials": "E-mel atau kata laluan salah",
     "signUpError": "Tidak dapat mencipta akaun",
-    "loginToReview": "Log masuk untuk menulis ulasan"
+    "loginToReview": "Log masuk untuk menulis ulasan",
+    "noReviews": "Anda belum menulis sebarang ulasan."
   },
   "review": {
     "title": "Ulasan",
@@ -472,5 +476,8 @@
       "catClaim": "Tuntutan tempat",
       "catOther": "Lain-lain"
     }
+  },
+  "search": {
+    "empty": "Tiada hasil — cuba kata kunci lain atau pilih bandar."
   }
 }

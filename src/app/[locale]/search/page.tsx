@@ -117,7 +117,7 @@ export default async function SearchPage({
 
       {result && result.items.length === 0 && (
         <p className="rounded-xl border p-6 text-center opacity-70">
-          {locale === 'th' ? 'ไม่พบผลลัพธ์ — ลองคำค้นอื่นหรือเลือกเมือง' : 'No results — try another keyword or pick a city'}
+          {t('search.empty')}
         </p>
       )}
 

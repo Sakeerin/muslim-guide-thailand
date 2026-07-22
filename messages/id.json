@@ -20,7 +20,8 @@
     "back": "Kembali",
     "sponsored": "Bersponsor",
     "language": "Bahasa",
-    "rtlRestart": "Mulai ulang aplikasi untuk menerapkan arah tata letak baru."
+    "rtlRestart": "Mulai ulang aplikasi untuk menerapkan arah tata letak baru.",
+    "noResults": "Tidak ada tempat ditemukan."
   },
   "nav": {
     "home": "Beranda",
@@ -76,7 +77,9 @@
     "reportData": "Laporkan informasi yang salah",
     "lastVerified": "Verifikasi terakhir {date}",
     "dataSource": "Sumber data: {source}",
-    "distanceKm": "{km} km dari sini"
+    "distanceKm": "{km} km dari sini",
+    "cityEmpty": "Kami masih mengumpulkan data untuk kota ini — periksa kembali segera.",
+    "categoryEmpty": "Kami masih mengumpulkan data untuk kategori ini — periksa kembali segera."
   },
   "prayer": {
     "title": "Jadwal salat",
@@ -140,7 +143,8 @@
     "consentRequired": "Mohon setujui untuk melanjutkan",
     "invalidCredentials": "Email atau kata sandi salah",
     "signUpError": "Tidak dapat membuat akun",
-    "loginToReview": "Masuk untuk menulis ulasan"
+    "loginToReview": "Masuk untuk menulis ulasan",
+    "noReviews": "Anda belum menulis ulasan apa pun."
   },
   "review": {
     "title": "Ulasan",
@@ -472,5 +476,8 @@
       "catClaim": "Klaim tempat",
       "catOther": "Lainnya"
     }
+  },
+  "search": {
+    "empty": "Tidak ada hasil — coba kata kunci lain atau pilih kota."
   }
 }

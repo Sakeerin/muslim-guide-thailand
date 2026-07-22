@@ -45,7 +45,7 @@ export default async function AccountPage({
       <section>
         <h2 className="mb-3 font-semibold">{t('myReviews')}</h2>
         {reviews.length === 0 ? (
-          <p className="text-sm opacity-60">—</p>
+          <p className="text-sm opacity-60">{t('noReviews')}</p>
         ) : (
           <ul className="flex flex-col gap-3">
             {reviews.map((r) => (

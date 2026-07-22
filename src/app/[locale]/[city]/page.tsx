@@ -55,6 +55,7 @@ export default async function CityPage({
 }) {
   const { locale, city: citySlug } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'place' });
 
   const city = await getCityBySlug(citySlug);
   if (!city || !city.isActive) notFound();
@@ -103,9 +104,7 @@ export default async function CityPage({
       {sections.every((s) => s.places.length === 0) && (
         <p className="rounded-xl border p-6 text-center opacity-70">
           {/* honest empty state — data collection in progress */}
-          {locale === 'th'
-            ? 'เรากำลังเก็บข้อมูลเมืองนี้อยู่ — กลับมาดูอีกครั้งเร็วๆ นี้'
-            : 'We are still collecting data for this city — check back soon'}
+          {t('cityEmpty')}
         </p>
       )}
     </main>
