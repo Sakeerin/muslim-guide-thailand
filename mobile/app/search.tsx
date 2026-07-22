@@ -141,7 +141,7 @@ export default function SearchScreen() {
             loading ? (
               <ActivityIndicator color={colors.brand} style={{ marginTop: space.xl }} />
             ) : (
-              <EmptyState message={t('saved.empty')} />
+              <EmptyState message={t('search.empty')} />
             )
           }
           ListFooterComponent={

@@ -61,7 +61,7 @@ export default function NearbyPage() {
             ))}
           </div>
         ) : (
-          <p className="rounded-xl border p-6 text-center opacity-70">—</p>
+          <p className="rounded-xl border p-6 text-center opacity-70">{t('common.noResults')}</p>
         ))}
     </main>
   );

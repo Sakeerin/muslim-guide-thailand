@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { getCityBySlug, listPlaces } from '@/server/services/places';
 import { resolveI18n } from '@/lib/i18n-content';
 import { alternatesFor } from '@/lib/seo';
@@ -55,6 +55,7 @@ export default async function CityCategoryPage({
 }) {
   const { locale, city: citySlug, category } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'place' });
 
   const mapping = SEGMENT_TO_TYPE[category];
   if (!mapping) notFound();
@@ -91,9 +92,7 @@ export default async function CityCategoryPage({
         </div>
       ) : (
         <p className="rounded-xl border p-6 text-center opacity-70">
-          {locale === 'th'
-            ? 'เรากำลังเก็บข้อมูลหมวดนี้อยู่ — กลับมาดูอีกครั้งเร็วๆ นี้'
-            : 'We are still collecting data for this category — check back soon'}
+          {t('categoryEmpty')}
         </p>
       )}
     </main>

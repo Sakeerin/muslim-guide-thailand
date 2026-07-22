@@ -64,7 +64,7 @@ export default function HomeScreen() {
       renderItem={({ item }) => <PlaceCard place={item} locale={locale} />}
       ListHeaderComponent={header}
       ItemSeparatorComponent={() => <View style={{ height: space.md }} />}
-      ListEmptyComponent={!loading && !error ? <EmptyState message={t('saved.empty')} /> : null}
+      ListEmptyComponent={!loading && !error ? <EmptyState message={t('common.noResults')} /> : null}
       contentContainerStyle={styles.content}
     />
   );

@@ -20,7 +20,8 @@
     "back": "Back",
     "sponsored": "Sponsored",
     "language": "Language",
-    "rtlRestart": "Restart the app to apply the new layout direction."
+    "rtlRestart": "Restart the app to apply the new layout direction.",
+    "noResults": "No places found."
   },
   "nav": {
     "home": "Home",
@@ -76,7 +77,9 @@
     "reportData": "Report incorrect information",
     "lastVerified": "Last verified {date}",
     "dataSource": "Data source: {source}",
-    "distanceKm": "{km} km away"
+    "distanceKm": "{km} km away",
+    "cityEmpty": "We are still collecting data for this city — check back soon.",
+    "categoryEmpty": "We are still collecting data for this category — check back soon."
   },
   "prayer": {
     "title": "Prayer times",
@@ -140,7 +143,8 @@
     "consentRequired": "Please accept to continue",
     "invalidCredentials": "Incorrect email or password",
     "signUpError": "Could not create the account",
-    "loginToReview": "Sign in to write a review"
+    "loginToReview": "Sign in to write a review",
+    "noReviews": "You haven't written any reviews yet."
   },
   "review": {
     "title": "Reviews",
@@ -472,5 +476,8 @@
       "catClaim": "Place claim",
       "catOther": "Other"
     }
+  },
+  "search": {
+    "empty": "No results — try another keyword or pick a city."
   }
 }
