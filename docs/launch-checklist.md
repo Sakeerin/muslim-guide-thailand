@@ -183,6 +183,22 @@ code.
       on-device only; account email; push token), age rating, and an EAS
       production build with release signing.
 
+## Admin backend i18n (Phase 3 — shipped)
+The admin nav + all 11 pages (places, verification, certificates, import,
+featured, announce, reviews, Q&A, merchant, submissions, takedowns) are localized
+in th/en/ms/id/ar, with a language switcher in the header. The admin **defaults
+to Thai** and resolves its language from the `admin_locale` cookie — independent
+of the public `NEXT_LOCALE`, so Thai staff get Thai with nothing to configure.
+Arabic flips the whole shell to `dir=rtl`.
+- [ ] If a non-Thai moderator/reviewer will work in the admin, have a native
+      speaker proofread the ms/id/ar admin strings — these are engineering
+      translations, not counsel/native-reviewed like the public-facing copy.
+      (DB enum values and brand/technical tokens — CICOT, LINE, Google Maps, Slug,
+      lat/lng — are left untranslated by design.)
+- [ ] The admin's localized risk note + trust-level (L1–L4) / category labels are
+      cosmetic; the moderation **risk-keyword list** itself still needs the counsel
+      sign-off tracked under "Reviews & public accounts".
+
 ## Web parity note
 The native app now mirrors the web's public surface (browse/search/map → place
 detail with trust · reviews · Q&A · claim → prayer times → qibla → saved →
