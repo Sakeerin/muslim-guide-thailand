@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { auth, isStaff } from '@/server/auth';
 import { getAdminLocale } from '@/server/admin-locale';
-import { isRtl } from '@/i18n/routing';
+import { isRtl, routing } from '@/i18n/routing';
+import { AdminLocaleSwitcher } from '@/components/admin/locale-switcher';
 
 export default async function AdminProtectedLayout({
   children,
@@ -47,9 +48,12 @@ export default async function AdminProtectedLayout({
               </Link>
             ))}
           </nav>
-          <span className="ms-auto text-sm opacity-60">
-            {session.user.name} ({(session.user as { role?: string }).role})
-          </span>
+          <div className="ms-auto flex items-center gap-3">
+            <AdminLocaleSwitcher current={locale} locales={routing.locales} label={t('language')} />
+            <span className="text-sm opacity-60">
+              {session.user.name} ({(session.user as { role?: string }).role})
+            </span>
+          </div>
         </div>
       </header>
       <div className="mx-auto w-full max-w-6xl flex-1 px-4 py-6">{children}</div>
