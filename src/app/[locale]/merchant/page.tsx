@@ -37,7 +37,7 @@ export default async function MerchantPage({
       <h1 className="text-2xl font-bold">{t('portalTitle')}</h1>
 
       {submitted && <p className="rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800">{t('editSubmitted')}</p>}
-      {error && <p className="rounded-lg bg-red-50 p-3 text-sm text-red-700">—</p>}
+      {error && <p className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{t('editError')}</p>}
 
       {myPlaces.length === 0 ? (
         <p className="rounded-xl border p-6 text-center opacity-70">{t('portalEmpty')}</p>

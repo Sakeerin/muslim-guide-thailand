@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 // OpenFreeMap: free vector tiles, no key, no billing (has no SLA — see runbook).
@@ -25,6 +26,7 @@ interface PlaceMapProps {
 export function PlaceMap({ locale, type, center = [100.5018, 13.7563], zoom = 6, onSelect }: PlaceMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
+  const t = useTranslations('errors');
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -149,9 +151,7 @@ export function PlaceMap({ locale, type, center = [100.5018, 13.7563], zoom = 6,
   if (failed) {
     return (
       <div className="flex h-full min-h-80 items-center justify-center rounded-xl border bg-foreground/5 p-6 text-center text-sm opacity-70">
-        {locale === 'th'
-          ? 'ไม่สามารถโหลดแผนที่ได้ในขณะนี้ — ลองใช้มุมมองรายการแทน'
-          : 'Map is unavailable right now — try the list view instead.'}
+        {t('mapUnavailable')}
       </div>
     );
   }

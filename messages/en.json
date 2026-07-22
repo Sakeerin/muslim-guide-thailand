@@ -19,7 +19,8 @@
     "seeAll": "See all",
     "back": "Back",
     "sponsored": "Sponsored",
-    "language": "Language"
+    "language": "Language",
+    "rtlRestart": "Restart the app to apply the new layout direction."
   },
   "nav": {
     "home": "Home",
@@ -173,7 +174,8 @@
     "editSubmitted": "Thank you — your changes will appear after review.",
     "saveChanges": "Submit changes for review",
     "manage": "Manage",
-    "sponsoredUntil": "Sponsored until {date}"
+    "sponsoredUntil": "Sponsored until {date}",
+    "editError": "Couldn't submit your changes. Please try again."
   },
   "ramadan": {
     "title": "Ramadan",
@@ -231,7 +233,15 @@
     "featureDisabled": "This isn't available right now. Please check back later.",
     "validation": "Please check what you entered and try again.",
     "network": "Couldn't reach the server. Check your connection and try again.",
-    "generic": "Something went wrong. Please try again."
+    "generic": "Something went wrong. Please try again.",
+    "mapUnavailable": "Map is unavailable right now — try the list view instead.",
+    "location": "Couldn't get your location. Enable location access and try again.",
+    "retry": "Try again",
+    "notFoundTitle": "Page not found",
+    "notFound": "We couldn't find the page you were looking for.",
+    "pageErrorTitle": "Something went wrong",
+    "pageError": "Something went wrong loading this page. Please try again.",
+    "backHome": "Back to home"
   },
   "takedown": {
     "intro": "If you believe content on this site is unlawful or infringes your rights, submit this form. Our team reviews every request within 24 hours, as required by Thailand's MDES regulations.",

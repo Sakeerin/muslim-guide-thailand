@@ -20,7 +20,7 @@ export function LanguagePicker() {
     const { needsReload } = await changeLocale(loc);
     if (needsReload) {
       // RTL/LTR flips only take effect after a full restart in React Native.
-      Alert.alert(t('common.appName'), '↻ Restart the app to apply the new layout direction.');
+      Alert.alert(t('common.appName'), t('common.rtlRestart'));
     }
   }
 

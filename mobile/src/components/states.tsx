@@ -14,10 +14,10 @@ export function ErrorState({ onRetry }: { onRetry?: () => void }) {
   const { t } = useTranslation();
   return (
     <View style={styles.center}>
-      <Text style={styles.muted}>{t('common.offline')}</Text>
+      <Text style={styles.muted}>{t('errors.generic')}</Text>
       {onRetry ? (
         <Pressable style={styles.retry} onPress={onRetry}>
-          <Text style={styles.retryText}>{t('common.loading')}</Text>
+          <Text style={styles.retryText}>{t('errors.retry')}</Text>
         </Pressable>
       ) : null}
     </View>
