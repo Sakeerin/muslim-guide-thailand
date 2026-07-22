@@ -274,7 +274,8 @@
       "qa": "الأسئلة والأجوبة",
       "merchant": "التجّار",
       "submissions": "البلاغات",
-      "takedowns": "طلبات الإزالة (24س)"
+      "takedowns": "طلبات الإزالة (24س)",
+      "language": "اللغة"
     },
     "places": {
       "listTitle": "الأماكن ({count})",

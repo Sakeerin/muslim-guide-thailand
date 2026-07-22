@@ -274,7 +274,8 @@
       "qa": "Q&A",
       "merchant": "Merchants",
       "submissions": "Reports",
-      "takedowns": "Takedowns (24h)"
+      "takedowns": "Takedowns (24h)",
+      "language": "Language"
     },
     "places": {
       "listTitle": "Places ({count})",

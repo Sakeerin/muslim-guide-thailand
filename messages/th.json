@@ -274,7 +274,8 @@
       "qa": "คิวถาม-ตอบ",
       "merchant": "เจ้าของร้าน",
       "submissions": "คิวรายงาน",
-      "takedowns": "Takedown (24 ชม.)"
+      "takedowns": "Takedown (24 ชม.)",
+      "language": "ภาษา"
     },
     "places": {
       "listTitle": "สถานที่ ({count})",

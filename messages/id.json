@@ -274,7 +274,8 @@
       "qa": "Tanya jawab",
       "merchant": "Pedagang",
       "submissions": "Laporan",
-      "takedowns": "Takedown (24j)"
+      "takedowns": "Takedown (24j)",
+      "language": "Bahasa"
     },
     "places": {
       "listTitle": "Tempat ({count})",
