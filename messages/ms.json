@@ -505,5 +505,13 @@
   },
   "search": {
     "empty": "Tiada hasil — cuba kata kunci lain atau pilih bandar."
+  },
+  "manifest": {
+    "description": "Cari restoran halal, masjid, surau, waktu solat dan arah kiblat di seluruh Thailand",
+    "shortcuts": {
+      "prayerTimes": "Waktu solat",
+      "nearMe": "Berdekatan saya",
+      "qibla": "Kiblat"
+    }
   }
 }
