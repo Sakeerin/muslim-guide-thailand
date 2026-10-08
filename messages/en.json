@@ -505,5 +505,13 @@
   },
   "search": {
     "empty": "No results — try another keyword or pick a city."
+  },
+  "manifest": {
+    "description": "Find halal restaurants, mosques, prayer rooms, prayer times and qibla across Thailand",
+    "shortcuts": {
+      "prayerTimes": "Prayer times",
+      "nearMe": "Near me",
+      "qibla": "Qibla"
+    }
   }
 }

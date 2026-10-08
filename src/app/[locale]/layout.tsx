@@ -44,7 +44,7 @@ export async function generateMetadata({
       template: `%s | ${t('appName')}`,
     },
     description: t('tagline'),
-    manifest: '/manifest.webmanifest',
+    manifest: `/${locale}/manifest.webmanifest`,
     alternates: {
       canonical: `/${locale}`,
       languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}`])),
