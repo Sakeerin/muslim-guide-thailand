@@ -350,7 +350,8 @@
       "categories": "Categories",
       "publishStatus": "Publish status",
       "save": "Save",
-      "fourEyesNote": "Rule: setting L1 (CICOT-certified) or L2 (Muslim-owned) status must go through the verification queue reviewed by someone else (4-eyes) — do it on the “Verification” page, not by publishing directly here."
+      "fourEyesNote": "Rule: setting L1 (CICOT-certified) or L2 (Muslim-owned) status must go through the verification queue reviewed by someone else (4-eyes) — do it on the “Verification” page, not by publishing directly here.",
+      "halal": "Halal"
     },
     "verification": {
       "title": "Verification queue ({count})",
@@ -500,11 +501,44 @@
       "catInappropriateMedia": "Inappropriate media",
       "catClaim": "Place claim",
       "catOther": "Other"
+    },
+    "login": {
+      "title": "Admin sign-in",
+      "email": "Email",
+      "password": "Password",
+      "signIn": "Sign in",
+      "signingIn": "Signing in...",
+      "error": "Incorrect email or password"
+    },
+    "dashboard": {
+      "title": "Overview",
+      "status": {
+        "draft": "Draft",
+        "pending_review": "Pending review",
+        "published": "Published",
+        "published_unverified": "Published (unverified)",
+        "archived": "Archived",
+        "removed": "Hidden/removed"
+      },
+      "takedownWarning": "⚠️ {count} Takedown requests pending (24h SLA)",
+      "hoursLeft": "— <strong>{hours}h</strong> left",
+      "takedownLink": "Go to Takedown queue →",
+      "byStatus": "Places by status",
+      "pendingSubmissions": "Pending reports/requests",
+      "managePlaces": "Manage all places"
     }
   },
   "search": {
     "empty": "No results — try another keyword or pick a city.",
     "interpretedAs": "Interpreted as:"
+  },
+  "manifest": {
+    "description": "Find halal restaurants, mosques, prayer rooms, prayer times and qibla across Thailand",
+    "shortcuts": {
+      "prayerTimes": "Prayer times",
+      "nearMe": "Near me",
+      "qibla": "Qibla"
+    }
   },
   "islamicCalendar": {
     "title": "Islamic calendar",
