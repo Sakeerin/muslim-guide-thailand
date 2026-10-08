@@ -27,6 +27,8 @@ export function PlaceMap({ locale, type, center = [100.5018, 13.7563], zoom = 6,
   const containerRef = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
   const t = useTranslations('errors');
+  const tCommon = useTranslations('common');
+  const viewDetails = tCommon('viewDetails');
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -125,7 +127,7 @@ export function PlaceMap({ locale, type, center = [100.5018, 13.7563], zoom = 6,
             new maplibregl.Popup()
               .setLngLat(coords)
               .setHTML(
-                `<strong>${escapeHtml(props.name)}</strong><br/><a href="/${locale}/place/${props.slug}" style="color:#0f766e;text-decoration:underline">${locale === 'th' ? 'ดูรายละเอียด' : 'View details'}</a>`,
+                `<strong>${escapeHtml(props.name)}</strong><br/><a href="/${locale}/place/${props.slug}" style="color:#0f766e;text-decoration:underline">${escapeHtml(viewDetails)}</a>`,
               )
               .addTo(map!);
             onSelect?.(props.slug);
@@ -146,7 +148,7 @@ export function PlaceMap({ locale, type, center = [100.5018, 13.7563], zoom = 6,
       cancelled = true;
       map?.remove();
     };
-  }, [locale, type, center, zoom, onSelect]);
+  }, [locale, type, center, zoom, onSelect, viewDetails]);
 
   if (failed) {
     return (

@@ -5,14 +5,15 @@ import { useTranslations } from 'next-intl';
 import { PlaceMap } from '@/components/place-map';
 
 const TYPES = [
-  { value: '', th: 'ทั้งหมด', en: 'All' },
-  { value: 'restaurant', th: 'ร้านอาหาร', en: 'Restaurants' },
-  { value: 'mosque', th: 'มัสยิด', en: 'Mosques' },
-  { value: 'prayer_room', th: 'ห้องละหมาด', en: 'Prayer rooms' },
+  { value: '', labelKey: 'typeAll' },
+  { value: 'restaurant', labelKey: 'typeRestaurant' },
+  { value: 'mosque', labelKey: 'typeMosque' },
+  { value: 'prayer_room', labelKey: 'typePrayerRoom' },
 ];
 
 export function MapView({ locale }: { locale: string }) {
   const t = useTranslations('common');
+  const tPlace = useTranslations('place');
   const [type, setType] = useState('');
 
   return (
@@ -24,9 +25,9 @@ export function MapView({ locale }: { locale: string }) {
           onChange={(e) => setType(e.target.value)}
           className="ms-auto rounded-lg border bg-background px-3 py-1.5 text-sm"
         >
-          {TYPES.map((tp) => (
-            <option key={tp.value} value={tp.value}>
-              {locale === 'th' ? tp.th : tp.en}
+          {TYPES.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {tPlace(opt.labelKey)}
             </option>
           ))}
         </select>

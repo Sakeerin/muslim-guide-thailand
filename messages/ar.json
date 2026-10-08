@@ -21,7 +21,9 @@
     "sponsored": "مُموَّل",
     "language": "اللغة",
     "rtlRestart": "أعد تشغيل التطبيق لتطبيق اتجاه التخطيط الجديد.",
-    "noResults": "لم يتم العثور على أماكن."
+    "noResults": "لم يتم العثور على أماكن.",
+    "viewDetails": "عرض التفاصيل",
+    "dismiss": "إغلاق"
   },
   "nav": {
     "home": "الرئيسية",
@@ -79,7 +81,20 @@
     "dataSource": "مصدر البيانات: {source}",
     "distanceKm": "يبعد {km} كم",
     "cityEmpty": "ما زلنا نجمع بيانات هذه المدينة — تحقّق مرة أخرى قريبًا.",
-    "categoryEmpty": "ما زلنا نجمع بيانات هذه الفئة — تحقّق مرة أخرى قريبًا."
+    "categoryEmpty": "ما زلنا نجمع بيانات هذه الفئة — تحقّق مرة أخرى قريبًا.",
+    "typeAll": "جميع الأنواع",
+    "typeRestaurant": "مطاعم",
+    "typeMosque": "مساجد",
+    "typePrayerRoom": "مصليات",
+    "typeAttraction": "معالم سياحية",
+    "sectionRestaurants": "مطاعم حلال",
+    "sectionMosques": "مساجد",
+    "sectionPrayerRooms": "مصليات",
+    "sectionAttractions": "معالم سياحية",
+    "categoryTitleRestaurant": "مطاعم حلال في {city}",
+    "categoryTitleMosque": "مساجد في {city}",
+    "categoryTitlePrayerRoom": "مصليات في {city}",
+    "categoryTitleAttraction": "معالم سياحية في {city}"
   },
   "prayer": {
     "title": "مواقيت الصلاة",
@@ -144,7 +159,11 @@
     "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
     "signUpError": "تعذّر إنشاء الحساب",
     "loginToReview": "سجّل الدخول لكتابة مراجعة",
-    "noReviews": "لم تكتب أي مراجعات بعد."
+    "noReviews": "لم تكتب أي مراجعات بعد.",
+    "reviewStatusPublished": "منشور",
+    "reviewStatusPending": "قيد المراجعة",
+    "reviewStatusHidden": "مخفي",
+    "reviewStatusRemoved": "محذوف"
   },
   "review": {
     "title": "المراجعات",
@@ -179,7 +198,13 @@
     "saveChanges": "إرسال التغييرات للمراجعة",
     "manage": "إدارة",
     "sponsoredUntil": "مُموَّل حتى {date}",
-    "editError": "تعذّر إرسال تغييراتك. يرجى المحاولة مرة أخرى."
+    "editError": "تعذّر إرسال تغييراتك. يرجى المحاولة مرة أخرى.",
+    "fieldDescriptionTh": "الوصف (بالتايلندية)",
+    "fieldDescriptionEn": "الوصف (بالإنجليزية)",
+    "fieldAddressTh": "العنوان (بالتايلندية)",
+    "fieldPhone": "الهاتف",
+    "fieldWebsite": "الموقع الإلكتروني",
+    "fieldPriceRange": "نطاق السعر (1–4)"
   },
   "ramadan": {
     "title": "رمضان",
@@ -504,7 +529,8 @@
     }
   },
   "search": {
-    "empty": "لا توجد نتائج — جرّب كلمة بحث أخرى أو اختر مدينة."
+    "empty": "لا توجد نتائج — جرّب كلمة بحث أخرى أو اختر مدينة.",
+    "interpretedAs": "تم تفسيره كـ:"
   },
   "manifest": {
     "description": "اعثر على المطاعم الحلال والمساجد وغرف الصلاة ومواقيت الصلاة والقبلة في جميع أنحاء تايلاند",
@@ -513,5 +539,11 @@
       "nearMe": "بالقرب مني",
       "qibla": "القبلة"
     }
+  },
+  "islamicCalendar": {
+    "title": "التقويم الإسلامي",
+    "upcoming": "المناسبات القادمة",
+    "empty": "لا توجد تواريخ معلنة بعد",
+    "sourceNote": "تواريخ رمضان والعيد تتبع إعلان رؤية الهلال الصادر عن مكتب شيخ الإسلام في تايلاند. التواريخ المعروضة بيانات تجريبية أثناء مرحلة التطوير."
   }
 }

@@ -16,21 +16,6 @@ const CITY_SECTIONS = [
   { segment: 'attractions', type: 'attraction' as const, nameKey: 'sectionAttractions' },
 ];
 
-const SECTION_LABELS: Record<string, Record<string, string>> = {
-  sectionRestaurants: {
-    th: 'ร้านอาหารฮาลาล', en: 'Halal restaurants', ms: 'Restoran halal', id: 'Restoran halal', ar: 'مطاعم حلال',
-  },
-  sectionMosques: {
-    th: 'มัสยิด', en: 'Mosques', ms: 'Masjid', id: 'Masjid', ar: 'مساجد',
-  },
-  sectionPrayerRooms: {
-    th: 'ห้องละหมาด', en: 'Prayer rooms', ms: 'Surau', id: 'Musala', ar: 'مصليات',
-  },
-  sectionAttractions: {
-    th: 'ที่เที่ยว', en: 'Attractions', ms: 'Tarikan', id: 'Tempat wisata', ar: 'معالم سياحية',
-  },
-};
-
 export async function generateMetadata({
   params,
 }: {
@@ -82,7 +67,7 @@ export default async function CityPage({
       <h1 className="text-3xl font-bold">{cityName}</h1>
 
       {sections.map((section) => {
-        const label = SECTION_LABELS[section.nameKey][locale] ?? SECTION_LABELS[section.nameKey].en;
+        const label = t(section.nameKey);
         if (section.places.length === 0) return null;
         return (
           <section key={section.segment}>

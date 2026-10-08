@@ -21,7 +21,9 @@
     "sponsored": "Sponsored",
     "language": "Language",
     "rtlRestart": "Restart the app to apply the new layout direction.",
-    "noResults": "No places found."
+    "noResults": "No places found.",
+    "viewDetails": "View details",
+    "dismiss": "Dismiss"
   },
   "nav": {
     "home": "Home",
@@ -79,7 +81,20 @@
     "dataSource": "Data source: {source}",
     "distanceKm": "{km} km away",
     "cityEmpty": "We are still collecting data for this city — check back soon.",
-    "categoryEmpty": "We are still collecting data for this category — check back soon."
+    "categoryEmpty": "We are still collecting data for this category — check back soon.",
+    "typeAll": "All types",
+    "typeRestaurant": "Restaurants",
+    "typeMosque": "Mosques",
+    "typePrayerRoom": "Prayer rooms",
+    "typeAttraction": "Attractions",
+    "sectionRestaurants": "Halal restaurants",
+    "sectionMosques": "Mosques",
+    "sectionPrayerRooms": "Prayer rooms",
+    "sectionAttractions": "Attractions",
+    "categoryTitleRestaurant": "Halal restaurants in {city}",
+    "categoryTitleMosque": "Mosques in {city}",
+    "categoryTitlePrayerRoom": "Prayer rooms in {city}",
+    "categoryTitleAttraction": "Attractions in {city}"
   },
   "prayer": {
     "title": "Prayer times",
@@ -144,7 +159,11 @@
     "invalidCredentials": "Incorrect email or password",
     "signUpError": "Could not create the account",
     "loginToReview": "Sign in to write a review",
-    "noReviews": "You haven't written any reviews yet."
+    "noReviews": "You haven't written any reviews yet.",
+    "reviewStatusPublished": "Published",
+    "reviewStatusPending": "Pending review",
+    "reviewStatusHidden": "Hidden",
+    "reviewStatusRemoved": "Removed"
   },
   "review": {
     "title": "Reviews",
@@ -179,7 +198,13 @@
     "saveChanges": "Submit changes for review",
     "manage": "Manage",
     "sponsoredUntil": "Sponsored until {date}",
-    "editError": "Couldn't submit your changes. Please try again."
+    "editError": "Couldn't submit your changes. Please try again.",
+    "fieldDescriptionTh": "Description (Thai)",
+    "fieldDescriptionEn": "Description (English)",
+    "fieldAddressTh": "Address (Thai)",
+    "fieldPhone": "Phone",
+    "fieldWebsite": "Website",
+    "fieldPriceRange": "Price range (1–4)"
   },
   "ramadan": {
     "title": "Ramadan",
@@ -504,7 +529,8 @@
     }
   },
   "search": {
-    "empty": "No results — try another keyword or pick a city."
+    "empty": "No results — try another keyword or pick a city.",
+    "interpretedAs": "Interpreted as:"
   },
   "manifest": {
     "description": "Find halal restaurants, mosques, prayer rooms, prayer times and qibla across Thailand",
@@ -513,5 +539,11 @@
       "nearMe": "Near me",
       "qibla": "Qibla"
     }
+  },
+  "islamicCalendar": {
+    "title": "Islamic calendar",
+    "upcoming": "Upcoming dates",
+    "empty": "No announced dates yet",
+    "sourceNote": "Ramadan and Eid dates follow the moon-sighting announcement of the Sheikhul Islam Office of Thailand. The dates shown are sample data during development."
   }
 }

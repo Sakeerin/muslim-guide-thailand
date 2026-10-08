@@ -21,7 +21,9 @@
     "sponsored": "Bersponsor",
     "language": "Bahasa",
     "rtlRestart": "Mulai ulang aplikasi untuk menerapkan arah tata letak baru.",
-    "noResults": "Tidak ada tempat ditemukan."
+    "noResults": "Tidak ada tempat ditemukan.",
+    "viewDetails": "Lihat detail",
+    "dismiss": "Tutup"
   },
   "nav": {
     "home": "Beranda",
@@ -79,7 +81,20 @@
     "dataSource": "Sumber data: {source}",
     "distanceKm": "{km} km dari sini",
     "cityEmpty": "Kami masih mengumpulkan data untuk kota ini — periksa kembali segera.",
-    "categoryEmpty": "Kami masih mengumpulkan data untuk kategori ini — periksa kembali segera."
+    "categoryEmpty": "Kami masih mengumpulkan data untuk kategori ini — periksa kembali segera.",
+    "typeAll": "Semua jenis",
+    "typeRestaurant": "Restoran",
+    "typeMosque": "Masjid",
+    "typePrayerRoom": "Musala",
+    "typeAttraction": "Tempat wisata",
+    "sectionRestaurants": "Restoran halal",
+    "sectionMosques": "Masjid",
+    "sectionPrayerRooms": "Musala",
+    "sectionAttractions": "Tempat wisata",
+    "categoryTitleRestaurant": "Restoran halal di {city}",
+    "categoryTitleMosque": "Masjid di {city}",
+    "categoryTitlePrayerRoom": "Musala di {city}",
+    "categoryTitleAttraction": "Tempat wisata di {city}"
   },
   "prayer": {
     "title": "Jadwal salat",
@@ -144,7 +159,11 @@
     "invalidCredentials": "Email atau kata sandi salah",
     "signUpError": "Tidak dapat membuat akun",
     "loginToReview": "Masuk untuk menulis ulasan",
-    "noReviews": "Anda belum menulis ulasan apa pun."
+    "noReviews": "Anda belum menulis ulasan apa pun.",
+    "reviewStatusPublished": "Terbit",
+    "reviewStatusPending": "Menunggu tinjauan",
+    "reviewStatusHidden": "Disembunyikan",
+    "reviewStatusRemoved": "Dihapus"
   },
   "review": {
     "title": "Ulasan",
@@ -179,7 +198,13 @@
     "saveChanges": "Kirim perubahan untuk ditinjau",
     "manage": "Kelola",
     "sponsoredUntil": "Bersponsor hingga {date}",
-    "editError": "Tidak dapat mengirim perubahan Anda. Silakan coba lagi."
+    "editError": "Tidak dapat mengirim perubahan Anda. Silakan coba lagi.",
+    "fieldDescriptionTh": "Deskripsi (Thai)",
+    "fieldDescriptionEn": "Deskripsi (Inggris)",
+    "fieldAddressTh": "Alamat (Thai)",
+    "fieldPhone": "Telepon",
+    "fieldWebsite": "Situs web",
+    "fieldPriceRange": "Rentang harga (1–4)"
   },
   "ramadan": {
     "title": "Ramadan",
@@ -504,7 +529,8 @@
     }
   },
   "search": {
-    "empty": "Tidak ada hasil — coba kata kunci lain atau pilih kota."
+    "empty": "Tidak ada hasil — coba kata kunci lain atau pilih kota.",
+    "interpretedAs": "Ditafsirkan sebagai:"
   },
   "manifest": {
     "description": "Temukan restoran halal, masjid, musala, jadwal salat, dan arah kiblat di seluruh Thailand",
@@ -513,5 +539,11 @@
       "nearMe": "Di dekat saya",
       "qibla": "Kiblat"
     }
+  },
+  "islamicCalendar": {
+    "title": "Kalender Islam",
+    "upcoming": "Tanggal mendatang",
+    "empty": "Belum ada tanggal yang diumumkan",
+    "sourceNote": "Tanggal Ramadan dan Idulfitri mengikuti pengumuman rukyat Kantor Syekhul Islam Thailand. Tanggal yang ditampilkan adalah data contoh selama pengembangan."
   }
 }

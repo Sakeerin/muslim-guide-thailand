@@ -18,6 +18,7 @@ const DISMISS_KEY = 'mgt:install-dismissed';
  */
 export function Pwa() {
   const t = useTranslations('saved');
+  const tCommon = useTranslations('common');
   const [installEvt, setInstallEvt] = useState<BeforeInstallPromptEvent | null>(null);
 
   // event-handler (not called synchronously in an effect) — safe setState
@@ -51,7 +52,7 @@ export function Pwa() {
         {t('install')}
       </button>
       <button
-        aria-label="dismiss"
+        aria-label={tCommon('dismiss')}
         onClick={() => {
           localStorage.setItem(DISMISS_KEY, '1');
           setInstallEvt(null);

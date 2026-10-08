@@ -7,11 +7,11 @@ import { SignOutButton } from '@/components/sign-out-button';
 
 export const dynamic = 'force-dynamic';
 
-const STATUS_LABEL: Record<string, Record<string, string>> = {
-  published: { th: 'เผยแพร่แล้ว', en: 'Published' },
-  pending: { th: 'รอตรวจสอบ', en: 'Pending review' },
-  hidden: { th: 'ถูกซ่อน', en: 'Hidden' },
-  removed: { th: 'ถูกลบ', en: 'Removed' },
+const STATUS_KEY: Record<string, string> = {
+  published: 'reviewStatusPublished',
+  pending: 'reviewStatusPending',
+  hidden: 'reviewStatusHidden',
+  removed: 'reviewStatusRemoved',
 };
 
 export default async function AccountPage({
@@ -58,7 +58,7 @@ export default async function AccountPage({
                 </div>
                 {r.body && <p className="mt-1 text-sm opacity-80">{r.body}</p>}
                 <p className="mt-1 text-xs opacity-50">
-                  {(STATUS_LABEL[r.status]?.[locale] ?? STATUS_LABEL[r.status]?.en ?? r.status)}
+                  {STATUS_KEY[r.status] ? t(STATUS_KEY[r.status]) : r.status}
                 </p>
               </li>
             ))}
