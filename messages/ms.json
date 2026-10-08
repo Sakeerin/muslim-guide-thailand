@@ -21,7 +21,9 @@
     "sponsored": "Ditaja",
     "language": "Bahasa",
     "rtlRestart": "Mulakan semula apl untuk menggunakan arah susun atur baharu.",
-    "noResults": "Tiada tempat dijumpai."
+    "noResults": "Tiada tempat dijumpai.",
+    "viewDetails": "Lihat butiran",
+    "dismiss": "Tutup"
   },
   "nav": {
     "home": "Utama",
@@ -79,7 +81,20 @@
     "dataSource": "Sumber data: {source}",
     "distanceKm": "{km} km dari sini",
     "cityEmpty": "Kami masih mengumpulkan data untuk bandar ini — sila semak semula tidak lama lagi.",
-    "categoryEmpty": "Kami masih mengumpulkan data untuk kategori ini — sila semak semula tidak lama lagi."
+    "categoryEmpty": "Kami masih mengumpulkan data untuk kategori ini — sila semak semula tidak lama lagi.",
+    "typeAll": "Semua jenis",
+    "typeRestaurant": "Restoran",
+    "typeMosque": "Masjid",
+    "typePrayerRoom": "Surau",
+    "typeAttraction": "Tarikan",
+    "sectionRestaurants": "Restoran halal",
+    "sectionMosques": "Masjid",
+    "sectionPrayerRooms": "Surau",
+    "sectionAttractions": "Tarikan",
+    "categoryTitleRestaurant": "Restoran halal di {city}",
+    "categoryTitleMosque": "Masjid di {city}",
+    "categoryTitlePrayerRoom": "Surau di {city}",
+    "categoryTitleAttraction": "Tarikan di {city}"
   },
   "prayer": {
     "title": "Waktu solat",
@@ -144,7 +159,11 @@
     "invalidCredentials": "E-mel atau kata laluan salah",
     "signUpError": "Tidak dapat mencipta akaun",
     "loginToReview": "Log masuk untuk menulis ulasan",
-    "noReviews": "Anda belum menulis sebarang ulasan."
+    "noReviews": "Anda belum menulis sebarang ulasan.",
+    "reviewStatusPublished": "Diterbitkan",
+    "reviewStatusPending": "Menunggu semakan",
+    "reviewStatusHidden": "Disembunyikan",
+    "reviewStatusRemoved": "Dialih keluar"
   },
   "review": {
     "title": "Ulasan",
@@ -179,7 +198,13 @@
     "saveChanges": "Hantar perubahan untuk semakan",
     "manage": "Urus",
     "sponsoredUntil": "Ditaja sehingga {date}",
-    "editError": "Tidak dapat menghantar perubahan anda. Sila cuba lagi."
+    "editError": "Tidak dapat menghantar perubahan anda. Sila cuba lagi.",
+    "fieldDescriptionTh": "Penerangan (Thai)",
+    "fieldDescriptionEn": "Penerangan (Inggeris)",
+    "fieldAddressTh": "Alamat (Thai)",
+    "fieldPhone": "Telefon",
+    "fieldWebsite": "Laman web",
+    "fieldPriceRange": "Julat harga (1–4)"
   },
   "ramadan": {
     "title": "Ramadan",
@@ -478,6 +503,13 @@
     }
   },
   "search": {
-    "empty": "Tiada hasil — cuba kata kunci lain atau pilih bandar."
+    "empty": "Tiada hasil — cuba kata kunci lain atau pilih bandar.",
+    "interpretedAs": "Ditafsirkan sebagai:"
+  },
+  "islamicCalendar": {
+    "title": "Kalendar Islam",
+    "upcoming": "Tarikh akan datang",
+    "empty": "Belum ada tarikh diumumkan",
+    "sourceNote": "Tarikh Ramadan dan Aidilfitri mengikut pengumuman rukyah Pejabat Syeikhul Islam Thailand. Tarikh yang dipaparkan ialah data contoh semasa pembangunan."
   }
 }

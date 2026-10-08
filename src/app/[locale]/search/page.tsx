@@ -19,19 +19,12 @@ export async function generateMetadata({
 }
 
 const TYPE_OPTIONS = [
-  { value: '', key: 'all' },
-  { value: 'restaurant', key: 'restaurant' },
-  { value: 'mosque', key: 'mosque' },
-  { value: 'prayer_room', key: 'prayerRoom' },
-  { value: 'attraction', key: 'attraction' },
+  { value: '', labelKey: 'typeAll' },
+  { value: 'restaurant', labelKey: 'typeRestaurant' },
+  { value: 'mosque', labelKey: 'typeMosque' },
+  { value: 'prayer_room', labelKey: 'typePrayerRoom' },
+  { value: 'attraction', labelKey: 'typeAttraction' },
 ];
-const TYPE_LABEL: Record<string, Record<string, string>> = {
-  all: { th: 'ทุกประเภท', en: 'All types' },
-  restaurant: { th: 'ร้านอาหาร', en: 'Restaurants' },
-  mosque: { th: 'มัสยิด', en: 'Mosques' },
-  prayerRoom: { th: 'ห้องละหมาด', en: 'Prayer rooms' },
-  attraction: { th: 'ที่เที่ยว', en: 'Attractions' },
-};
 
 export default async function SearchPage({
   params,
@@ -62,7 +55,6 @@ export default async function SearchPage({
 
   const hasQuery = Boolean(query.q || query.city || query.type || query.openNow);
   const result = hasQuery ? await searchPlaces(query, currentLocale) : null;
-  const lbl = (key: string) => TYPE_LABEL[key][locale] ?? TYPE_LABEL[key].en;
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-4 py-10">
@@ -92,7 +84,7 @@ export default async function SearchPage({
           </select>
           <select name="type" defaultValue={query.type ?? ''} className="rounded-lg border bg-background px-3 py-2 text-sm">
             {TYPE_OPTIONS.map((o) => (
-              <option key={o.value} value={o.value}>{lbl(o.key)}</option>
+              <option key={o.value} value={o.value}>{t(`place.${o.labelKey}`)}</option>
             ))}
           </select>
           <select name="halal" defaultValue={query.halal?.[0] ?? ''} className="rounded-lg border bg-background px-3 py-2 text-sm">
@@ -110,7 +102,7 @@ export default async function SearchPage({
 
       {result?.inferred && (result.inferred.type || result.inferred.citySlug || result.inferred.categorySlug) && (
         <p className="text-xs opacity-60">
-          {locale === 'th' ? 'ตีความคำค้นเป็น: ' : 'Interpreted as: '}
+          {t('search.interpretedAs')}{' '}
           {[result.inferred.type, result.inferred.citySlug, result.inferred.categorySlug].filter(Boolean).join(' · ')}
         </p>
       )}

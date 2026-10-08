@@ -21,7 +21,9 @@
     "sponsored": "ได้รับการสนับสนุน",
     "language": "ภาษา",
     "rtlRestart": "รีสตาร์ทแอปเพื่อใช้ทิศทางการจัดวางใหม่",
-    "noResults": "ไม่พบสถานที่"
+    "noResults": "ไม่พบสถานที่",
+    "viewDetails": "ดูรายละเอียด",
+    "dismiss": "ปิด"
   },
   "nav": {
     "home": "หน้าแรก",
@@ -79,7 +81,20 @@
     "dataSource": "แหล่งข้อมูล: {source}",
     "distanceKm": "ห่าง {km} กม.",
     "cityEmpty": "เรากำลังเก็บข้อมูลเมืองนี้อยู่ — กลับมาดูอีกครั้งเร็วๆ นี้",
-    "categoryEmpty": "เรากำลังเก็บข้อมูลหมวดนี้อยู่ — กลับมาดูอีกครั้งเร็วๆ นี้"
+    "categoryEmpty": "เรากำลังเก็บข้อมูลหมวดนี้อยู่ — กลับมาดูอีกครั้งเร็วๆ นี้",
+    "typeAll": "ทุกประเภท",
+    "typeRestaurant": "ร้านอาหาร",
+    "typeMosque": "มัสยิด",
+    "typePrayerRoom": "ห้องละหมาด",
+    "typeAttraction": "ที่เที่ยว",
+    "sectionRestaurants": "ร้านอาหารฮาลาล",
+    "sectionMosques": "มัสยิด",
+    "sectionPrayerRooms": "ห้องละหมาด",
+    "sectionAttractions": "ที่เที่ยว",
+    "categoryTitleRestaurant": "ร้านอาหารฮาลาลใน{city}",
+    "categoryTitleMosque": "มัสยิดใน{city}",
+    "categoryTitlePrayerRoom": "ห้องละหมาดใน{city}",
+    "categoryTitleAttraction": "ที่เที่ยวใน{city}"
   },
   "prayer": {
     "title": "เวลาละหมาด",
@@ -144,7 +159,11 @@
     "invalidCredentials": "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
     "signUpError": "ไม่สามารถสร้างบัญชีได้",
     "loginToReview": "เข้าสู่ระบบเพื่อเขียนรีวิว",
-    "noReviews": "คุณยังไม่ได้เขียนรีวิว"
+    "noReviews": "คุณยังไม่ได้เขียนรีวิว",
+    "reviewStatusPublished": "เผยแพร่แล้ว",
+    "reviewStatusPending": "รอตรวจสอบ",
+    "reviewStatusHidden": "ถูกซ่อน",
+    "reviewStatusRemoved": "ถูกลบ"
   },
   "review": {
     "title": "รีวิว",
@@ -179,7 +198,13 @@
     "saveChanges": "ส่งการแก้ไขเพื่อตรวจสอบ",
     "manage": "จัดการ",
     "sponsoredUntil": "ได้รับการสนับสนุนถึง {date}",
-    "editError": "ส่งการแก้ไขไม่สำเร็จ โปรดลองอีกครั้ง"
+    "editError": "ส่งการแก้ไขไม่สำเร็จ โปรดลองอีกครั้ง",
+    "fieldDescriptionTh": "คำอธิบาย (ไทย)",
+    "fieldDescriptionEn": "คำอธิบาย (อังกฤษ)",
+    "fieldAddressTh": "ที่อยู่ (ไทย)",
+    "fieldPhone": "โทรศัพท์",
+    "fieldWebsite": "เว็บไซต์",
+    "fieldPriceRange": "ช่วงราคา (1–4)"
   },
   "ramadan": {
     "title": "รอมฎอน",
@@ -478,6 +503,13 @@
     }
   },
   "search": {
-    "empty": "ไม่พบผลลัพธ์ — ลองคำค้นอื่นหรือเลือกเมือง"
+    "empty": "ไม่พบผลลัพธ์ — ลองคำค้นอื่นหรือเลือกเมือง",
+    "interpretedAs": "ตีความคำค้นเป็น:"
+  },
+  "islamicCalendar": {
+    "title": "ปฏิทินอิสลาม",
+    "upcoming": "วันสำคัญที่จะถึง",
+    "empty": "ยังไม่มีประกาศวันสำคัญ",
+    "sourceNote": "วันเริ่มรอมฎอนและวันอีดยึดตามประกาศดูดวงจันทร์ของสำนักจุฬาราชมนตรี ข้อมูลที่แสดงเป็นเพียงตัวอย่างระหว่างการพัฒนา"
   }
 }

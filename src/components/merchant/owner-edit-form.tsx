@@ -18,21 +18,21 @@ export async function OwnerEditForm({ place }: { place: PlaceEdit }) {
       <input type="hidden" name="placeId" value={place.id} />
 
       <label className="flex flex-col gap-1 text-sm">
-        คำอธิบาย (ไทย)
+        {t('fieldDescriptionTh')}
         <textarea name="description_th" defaultValue={desc.th ?? ''} rows={2} className="rounded border bg-background px-2 py-1" />
       </label>
       <label className="flex flex-col gap-1 text-sm">
-        Description (EN)
+        {t('fieldDescriptionEn')}
         <textarea name="description_en" defaultValue={desc.en ?? ''} rows={2} className="rounded border bg-background px-2 py-1" />
       </label>
       <label className="flex flex-col gap-1 text-sm">
-        ที่อยู่ / Address (ไทย)
+        {t('fieldAddressTh')}
         <input name="address_th" defaultValue={addr.th ?? ''} className="rounded border bg-background px-2 py-1" />
       </label>
 
       <div className="grid gap-3 sm:grid-cols-2">
         <label className="flex flex-col gap-1 text-sm">
-          โทรศัพท์ / Phone
+          {t('fieldPhone')}
           <input name="phone" defaultValue={place.phone ?? ''} className="rounded border bg-background px-2 py-1" />
         </label>
         <label className="flex flex-col gap-1 text-sm">
@@ -40,7 +40,7 @@ export async function OwnerEditForm({ place }: { place: PlaceEdit }) {
           <input name="lineId" defaultValue={place.lineId ?? ''} className="rounded border bg-background px-2 py-1" />
         </label>
         <label className="flex flex-col gap-1 text-sm">
-          Website
+          {t('fieldWebsite')}
           <input name="website" defaultValue={place.website ?? ''} className="rounded border bg-background px-2 py-1" />
         </label>
         <label className="flex flex-col gap-1 text-sm">
@@ -48,7 +48,7 @@ export async function OwnerEditForm({ place }: { place: PlaceEdit }) {
           <input name="googleMapsUrl" defaultValue={place.googleMapsUrl ?? ''} className="rounded border bg-background px-2 py-1" />
         </label>
         <label className="flex flex-col gap-1 text-sm">
-          ช่วงราคา / Price (1–4)
+          {t('fieldPriceRange')}
           <input name="priceRange" type="number" min="1" max="4" defaultValue={place.priceRange ?? ''} className="rounded border bg-background px-2 py-1" />
         </label>
       </div>

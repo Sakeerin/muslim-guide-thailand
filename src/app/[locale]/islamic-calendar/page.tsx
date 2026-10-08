@@ -6,22 +6,15 @@ import { listIslamicEvents } from '@/server/services/prayer-times';
 
 export const dynamic = 'force-dynamic';
 
-const TITLE: Record<string, string> = {
-  th: 'ปฏิทินอิสลาม',
-  en: 'Islamic calendar',
-  ms: 'Kalendar Islam',
-  id: 'Kalender Islam',
-  ar: 'التقويم الإسلامي',
-};
-
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'islamicCalendar' });
   return {
-    title: TITLE[locale] ?? TITLE.en,
+    title: t('title'),
     alternates: alternatesFor('/islamic-calendar'),
   };
 }
@@ -33,7 +26,7 @@ export default async function IslamicCalendarPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const [format, tPrayer] = await Promise.all([getFormatter(), getTranslations('prayer')]);
+  const [format, t] = await Promise.all([getFormatter(), getTranslations('islamicCalendar')]);
 
   const today = new Date();
   const events = await listIslamicEvents();
@@ -42,7 +35,7 @@ export default async function IslamicCalendarPage({
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-6 px-4 py-10">
       <header>
-        <h1 className="text-3xl font-bold">{TITLE[locale] ?? TITLE.en}</h1>
+        <h1 className="text-3xl font-bold">{t('title')}</h1>
         <p className="mt-2 text-lg">{formatHijriDate(today, locale)}</p>
         <p className="text-sm opacity-70">
           {format.dateTime(today, { dateStyle: 'full' })}
@@ -50,15 +43,9 @@ export default async function IslamicCalendarPage({
       </header>
 
       <section>
-        <h2 className="mb-3 font-semibold">
-          {locale === 'th' ? 'วันสำคัญที่จะถึง' : 'Upcoming dates'}
-        </h2>
+        <h2 className="mb-3 font-semibold">{t('upcoming')}</h2>
         {upcoming.length === 0 ? (
-          <p className="text-sm opacity-60">
-            {locale === 'th'
-              ? 'ยังไม่มีประกาศวันสำคัญ'
-              : 'No announced dates yet'}
-          </p>
+          <p className="text-sm opacity-60">{t('empty')}</p>
         ) : (
           <ul className="flex flex-col gap-3">
             {upcoming.map((e) => (
@@ -76,9 +63,7 @@ export default async function IslamicCalendarPage({
       </section>
 
       <p className="rounded-xl bg-foreground/5 p-3 text-xs opacity-70">
-        {locale === 'th'
-          ? 'วันเริ่มรอมฎอนและวันอีดยึดตามประกาศดูดวงจันทร์ของสำนักจุฬาราชมนตรี ข้อมูลที่แสดงเป็นเพียงตัวอย่างระหว่างการพัฒนา'
-          : tPrayer('sourceOfficial')}
+        {t('sourceNote')}
       </p>
     </main>
   );
