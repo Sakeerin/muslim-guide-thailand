@@ -325,7 +325,8 @@
       "categories": "Kategori",
       "publishStatus": "Status publikasi",
       "save": "Simpan",
-      "fourEyesNote": "Aturan: menetapkan status L1 (bersertifikat CICOT) / L2 (milik Muslim) harus melalui antrean verifikasi yang ditinjau orang lain (4 mata) — lakukan di halaman “Verifikasi”, bukan dengan memublikasikan langsung di sini."
+      "fourEyesNote": "Aturan: menetapkan status L1 (bersertifikat CICOT) / L2 (milik Muslim) harus melalui antrean verifikasi yang ditinjau orang lain (4 mata) — lakukan di halaman “Verifikasi”, bukan dengan memublikasikan langsung di sini.",
+      "halal": "Halal"
     },
     "verification": {
       "title": "Antrean verifikasi ({count})",
@@ -475,6 +476,31 @@
       "catInappropriateMedia": "Media tidak pantas",
       "catClaim": "Klaim tempat",
       "catOther": "Lainnya"
+    },
+    "login": {
+      "title": "Masuk admin",
+      "email": "Email",
+      "password": "Kata sandi",
+      "signIn": "Masuk",
+      "signingIn": "Sedang masuk...",
+      "error": "Email atau kata sandi salah"
+    },
+    "dashboard": {
+      "title": "Ikhtisar",
+      "status": {
+        "draft": "Draf",
+        "pending_review": "Menunggu tinjauan",
+        "published": "Diterbitkan",
+        "published_unverified": "Diterbitkan (belum diverifikasi)",
+        "archived": "Diarsipkan",
+        "removed": "Disembunyikan/dihapus"
+      },
+      "takedownWarning": "⚠️ {count} permintaan takedown tertunda (SLA 24 jam)",
+      "hoursLeft": "— sisa <strong>{hours} jam</strong>",
+      "takedownLink": "Buka antrean takedown →",
+      "byStatus": "Tempat menurut status",
+      "pendingSubmissions": "Laporan/permintaan tertunda",
+      "managePlaces": "Kelola semua tempat"
     }
   },
   "search": {

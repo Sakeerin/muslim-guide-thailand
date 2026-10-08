@@ -325,7 +325,8 @@
       "categories": "Kategori",
       "publishStatus": "Status penerbitan",
       "save": "Simpan",
-      "fourEyesNote": "Peraturan: menetapkan status L1 (disahkan CICOT) / L2 (milik Muslim) mesti melalui baris gilir pengesahan yang disemak oleh orang lain (4-mata) — lakukan di halaman “Pengesahan”, bukan dengan menerbitkan terus di sini."
+      "fourEyesNote": "Peraturan: menetapkan status L1 (disahkan CICOT) / L2 (milik Muslim) mesti melalui baris gilir pengesahan yang disemak oleh orang lain (4-mata) — lakukan di halaman “Pengesahan”, bukan dengan menerbitkan terus di sini.",
+      "halal": "Halal"
     },
     "verification": {
       "title": "Baris gilir pengesahan ({count})",
@@ -475,6 +476,31 @@
       "catInappropriateMedia": "Media tidak sesuai",
       "catClaim": "Tuntutan tempat",
       "catOther": "Lain-lain"
+    },
+    "login": {
+      "title": "Log masuk pentadbir",
+      "email": "E-mel",
+      "password": "Kata laluan",
+      "signIn": "Log masuk",
+      "signingIn": "Sedang log masuk...",
+      "error": "E-mel atau kata laluan salah"
+    },
+    "dashboard": {
+      "title": "Gambaran keseluruhan",
+      "status": {
+        "draft": "Draf",
+        "pending_review": "Menunggu semakan",
+        "published": "Diterbitkan",
+        "published_unverified": "Diterbitkan (belum disahkan)",
+        "archived": "Diarkibkan",
+        "removed": "Disembunyikan/dibuang"
+      },
+      "takedownWarning": "⚠️ {count} permintaan takedown tertunggak (SLA 24 jam)",
+      "hoursLeft": "— baki <strong>{hours} jam</strong>",
+      "takedownLink": "Pergi ke baris gilir takedown →",
+      "byStatus": "Tempat mengikut status",
+      "pendingSubmissions": "Laporan/permintaan tertunggak",
+      "managePlaces": "Urus semua tempat"
     }
   },
   "search": {

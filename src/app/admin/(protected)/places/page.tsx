@@ -28,7 +28,7 @@ export default async function AdminPlacesPage() {
             <tr className="border-b text-start">
               <th className="py-2 pe-3 text-start font-medium">{t('name')}</th>
               <th className="py-2 pe-3 text-start font-medium">{t('type')}</th>
-              <th className="py-2 pe-3 text-start font-medium">Halal</th>
+              <th className="py-2 pe-3 text-start font-medium">{t('halal')}</th>
               <th className="py-2 pe-3 text-start font-medium">{t('status')}</th>
               <th className="py-2 pe-3 text-start font-medium">{t('source')}</th>
               <th className="py-2 text-start font-medium">{t('lastVerified')}</th>
